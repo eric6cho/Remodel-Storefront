@@ -1,0 +1,23 @@
+@import "../mixins/mixins.scss";
+
+.component.collection.active{
+    &>.component-wrapper{
+        &>.component-content{
+            
+            .active-entry{
+                display: block;   
+            }
+
+            .content-grid{
+                .entry-list-wrapper{       
+                    display: none;
+
+                    @include media-md {
+                        display:flex;
+                    }
+
+                }
+            }
+        }
+    }
+} 

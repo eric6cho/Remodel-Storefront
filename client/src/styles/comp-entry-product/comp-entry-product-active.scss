@@ -1,0 +1,69 @@
+
+@import "../mixins/mixins.scss";
+
+// default style settings: vertical sharp flat opaque no-wrapper
+      
+// component styling when in focus
+
+.component.entry-product.active{
+    
+    .component-wrapper{
+        
+        .component-content{
+            @include reviews(var(--accent-2));
+            
+            .image-container,.image-overlay{
+                width:100%;
+                height: 600px;
+            }
+
+            .image-overlay{
+                background: var(--image-overlay-default);
+                background: var(--image-overlay-gradient);
+            }
+
+            .text-container{
+                background: var(--base-2);
+                height:calc(100% - 600px);
+                width:calc(100%);
+
+                .text-container-inner{
+                    padding:30px 20px 0 30px;
+                    height:auto;
+                }
+
+                .price{
+                    font-size:28px;
+                    line-height: 28px;
+                }
+
+                .description{
+                    display:block;
+                }
+
+                .tags{
+                    display: flex;
+                }
+
+                .reviews{
+                    margin: 0 0 10px;
+                }
+            }
+
+            .preview-title-container{
+                display: none;
+            }
+
+            .active-title-container,
+            .active-icon-container,
+            .active-button-container,
+            .close-icon {
+                display:block;
+            }
+            
+            .active-button-container{
+                margin-top: auto;
+            }
+        }
+    }
+}

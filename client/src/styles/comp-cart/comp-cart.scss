@@ -1,0 +1,106 @@
+@import "../mixins/mixins.scss";
+
+// default style settings: vertical sharp flat opaque no-wrapper
+
+// component general styling for both default state and focus state
+
+.component.cart{
+    @include transition(); 
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: calc(100% / 1);
+
+    .component-wrapper{
+        position:relative;
+        width:100%;
+        height: 100%;
+        margin:0;
+        border-radius: 0;
+        box-shadow: none;
+        overflow: hidden;
+
+        .component-content{
+            @include transition();
+            position:relative;
+            width:100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 0;
+            box-shadow: none;
+            display:flex;
+            flex-direction: column;
+
+            @include button();
+
+
+            .cart-action-container{
+                // taken from the comp collection narrow width
+               
+                margin:0 auto;
+                padding:0;
+
+                height:100px;
+                width:100%;
+                background: var(--accent-1);
+
+                display: flex;
+                margin-bottom: 20px;
+
+
+                @include media-md {
+                    width:calc(100% - 100px);
+                }
+
+                @include media-lg {
+                    width:calc(80% - 20px);
+                }
+
+                .cart-action{
+                    height:100%;
+                    width:calc(220px);
+                    background: var(--accent-1);
+                    padding: 0 25px 0 25px;
+                    
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    background: var(--light-1);
+
+                    .cart-action-section{
+                        display: flex;
+                        align-items: center;
+                        height:40px;
+                        
+                        h3{
+                            margin-right: auto;
+                        }
+
+                        h4{
+                            
+                        }
+        
+                    }
+
+                    
+                }
+
+                .purchase-button{
+                    height:100%;
+                    width:calc(100% - 220px);
+                    margin-left: auto;
+                    padding: 25px 50px;
+                    
+                    h4{
+                        margin-left: auto;
+                    }
+                }
+
+            }
+           
+
+            
+        }
+    }
+
+}
