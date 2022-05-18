@@ -125,8 +125,10 @@ export default function Product(props) {
           {activeIconContainer}
         </div>
         {activeButtonContainer}
-        {previewButtonContainer}
-        {previewIconContainer}
+        <div className="preview-action-container">
+          {previewButtonContainer}
+          {previewIconContainer}
+        </div>
       </div>;
 
     let componentContent = 

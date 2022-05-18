@@ -33,5 +33,4 @@ app.listen(PORT, () => console.log(`Server: Listening on ${PORT}. Nice`));
 
   Google Material Icons: https://fonts.google.com/icons
   CSS Gradient Generator: https://cssgradient.io/
-  Heroku Deployed App: https://crypto-risk-react.herokuapp.com/
 */
