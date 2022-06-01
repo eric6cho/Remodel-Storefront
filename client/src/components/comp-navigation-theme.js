@@ -45,6 +45,8 @@ export default function NavigationTheme(props) {
             <div className="color" style={{'background':componentData['--accent-1']}}></div>
             <div className="color" style={{'background':componentData['--accent-2']}}></div>
             <div className="color" style={{'background':componentData['--accent-3']}}></div>
+            <div className="color" style={{'background':componentData['--accent-4']}}></div>
+            <div className="color" style={{'background':componentData['--accent-5']}}></div>
           </div>
         </div>
       </div>;

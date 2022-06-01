@@ -3,8 +3,8 @@ const d = require('./dataUtil.js');
 
 const PRODUCTS = 'products';
 const ARTICLES = 'articles';
-const USERS = 'users';
 const STYLES = 'styles'; 
+const USERS = 'users';
 const PAGES = 'pages';
 const SAVED = 'saved';
 
@@ -58,15 +58,17 @@ const sendData = (res,data) => res.json({message:data});
 // start serverUtil class definition
 
 let serverUtil = class {
-  sendProductData = (req,res) => getData(PRODUCTS).then(data => sendData(res,data));
-  sendArticleData = (req,res) => getData(ARTICLES).then(data => sendData(res,data));
-  sendStyleData = (req,res) => getData(STYLES).then(data => sendData(res,data));
-  sendSavedData = (req,res) => getData(SAVED).then(data => sendData(res,data));
-  sendPageData = (req,res) => getData(PAGES).then(data => sendData(res,data));
-  sendUserData = (req,res) => getData(USERS).then(data => sendData(res,data));
+  sendProductData = res => getData(PRODUCTS).then(data => sendData(res,data));
+  sendArticleData = res => getData(ARTICLES).then(data => sendData(res,data));
+  sendStyleData = res => getData(STYLES).then(data => sendData(res,data));
+  sendSavedData = res => getData(SAVED).then(data => sendData(res,data));
+  sendPageData = res => getData(PAGES).then(data => sendData(res,data));
+  sendUserData = res => getData(USERS).then(data => sendData(res,data));
 }
 
 module.exports = new serverUtil();
+
+// end serverUtil class definition
 
 /*
   serverUtil.js is a helper class for the api routing in index.js
@@ -81,5 +83,3 @@ module.exports = new serverUtil();
     processing / parsing data
     generating new data in charts
 */
-
-// end serverUtil class definition

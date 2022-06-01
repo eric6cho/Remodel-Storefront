@@ -25,10 +25,7 @@ const getText = num => {
     
     let length = loremIpsum.length;
 
-    if(num>length) [...Array(parseInt((num-length)/length)+1)].forEach(i=>{loremIpsum=loremIpsum.concat(loremIpsum);console.log('AAA',loremIpsum.length);});
-    
-    console.log([...Array(parseInt((num-length)/length)+1)]);
-    console.log('B',length,num);
+    if(num>length) [...Array(parseInt((num-length)/length)+1)].forEach(i=>loremIpsum=loremIpsum.concat(loremIpsum));
 
     return num?loremIpsum.substring(0,num):loremIpsum;
 };
@@ -70,7 +67,7 @@ const createArticleData = (num=12) => {
                 'data':{
                     'title': 'Article '+i,
                     'category':'Sample Category',
-                    'author': 'Michael Scott',
+                    'author': 'Author Name',
                     'text': getText(2500),
                     'image': getImage('articles',i),
                     'date_added': getDateAdded(),
@@ -87,14 +84,14 @@ const createArticleData = (num=12) => {
     return data;
 };
 
-const createUserData = (num=16) => {
+const createUserData = (num=6) => {
     let data = {};
 
     [...Array(num).keys()].forEach(i => 
         data['userId_'+i] = 
             {
                 'data':{
-                    'name':'Danny Devito',
+                    'name':'User Name',
                     'title': 'Member',
                     'description':'This is a sample description of this user.',
                     'image': getImage('users',i),
@@ -112,7 +109,6 @@ const createUserData = (num=16) => {
 };
 
 const createSavedData = () => {
-
     let data = {
         'saved':{
             'article':{
@@ -156,7 +152,6 @@ const getBannerData = (title='Title',num=3) => {
 };
 
 const getProductPageData = (num=24) => {
-
     let productGrid = {
         'title':'Products',
         'subtitle':'subtitle',
@@ -181,7 +176,6 @@ const getProductPageData = (num=24) => {
 };
 
 const getArticlePageData = (num=12) => {
-
     let articleGrid = {
         'title':'Article',
         'subtitle':'subtitle',
@@ -206,7 +200,6 @@ const getArticlePageData = (num=12) => {
 };
 
 const getHomePageData = () => {
-
     let articleCollection = {
         'title':'Featured Articles',
         'subtitle':'subtitle',
@@ -259,7 +252,6 @@ const getHomePageData = () => {
 };
 
 const getSavedContentPageData = () => {
-
     let productCollection = {
         'title':'Saved Products',
         'subtitle':'subtitle',
@@ -298,7 +290,6 @@ const getSavedContentPageData = () => {
 };
 
 const getCartPageData = () => {
-
     let cartCollection = {
         'title':'Items Ready To Be Purchased',
         'subtitle':'subtitle',
@@ -323,7 +314,6 @@ const getCartPageData = () => {
 };
 
 const getPaymentPageData = () => {
-
     let paymentForm = {
         'title':'Your Payment Information',
         'subtitle':'subtitle',
@@ -341,8 +331,7 @@ const getPaymentPageData = () => {
     return data;
 };
 
-const createPageData = () => {
-    
+const createPageData = () => {   
     let pages = {
         'home':{
             'id':'home',
@@ -350,8 +339,7 @@ const createPageData = () => {
             'icon': 'home',
             'data': getHomePageData(),
             'isNav':true,
-        },
-        
+        }, 
         'articles':{
             'id':'articles',
             'title':'Articles',
@@ -393,7 +381,6 @@ const createPageData = () => {
 };
 
 const getThemes = () => {
-
     let darkThemeDefaultColors = {
         '--base-1': 'rgba(35,35,40,1)', // darker grey   
         '--base-2': 'rgba(55,55,60,1)', // grey
@@ -426,68 +413,83 @@ const getThemes = () => {
     };
 
     let themes = {
-        'light-cerulean': shallowCopy(lightThemeDefaultColors),
         'light-frost': shallowCopy(lightThemeDefaultColors),
+        'light-cerulean': shallowCopy(lightThemeDefaultColors),
         'light-botanical': shallowCopy(lightThemeDefaultColors),
-        'light-taro': shallowCopy(lightThemeDefaultColors),
-        'light-tropical': shallowCopy(lightThemeDefaultColors),
-        'light-slate': shallowCopy(lightThemeDefaultColors),
+        'light-lavender': shallowCopy(lightThemeDefaultColors),
+        'light-horizon': shallowCopy(lightThemeDefaultColors),
+        'light-tangerine': shallowCopy(lightThemeDefaultColors),
         'dark-botanical': shallowCopy(darkThemeDefaultColors),
         'dark-cerulean': shallowCopy(darkThemeDefaultColors),
-        'dark-taro': shallowCopy(darkThemeDefaultColors),
+        'dark-lavender': shallowCopy(darkThemeDefaultColors),
     };
 
-    themes['light-cerulean']['--accent-1'] = 'rgba(200,180,170,1)'; // beige
-    themes['light-cerulean']['--accent-2'] = 'rgba(105,120,155,1)'; // blue
-    themes['light-cerulean']['--accent-3'] = 'rgba(205,220,255,1)'; // light blue
+    themes['light-frost']['--accent-1'] = 'rgba(180,190,200,1)';
+    themes['light-frost']['--accent-2'] = 'rgba(90,100,120,1)';
+    themes['light-frost']['--accent-3'] = 'rgba(225,250,255,1)';
+    themes['light-frost']['--accent-4'] = 'rgba(95,130,150,1)';
+    themes['light-frost']['--accent-5'] = 'rgba(50,70,80,1)';
 
-    themes['light-frost']['--accent-1'] = 'rgba(250,250,255,1)'; // light blue white
-    themes['light-frost']['--accent-2'] = 'rgba(100,110,130,1)'; // blue grey
-    themes['light-frost']['--accent-3'] = 'rgba(190,225,240,1)'; // light blue
+    themes['light-cerulean']['--accent-1'] = 'rgba(200,180,170,1)';
+    themes['light-cerulean']['--accent-2'] = 'rgba(105,135,170,1)';
+    themes['light-cerulean']['--accent-3'] = 'rgba(190,225,255,1)';
+    themes['light-cerulean']['--accent-4'] = 'rgba(55,70,115,1)';
+    themes['light-cerulean']['--accent-5'] = 'rgba(40,45,65,1)';
 
-    themes['light-botanical']['--accent-1'] = 'rgba(185,200,180,1)'; // light green 
-    themes['light-botanical']['--accent-2'] = 'rgba(50,90,85,1)'; // teal
-    themes['light-botanical']['--accent-3'] = 'rgba(150,190,165,1)'; // green
-    
-    themes['light-taro']['--accent-1'] = 'rgba(190,180,195,1)'; // light purple
-    themes['light-taro']['--accent-2'] = 'rgba(150,145,200,1)'; // light blue
-    themes['light-taro']['--accent-3'] = 'rgba(230,210,160,1)'; // yellow
-    
-    themes['light-tropical']['--accent-1'] = 'rgba(95,170,140,1)'; // teal
-    themes['light-tropical']['--accent-2'] = 'rgba(230,160,120,1)'; // orange
-    themes['light-tropical']['--accent-3'] = 'rgba(180,220,220,1)'; // light green
-    
-    themes['light-slate']['--accent-1'] = 'rgba(170,170,180,1)'; // blue grey
-    themes['light-slate']['--accent-2'] = 'rgba(60,60,70,1)'; // dark blue grey
-    themes['light-slate']['--accent-3'] = 'rgba(185,205,230,1)'; // light blue
+    themes['light-botanical']['--accent-1'] = 'rgba(180,190,180,1)';
+    themes['light-botanical']['--accent-2'] = 'rgba(75,115,110,1)';
+    themes['light-botanical']['--accent-3'] = 'rgba(180,230,215,1)';
+    themes['light-botanical']['--accent-4'] = 'rgba(95,165,145,1)';
+    themes['light-botanical']['--accent-5'] = 'rgba(40,70,60,1)';
 
-    themes['dark-botanical']['--accent-2'] = 'rgba(150,190,165,1)'; // green
-    themes['dark-botanical']['--accent-3'] = 'rgba(50,90,85,1)'; // teal
-    
-    themes['dark-cerulean']['--accent-2'] = 'rgba(170,190,240,1)'; // light blue
-    themes['dark-cerulean']['--accent-3'] = 'rgba(180,140,120,1)'; // orange
+    themes['light-lavender']['--accent-1'] = 'rgba(190,185,200,1)';
+    themes['light-lavender']['--accent-2'] = 'rgba(125,100,150,1)';
+    themes['light-lavender']['--accent-3'] = 'rgba(245,210,180,1)';
+    themes['light-lavender']['--accent-4'] = 'rgba(215,185,195,1)';
+    themes['light-lavender']['--accent-5'] = 'rgba(90,70,80,1)';
 
-    themes['dark-taro']['--accent-2'] = 'rgba(150,130,165,1)'; // light purple
-    themes['dark-taro']['--accent-3'] = 'rgba(220,200,140,1)'; // yellow
+    themes['light-tangerine']['--accent-1'] = 'rgba(230,220,210,1)';
+    themes['light-tangerine']['--accent-2'] = 'rgba(220,160,125,1)';
+    themes['light-tangerine']['--accent-3'] = 'rgba(255,205,150,1)';
+    themes['light-tangerine']['--accent-4'] = 'rgba(215,150,135,1)';
+    themes['light-tangerine']['--accent-5'] = 'rgba(90,70,50,1)';
+
+    themes['light-horizon']['--accent-1'] = 'rgba(180,190,200,1)';
+    themes['light-horizon']['--accent-2'] = 'rgba(80,105,130,1)';
+    themes['light-horizon']['--accent-3'] = 'rgba(250,210,200,1)';
+    themes['light-horizon']['--accent-4'] = 'rgba(240,120,100,1)';
+    themes['light-horizon']['--accent-5'] = 'rgba(75,70,80,1)';
+
+    themes['dark-botanical']['--accent-2'] = 'rgba(75,115,110,1)';
+    themes['dark-botanical']['--accent-3'] = 'rgba(180,230,215,1)';
+    themes['dark-botanical']['--accent-4'] = 'rgba(95,165,145,1)';
+    themes['dark-botanical']['--accent-5'] = 'rgba(40,70,60,1)';
+    
+    themes['dark-cerulean']['--accent-2'] = 'rgba(105,135,170,1)';
+    themes['dark-cerulean']['--accent-3'] = 'rgba(190,225,255,1)';
+    themes['dark-cerulean']['--accent-4'] = 'rgba(55,70,115,1)';
+    themes['dark-cerulean']['--accent-5'] = 'rgba(40,45,65,1)';
+
+    themes['dark-lavender']['--accent-2'] = 'rgba(125,100,150,1)';
+    themes['dark-lavender']['--accent-3'] = 'rgba(245,210,180,1)';
+    themes['dark-lavender']['--accent-4'] = 'rgba(215,185,195,1)';
+    themes['dark-lavender']['--accent-5'] = 'rgba(90,70,80,1)';
 
     return themes;
 };
 
 const getStyles = () => {
-
     let styles = {
-        'Edges' : ['sharp', 'soft', 'round'],
-        'Elevation' : ['flat', 'raised', 'float', 'overlap'],
         'Accent' : ['accent', 'monochrome'],
-        'Wrapper' : ['no-wrapper', 'image-wrapper', 'text-wrapper'],
-        'Focus Size' : ['focus-card','focus-side','focus-full'],
+        'Edges' : ['sharp', 'soft', 'round'],
+        'Elevation' : ['flat', 'raised', 'float'],
+        'Wrapper' : ['no-wrapper', 'text-wrapper', 'image-wrapper'],
     };
 
     return styles;
 };
 
 const createStyleData = () => {
-
     let data = {
         'styles': getStyles(),
         'themes': getThemes(),
@@ -509,11 +511,11 @@ let dataUtil = class {
 
 module.exports = new dataUtil();
 
+// end dataUtil class definition
+
 /*
   dataUtil.js is meant to be a helper class for severUtil.js
 
   serverUtils is responsible for:
     generating data to populate the project
 */
-
-// end dataUtil class definition

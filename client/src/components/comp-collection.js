@@ -24,13 +24,13 @@ export default function Collection(props) {
     useEffect(() => { 
        
         goToSlide(0);
-    
+    /*
         console.log('collection use effect');
 
         console.log(props.data)
 
         console.log('width', listWidth.current ? listWidth.current.offsetWidth : 0);
-        
+      */  
         return () => {};
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -45,7 +45,7 @@ export default function Collection(props) {
 
 
     const getContent = (idList, allContentData, source, contentType) => {
-        console.log(idList, allContentData, source, contentType);
+       // console.log(idList, allContentData, source, contentType);
 
         
         let content = allContentData['site'][contentType];
@@ -55,7 +55,7 @@ export default function Collection(props) {
         if(source==='saved') idList = Object.keys(allContentData[source][contentType]);
         if(source==='cart') idList = Object.keys(allContentData[source][contentType]);
 
-        console.log(content);
+       // console.log(content);
         
 
         let parsedContent = Object.values(content).filter(entry=>idList.includes(entry['metadata']['id']));
@@ -76,9 +76,9 @@ export default function Collection(props) {
             let componentId = metadata['id'];
             let componentType = metadata['type'];
 
-            console.log(contentType);
+           // console.log(contentType);
 
-            console.log(componentType);
+           // console.log(componentType);
             let cartContent = contentData['cart'][componentType];
             let savedContent = contentData['saved'][componentType];
             let isSaved = savedContent===null||savedContent===undefined ? 
@@ -125,9 +125,9 @@ export default function Collection(props) {
         let requiredData = [componentData,contentData];
         if(!u.isRequiredDataValid(requiredData)) return null;
 
-        console.log(componentData);
+      //  console.log(componentData);
 
-        console.log(componentData['isNarrow']);
+       // console.log(componentData['isNarrow']);
 
         let contentIdList = componentData['content'];
         let contentType = componentData['contentType'];
@@ -145,8 +145,8 @@ export default function Collection(props) {
         let activeEntry = getEntries(activeData,contentData,contentType,source,isClickable,true,events);
         
 
-        console.log(content);
-        console.log(entries);
+      //  console.log(content);
+      //  console.log(entries);
 
 
 

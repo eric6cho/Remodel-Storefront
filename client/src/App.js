@@ -11,9 +11,7 @@ export default function App() {
 
   const [pageData, setPageData] = useState({});
   const [contentData, setContentData] = useState({});
-
   const [styleData, setStyleData] = useState(null);
-
   const [activePage, setActivePage] = useState(null);
   const [activeStyles, setActiveStyles] = useState(null);
   const [activeTheme, setActiveTheme] = useState(null);
@@ -49,16 +47,12 @@ export default function App() {
 
     fetchGet('/api/data/styles').then(data => {
       data = data['message'];
-
       let styles = data['styles'];
       let themes = data['themes'];
-      let defaultTheme = themes[Object.keys(themes)[0]]['class'];
-      let defaultStyles = Object.keys(styles).map(style=> styles[style][Object.keys(styles[style])[0]]).join(' ');
-
-      getRoot().className=(defaultStyles);
-
-      setActiveStyles(defaultStyles);
-      setActiveTheme(defaultTheme);
+      let themeName = Object.keys(themes)[0];
+      let styleClasses = Object.keys(styles).map(style=> styles[style][Object.keys(styles[style])[0]]).join(' ');
+      changeTheme(themeName,data);
+      changeStyle(styleClasses);
       setStyleData(data);
     });
 
@@ -67,108 +61,82 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-
   const fetchGet = async (url) => new Promise (resolve=>{
     fetch(url)
       .then(res => res.json())
       .then(data => resolve(data));  
   });
-
   
   const addContent = (data,category,subcatergory) => {
     let newData = contentData;
-//  let newData = u.shallowCopy(contentData);
     if(subcatergory){
       if(newData[category]===undefined)newData[category]={};
       newData[category][subcatergory]=data;
     }
     else newData[category]=data;
-
-
-    console.log(newData);
     setContentData(newData);
   };
 
-
-  const getRoot = () => document.querySelector(':root');;
-
-
-  
-  const changeTheme = themeName => {
-    let theme = styleData['themes'][themeName];
-    
-    Object.keys(theme).forEach(themeVar =>
-      document.documentElement.style.setProperty(themeVar, theme[themeVar])
-    );
-  };
-
-
-  const handlePageSelect = (title) => {
-    setActivePage(pageData[title]);
-  };
-
-
-
-  const handleThemeSelect = (theme) => {
-    setActiveTheme(theme);
-    changeTheme(theme);
-  };
-
-
-  const handleStyleSelect = (style,styleType) => {
+  const getStyleClasses = (styleName,styleType) => {
     let stylesList = styleData['styles'][styleType];
     let activeStylesList = activeStyles.split(' ');
-    let newActiveStyles = activeStylesList.filter(style=>!stylesList.includes(style));
-    
-    newActiveStyles.push(style);
-    newActiveStyles = newActiveStyles.join(' ');
-    
-    getRoot().className = newActiveStyles;
-    
-    setActiveStyles(newActiveStyles);
+    let newActiveStyles = activeStylesList.filter(style=>!stylesList.includes(style)); 
+    newActiveStyles.push(styleName);
+    return newActiveStyles.join(' ');
   };
 
+  const changeStyle = (styleClasses) => {
+    document.querySelector(':root').className = styleClasses;
+    setActiveStyles(styleClasses);
+  };
 
-  const handleContentSave = (item) => {
-    console.log(item);
+  const changeTheme = (themeName,data) => {  
+    if(!styleData&&!data) return;
+    data = styleData?styleData:data;
+    let theme = data['themes'][themeName];
+    Object.keys(theme).forEach(themeVar =>
+      document.documentElement.style.setProperty(themeVar, theme[themeVar]));
+    setActiveTheme(theme);
+  };
 
+  const changeCart = (item,count) => {
+    let type = item['metadata']['type'];
+    let id = item['metadata']['id'];
+    let contentCopy = u.shallowCopy(contentData['cart'][type]);
+    if(contentCopy[id]===undefined)
+     contentCopy[id] = {'id':id,'quantity':count};
+    else{
+      let newQuantity = contentCopy[id]['quantity']+count;
+      if(newQuantity===0) delete contentCopy[id];
+      else contentCopy[id]['quantity']=newQuantity;
+    }
+    let newContentData = u.shallowCopy(contentData);
+    newContentData['cart'][type] = contentCopy;
+    setContentData(newContentData);
+  };
+
+  const saveContent = item => {
     let type = item['metadata']['type'];
     let id = item['metadata']['id'];
     let savedContentCopy = u.shallowCopy(contentData['saved'][type]);
     let prevContentLength = Object.keys(savedContentCopy).length;
-
     savedContentCopy[id] = {'id':id};
-
     let newContentLength = Object.keys(savedContentCopy).length;
-
     if(prevContentLength===newContentLength) delete savedContentCopy[id];
-    
     let newContentData = u.shallowCopy(contentData);
     newContentData['saved'][type] = savedContentCopy;
-
     setContentData(newContentData);
   };
 
-  const handleCartChange = (item,countChange) => {
+  const handleStyleSelect = (styleName,styleType) => changeStyle(getStyleClasses(styleName,styleType));
 
-    let type = item['metadata']['type'];
-    let id = item['metadata']['id'];
-    let contentCopy = u.shallowCopy(contentData['cart'][type]);
+  const handleThemeSelect = themeName => changeTheme(themeName);
 
-    if(contentCopy[id]===undefined)
-      contentCopy[id] = {'id':id,'quantity':countChange};
-    else{
-      let newQuantity = contentCopy[id]['quantity']+countChange;
-      if(newQuantity===0) delete contentCopy[id];
-      else contentCopy[id]['quantity']=newQuantity;
-    }
+  const handlePageSelect = title => setActivePage(pageData[title]);
 
-    let newContentData = u.shallowCopy(contentData);
-    newContentData['cart'][type] = contentCopy;
+  const handleCartChange = (item,count) => changeCart(item,count);
 
-    setContentData(newContentData);
-  };
-  
+  const handleContentSave = item => saveContent(item);
 
   const getLoadingScreen = () => (
     <div className="App">
@@ -178,7 +146,6 @@ export default function App() {
     </div>
   );
   
-
   const getComponent = () => {
     let siteData = contentData['site'];
     let requiredData = [pageData,contentData,siteData,styleData];
