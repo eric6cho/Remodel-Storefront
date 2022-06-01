@@ -110,6 +110,7 @@
             overflow: hidden;
             border-radius: 0px;
             box-shadow: none;
+            background:var(--accent-1);
 
             @include reviews(var(--light-1));
             @include tags();
@@ -308,11 +309,16 @@
         .component-wrapper{
             
             &:hover{
-                background: var(--light-1);
+                background: var(--accent-3);
 
                 .component-content{
 
-                    .image-container{
+                    .image-container,.image-overlay{
+                        height:calc(100% - 150px);
+                        width:calc(100%);
+                        top:0;
+                        left:0;
+
                         img{
                             height:100%;
                             width:100%;
