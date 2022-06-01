@@ -1,13 +1,8 @@
 @import "../mixins/mixins.scss";
 
-// default style settings: vertical sharp flat opaque no-wrapper
-      
-// component styling when in focus
-
+// component styling when active
 .component.entry-product.active{
-    
     .component-wrapper{
-        
         .component-content{
             @include reviews(var(--accent-2));
             

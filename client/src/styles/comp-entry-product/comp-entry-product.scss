@@ -1,9 +1,6 @@
 @import "../mixins/mixins.scss";
 
-// default style settings: vertical sharp flat opaque no-wrapper
-
 // component sizing in grid
-
 .collection{
     .content-grid{
         .entry-list{
@@ -29,7 +26,6 @@
     
         } 
     }
-
 
     .content-row{
         .entry-list{
@@ -82,9 +78,7 @@
     }
 }
 
-
-// component general styling for both default state and focus state
-
+// component general styling for default, hover, and active states
 .component.entry-product{
     @include transition(); 
     height: 500px;
@@ -183,7 +177,6 @@
                     display: none;
                 }
             }
-
         
             .preview-title-container{
                 display: block;
@@ -278,7 +271,6 @@
                         color: var(--accent-3);
                     }
                 }
-
             }
         
             .close-icon{
@@ -299,20 +291,13 @@
         }
     }
 
-
-
-
     // hover effects for any component that is not in focus
-
-    
     &:not(.active){
-        .component-wrapper{
-            
+        .component-wrapper{   
             &:hover{
                 background: var(--base-2);
 
                 .component-content{
-
                     .image-container,.image-overlay{
                         height:calc(100% - 150px);
                         width:calc(100%);
