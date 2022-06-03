@@ -45,7 +45,7 @@
                     .form-inner{
                         display: flex;
                         flex-wrap: wrap;
-                        background: var(--text-2);
+                        background: var(--light-1);
                         padding: 50px;
                     }
 
@@ -85,8 +85,8 @@
                             color: rgba(0,0,0,0.7);
 
                             &:focus{
-                                background: var(--accent-2);
-                                color: white;
+                                background: var(--accent-1);
+                                color: var(--text-1);
                             }
                         }
 

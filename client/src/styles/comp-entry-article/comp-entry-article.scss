@@ -91,6 +91,7 @@
             @include reviews(var(--light-1));
             @include tags();
             @include button();
+            @include close-icon();
 
             .image-container,
             .image-overlay{
@@ -105,17 +106,7 @@
                 background: none;  
                 z-index: 1;
 
-                img{
-                    @include transition();
-                    background: var(--base-2);
-                    position: absolute;
-                    height: 108%;
-                    width: 108%;
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
-                    object-fit: cover;
-                }
+                @include image();
             }
 
             .image-overlay{
@@ -196,24 +187,7 @@
                 
                 .icon{
                     @include icon(22);
-                    margin: 5px;
-                    cursor: pointer;
                     color: var(--accent-2);
-                }
-            }
-            
-            .close-icon{
-                @include icon(22);
-                position: absolute;
-                top: 20px;
-                right: 17px;
-                cursor: pointer;
-                color: white;
-                z-index: 10;
-                display: none;
-
-                &:hover{
-                    border: 2px solid rgba(0,0,0,0);
                 }
             }
         }
@@ -329,6 +303,7 @@
                             width:50%;
                             border-radius: 0;
                         }
+                        
                         .text-container{
                             bottom:0;
                             top:0;
@@ -337,7 +312,7 @@
                             width:50%;
                             border-radius: 0;
                             padding:0;
-                            
+
                             .text-container-inner{
                                 padding:40px;
                             }

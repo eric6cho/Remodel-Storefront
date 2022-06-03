@@ -110,17 +110,7 @@
                 background: none;  
                 z-index: 1;
                 
-                img{
-                    @include transition();
-                    background: var(--base-2);
-                    position: absolute;
-                    height: 108%;
-                    width: 108%;
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
-                    object-fit: cover;
-                }
+                @include image();
             }
 
             .image-overlay{

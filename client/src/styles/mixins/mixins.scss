@@ -114,47 +114,6 @@
     transition-duration: $duration + unquote("s");
 }
 
-@mixin icon ($size:25){
-    @include transition();
-    font-size: $size + unquote("px");
-    width: 35px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    border: 2px solid rgba(0,0,0,0);
-    padding-left: 1.5px;
-
-    @keyframes activeAnimation {
-        0% {
-            border: 2px solid var(--accent-4);
-            color: var(--accent-4);
-        }
-        20% {
-            border: 3px solid var(--accent-3);
-            color: var(--accent-3);
-        }
-        80% {
-            border: 3px solid var(--accent-3);
-            color: var(--accent-3);
-        }
-        100% {
-            border: 2px solid var(--accent-4);
-            color: var(--accent-4);
-        }
-    }
-
-    &:hover{
-        color: var(--accent-4);
-        border: 2px solid var(--accent-4);
-    }
-
-    &:active{
-        animation: activeAnimation 0.3s 1;
-    }
-} 
-
 @mixin button() {
     .button{
         @include transition();
@@ -194,6 +153,65 @@
             text-align: center;
         }
     } 
+}
+
+@mixin icon ($size:25){
+    @include transition();
+    font-size: $size + unquote("px");
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px solid rgba(0,0,0,0);
+    padding-left: 1.5px;
+    margin: 5px;
+    cursor: pointer;
+
+    @keyframes activeAnimation {
+        0% {
+            border: 2px solid var(--accent-4);
+            color: var(--accent-4);
+        }
+        20% {
+            border: 3px solid var(--accent-3);
+            color: var(--accent-3);
+        }
+        80% {
+            border: 3px solid var(--accent-3);
+            color: var(--accent-3);
+        }
+        100% {
+            border: 2px solid var(--accent-4);
+            color: var(--accent-4);
+        }
+    }
+
+    &:hover{
+        color: var(--accent-4);
+        border: 2px solid var(--accent-4);
+    }
+
+    &:active{
+        animation: activeAnimation 0.3s 1;
+    }
+} 
+
+@mixin close-icon() {
+    .close-icon{
+        @include icon(22);
+        position: absolute;
+        top: 20px;
+        right: 17px;
+        color: white;
+        z-index: 10;
+        display: none;
+
+        &:hover{
+            border: 2px solid rgba(0,0,0,0);
+        }
+    }
 }
 
 @mixin tags($border:var(--accent-2)) {
@@ -257,5 +275,19 @@
                 }
             }
         }
+    }
+}
+
+@mixin image() {
+    img{
+        @include transition();
+        background: var(--base-2);
+        position: absolute;
+        height: 108%;
+        width: 108%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
     }
 }

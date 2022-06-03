@@ -2,86 +2,12 @@
 
 // component sizing
 .collection{
-    .content-grid{
-        .entry-list{
-            .component.entry-cart{
-                width: calc(100% / 2);
-    
-                @include media-md{
-                    width: calc(100% / 2);
-                }
-                
-                @include media-lg{
-                    width: calc(100% / 3);
-                }
-            
-                @include media-xl{
-                    width: calc(100% / 3);
-                }
-    
-                @include media-xxl{
-                    width: calc(100% / 4);
-                }
-            }
-        } 
-    }
-
-    .content-row{
-        .entry-list{
-            .component.entry-cart{
-                width: calc(100% / 2);
-    
-                @include media-md{
-                    width: calc(100% / 2);
-                }
-                
-                @include media-lg{
-                    width: calc(100% / 3);
-                }
-            
-                @include media-xl{
-                    width: calc(100% / 3);
-                }
-    
-                @include media-xxl{
-                    width: calc(100% / 4);
-                }
-            }
-        } 
-    }
-
     .content-column{
         .entry-list{
             .component.entry-cart{
                 width: calc(100% / 1);
             }
         } 
-    }
-
-    &.active{
-        .content-grid{
-            .entry-list{  
-                .component.entry-cart{
-                    width: calc(100% / 1);
-
-                    @include media-md{
-                        width: calc(100% / 1);
-                    }
-                    
-                    @include media-lg{
-                        width: calc(100% / 1);
-                    }
-                
-                    @include media-xl{
-                        width: calc(100% / 1);
-                    }
-        
-                    @include media-xxl{
-                        width: calc(100% / 2);
-                    }
-                }
-            } 
-        }
     }
 }
 
@@ -129,17 +55,7 @@
                 background: none;  
                 z-index: 1;
                 
-                img{
-                    @include transition();
-                    background: var(--base-2);
-                    position: absolute;
-                    height:108%;
-                    width:108%;
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
-                    object-fit: cover;
-                }
+                @include image();
             }
 
             .image-overlay{
@@ -209,12 +125,12 @@
                 justify-content: center;
                 overflow: hidden;
                 z-index: 3;
-                padding: 0 50px;
+                padding: 0 30px;
 
                 .cart-action-section{
                     display: flex;
                     align-items: center;
-                    height:40px;
+                    height: 40px;
                     justify-content: center;
                     
                     h3{
@@ -235,27 +151,7 @@
         
             .cart-icon{
                 @include icon(20);
-                margin: auto 0;
-                cursor: pointer;
-                height: 30px;
-                width: 30px;
-                border: 2px solid rgba(0,0,0,0);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                &:hover{
-                    border: 2px solid var(--accent-1);
-                    color: var(--accent-1);
-                }
-
-                &.plus{
-                    margin-left: 10px;
-                }
-
-                &.minus{
-                    margin-right: 10px;
-                }
+                margin: 10px;
             }
         }
     }
