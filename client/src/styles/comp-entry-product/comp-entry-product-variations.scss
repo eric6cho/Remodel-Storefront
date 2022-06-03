@@ -10,11 +10,7 @@
 
                 .text-container{
                     background: var(--base-2);
-                }
-    
-                .preview-button-container,.preview-icon-container{
-                    background: var(--base-2);
-                }
+                }           
             }
         }
     }
@@ -27,10 +23,6 @@
     
             .component-content{
                 border-radius: 10px;
-               
-                .button{
-                    border-radius: 10px;
-                }
             }
         }
     }
@@ -43,10 +35,6 @@
     
             .component-content{
                 border-radius: 25px;
-               
-                .button{
-                    border-radius: 10000px;
-                }
             }
         }
     }
@@ -58,6 +46,10 @@
             margin: 20px;
             height: calc(100% - 40px);
             width: calc(100% - 40px);
+
+            .preview-icon-container{
+                top:90px;
+            }
         }
     }
 }
@@ -82,7 +74,8 @@
     .component.entry-product{
         .component-wrapper{
             .component-content{
-                .image-container,.image-overlay{
+                .image-container,
+                .image-overlay{
                     height: calc(100% - 180px);
                     width: calc(100% - 30px);
                     top: 15px;
@@ -101,7 +94,8 @@
                 .component-content{
                     background: var(--base-2);
     
-                    .image-container,.image-overlay{
+                    .image-container,
+                    .image-overlay{
                         height: calc(600px - 20px);
                         width: calc(100% - 40px);
                         top: 20px;
@@ -121,7 +115,8 @@
         .component.entry-product{   
             .component-wrapper{
                 .component-content{
-                    .image-container,.image-overlay{
+                    .image-container,
+                    .image-overlay{
                         border-radius: 6px;
                     }
                 }
@@ -133,7 +128,8 @@
         .component.entry-product{   
             .component-wrapper{
                 .component-content{
-                    .image-container,.image-overlay{
+                    .image-container,
+                    .image-overlay{
                         border-radius: 15px;
                     }
                 }
@@ -146,7 +142,8 @@
     .component.entry-product{
         .component-wrapper{
             .component-content{
-                .image-container,.image-overlay{
+                .image-container,
+                .image-overlay{
                     height: calc(100%);
                     width: calc(100%);
                     top: 0;
@@ -165,7 +162,8 @@
             .component-wrapper{
                 &:hover{
                     .component-content{
-                        .image-container,.image-overlay{
+                        .image-container,
+                        .image-overlay{
                             height: calc(100%);
                             width: calc(100%);
                             top: 0;
@@ -177,14 +175,6 @@
                                 top: 50%;
                             }
                         }
-    
-                        .text-container{
-                            height: 250px;
-                            
-                            .text-container-inner{
-                                height: 200px;
-                            }
-                        }   
                     }    
                 }
             }

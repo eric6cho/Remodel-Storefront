@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 
 import NavigationTheme from "./comp-navigation-theme";
 import NavigationStyle from "./comp-navigation-style";
+
 import './../styles/comp-navigation.scss';
 
 import * as u from '../scripts/utils'; 
-
 
 export default function Navigation(props) {
 
@@ -18,15 +18,12 @@ export default function Navigation(props) {
   const [componentClass, setComponentClass] = useState(defaultClass);
 
   useEffect(() => {
-
     document.addEventListener('click', handleClickOutside.bind(this), true);
 
     return () => {};
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
   
-
   const handleClickOutside = e => {
     let comp = document.getElementById(componentBodyId);
     if(!comp) return;
@@ -49,7 +46,6 @@ export default function Navigation(props) {
     let title = props.data['title'];
     let events = props.events;
     let requiredData = [styleData,pageData,activePage,title];
-    console.log(requiredData);
     if(!u.isRequiredDataValid(requiredData)) return null;
       
     let themeList = styleData['themes'];

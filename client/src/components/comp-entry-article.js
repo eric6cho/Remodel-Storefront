@@ -2,8 +2,6 @@
 import React, { useState, useEffect } from "react";
 
 import './../styles/comp-entry-article/comp-entry-article.scss';
-import './../styles/comp-entry-article/comp-entry-article-active.scss';
-import './../styles/comp-entry-article/comp-entry-article-active-variations.scss';
 import './../styles/comp-entry-article/comp-entry-article-variations.scss';
 
 import * as u from '../scripts/utils'; 
@@ -30,7 +28,6 @@ export default function Article(props) {
     <span className={"material-icons icon "+cssClass} onClick={click}>{title}</span>;
 
   const getComponent = () => {
-
     let componentData = props.data['componentData'];
     let handleContentSelect = props.events['handleContentSelect'];
     let handleContentSave = props.events['handleContentSave'];
@@ -40,7 +37,6 @@ export default function Article(props) {
 
     let data = componentData['data'];
     let metadata = componentData['metadata'];
-
 
     let titleText = 
       <h3 className="title">{data['title']}</h3>;
@@ -63,9 +59,6 @@ export default function Article(props) {
 
     let imageOverlay = 
       <div className="image-overlay"></div>;
-
-
-
 
     let activeIconContainer = 
       <div className="active-icon-container">

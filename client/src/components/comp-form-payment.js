@@ -33,10 +33,6 @@ export default function PaymentForm(props) {
 
   const validateText = (text,field) => {
     
-    console.log('VALIDATEEEEEEEEEEEEEEE');
-    console.log(text,field);
-
-    console.log(formValidation);
     let msgEmpty='This field cannot be left empty';
     let msgFormat='Please correct the field format. '; 
     let msgExpDateFormat=msgFormat+'Example: 04/25';
@@ -45,7 +41,6 @@ export default function PaymentForm(props) {
     let msgCVVFormat=msgFormat+'Example: 111';
     let msgZipFormat=msgFormat+'Example: 11111';
     let msgCardFormat=msgFormat+'Example: 1234567890123456';
-
     let msg='';
     
     let isMMYYFormat = text => (/^(0[1-9]|1[0-2])\/?([0-9]{2})$/).test(text);
@@ -89,19 +84,15 @@ export default function PaymentForm(props) {
         onChange={e=>validateText(e.target.value,name)}
       />;
 
-
   const getValidation = (msg) => {
     return <div className='form-validation-text'>{msg}</div>;
   };
-
 
   const getComponent = () => {
     let data = props.data;
     let componentData = data['componentData'];
     let requiredData = [data,componentData];
     if(!u.isRequiredDataValid(requiredData)) return null;
-
-    let handlePageSelect = props.events['handlePageSelect'];
 
     let cartProducts = data['contentData']['cart']['product'];
     let siteProducts = data['contentData']['site']['product'];
@@ -187,7 +178,6 @@ export default function PaymentForm(props) {
         </form> 
       </div>;
 
-    
     let componentContent = 
       <>
         {form}

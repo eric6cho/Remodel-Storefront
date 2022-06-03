@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import './../styles/comp-entry-product/comp-entry-product.scss';
-import './../styles/comp-entry-product/comp-entry-product-active.scss';
 import './../styles/comp-entry-product/comp-entry-product-variations.scss';
 
 import * as u from '../scripts/utils'; 
@@ -28,7 +27,6 @@ export default function Product(props) {
     <span className={"material-icons icon "+cssClass} onClick={click}>{title}</span>;
 
   const getComponent = () => {
-
     let componentData = props.data['componentData'];
     let handleContentSelect = props.events['handleContentSelect'];
     let handleContentSave = props.events['handleContentSave'];
@@ -77,13 +75,13 @@ export default function Product(props) {
     
     let previewButtonContainer = 
       <div className="preview-button-container">
-        {getButton('Read More','read-more secondary',()=>handleContentSelect(componentData))}
+        {getButton('Read More','read-more',()=>handleContentSelect(componentData))}
       </div>;  
     
     let activeButtonContainer = 
       <div className="active-button-container">
-        {getButton('Add To Cart','add-to-cart')}
         {getButton('Find Store In Maps','secondary find-store')}
+        {getButton('Add To Cart','add-to-cart')}
       </div>;
 
     let activeTitleContainer = 
@@ -124,10 +122,7 @@ export default function Product(props) {
           {activeIconContainer}
         </div>
         {activeButtonContainer}
-        <div className="preview-action-container">
-          {previewButtonContainer}
-          {previewIconContainer}
-        </div>
+        {previewButtonContainer}
       </div>;
 
     let componentContent = 
@@ -137,6 +132,7 @@ export default function Product(props) {
         {activeTitleContainer}
         {textContainer}
         {closeIcon}
+        {previewIconContainer}
       </>;
 
     let component = 

@@ -1,2 +1,274 @@
-
 @import "../mixins/mixins.scss";
+
+.monochrome{
+    .component.entry-article{
+        .component-wrapper{
+            .component-content{
+                background: var(--base-2);
+                
+                @include reviews(var(--accent-2));
+
+                .text-container{
+                    background: var(--base-2);
+
+                    .text-container-inner{
+                        padding:20px;
+                    }
+                }
+    
+                .preview-button-container,
+                .preview-icon-container{
+                    background: var(--base-2);
+                }
+            }
+        }
+    }
+}
+
+.soft{
+    .component.entry-article{   
+        .component-wrapper{
+            border-radius: 15px;
+    
+            .component-content{
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+.round{
+    .component.entry-article{   
+        .component-wrapper{
+            border-radius: 30px;
+    
+            .component-content{
+                border-radius: 25px;
+            }
+        }
+    }
+}
+
+.raised,.float{
+    .component.entry-article{
+        .component-wrapper{
+            margin: 20px;
+            height: calc(100% - 40px);
+            width: calc(100% - 40px);
+
+            .image-container,
+            .image-overlay{  
+                height: 360px;
+            }
+
+            .text-container{
+                padding: 0 0 20px 20px;
+                height: calc(100% - 360px);
+            }
+        }
+
+        &.active{
+            .component-wrapper{                
+                .text-container{
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+.raised{
+    .component.entry-article{
+        .component-wrapper{
+            box-shadow: var(--shadow-1);
+        }
+    }
+}
+
+.float{
+    .component.entry-article{
+        .component-wrapper{
+            box-shadow: var(--shadow-2);
+        }
+    }
+}
+
+.text-wrapper{
+    .component.entry-article{
+        .component-wrapper{
+            .component-content{
+                .image-container,
+                .image-overlay{
+                    height: calc(350px);
+                    width: calc(100% - 30px);
+                    top: 15px;
+                    left: 15px;
+                }
+                
+                .close-icon{
+                    top: 35px;
+                    right: 35px;
+                }
+
+                .text-container{
+                    height: calc(100% - 370px);
+
+                    .text-container-inner{
+                        padding: 0;
+                    }
+                }
+            }
+        }
+
+        &.active{
+            .component-wrapper{
+                .component-content{
+                    background: var(--base-2);
+    
+                    .image-container,
+                    .image-overlay{
+                        height: calc(500px);
+                        width: calc(100% - 40px);
+                        top: 20px;
+                        left: 20px;
+                    }
+                    
+                    .close-icon{
+                        top: 35px;
+                        right: 35px;
+                    }
+
+                    .text-container{
+                        height: calc(100% - 530px);
+                    }
+                }
+            }
+        }
+    }
+
+    &.soft{
+        .component.entry-article{   
+            .component-wrapper{
+                .component-content{
+                    .image-container,
+                    .image-overlay{
+                        border-radius: 6px;
+                    }
+                }
+            }
+        }
+    }
+    
+    &.round{
+        .component.entry-article{   
+            .component-wrapper{
+                .component-content{
+                    .image-container,
+                    .image-overlay{
+                        border-radius: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.image-wrapper,.text-wrapper{
+    .component.entry-article{
+        .component-wrapper{
+            .component-content{
+                background: var(--base-2);
+
+                .text-container{
+                    background: var(--base-2);
+                    padding: 20px;
+                }
+            }
+        }
+    }
+}
+
+.image-wrapper{
+    .component.entry-article{
+        .component-wrapper{
+            .component-content{
+                .image-container,
+                .image-overlay{
+                    height: calc(100%);
+                    width: calc(100%);
+                    top: 0;
+                    left: 0;
+                }
+    
+                .text-container{
+                    width: calc(100% - 20px); 
+                    bottom: 10px;
+                    right: 10px;
+
+                    .text-container-inner{
+                        padding:0;
+                    }
+                }
+            }
+        }
+    
+        &.active{
+            .component-wrapper{
+                .component-content{
+                    .text-container{
+                        .text-container-inner{
+                            padding: 50px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &:not(.active){
+            .component-wrapper{
+                &:hover{
+                    .component-content{
+                        .image-container,
+                        .image-overlay{
+                            height: calc(100%);
+                            width: calc(100%);
+                            top: 0;
+                            left: 0;
+    
+                            img{
+                                height: 100%;
+                                width: 100%;
+                                top: 50%;
+                            }
+                        }
+                    }    
+                }
+            }
+        }
+    }
+    
+    &.soft{
+        .component.entry-article{   
+            .component-wrapper{
+                .component-content{
+                    .text-container{
+                        border-radius: 6px;
+                    }
+                }
+            }
+        }
+    }
+    
+    &.round{
+        .component.entry-article{   
+            .component-wrapper{
+                .component-content{
+                    .text-container{
+                        border-radius: 17px;
+                    }
+                }
+            }
+        }
+    }
+}

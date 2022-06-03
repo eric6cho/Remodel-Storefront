@@ -1,30 +1,28 @@
 @import "mixins/mixins.scss";
 
-
-
 .component.banner{
     position: relative;
     overflow-x: hidden;
-    min-width:100%;
-    max-width:100%;
+    min-width: 100%;
+    max-width: 100%;
 
     .title{
         position: absolute;
-        color:white;
-        top:calc(300px - 40px);
-        left:60px;
+        color: white;
+        top: calc(300px - 40px);
+        left: 60px;
         z-index: 5;
         font-size: 44px;
     }
 
     .slide-counter{
-        display:flex;
+        display: flex;
         align-items: center;
         position: absolute;
-        top:calc(600px - 75px);
-        left:50px;
+        top: calc(600px - 75px);
+        left: 50px;
         z-index: 5;
-        padding:10px;
+        padding: 10px;
         border-radius: 3px;
         
         &:hover{
@@ -64,35 +62,35 @@
 
         :first-child{
             margin-left: 0;
-            margin-right:-4px;
+            margin-right: -4px;
         }
     }
 
     .slider{
         @include transition(0.7);
-        display:flex;
+        display: flex;
         
         .slide{
-            width:100vw;
+            width: 100vw;
 
             .image-container{
-                height:600px;
-                min-width:100vw;
+                height: 600px;
+                min-width: 100vw;
                 overflow: hidden;
                 position: relative;
 
                 .image-overlay{
                     background: rgba(0,0,0,0.4);
                     position: absolute;
-                    height:100%;
-                    width:100%; 
+                    height: 100%;
+                    width: 100%; 
                 }
 
                 img{
                     background: var(--base-2);
                     position: absolute;
-                    height:100%;
-                    width:100%; 
+                    height: 100%;
+                    width: 100%; 
                     left: 50%;
                     top: 50%;
                     transform: translate(-50%, -50%);
@@ -101,16 +99,17 @@
             }
 
             .text-container{
-                display:flex;
+                display: flex;
                 position: relative;
                 width: 100%;
-                padding:70px 50px;
+                padding: 70px 50px;
 
-                .border-right,.border-left{
+                .border-right,
+                .border-left{
                     position: absolute;
                     z-index: -1;
-                    width:50px;
-                    height:50px;
+                    width: 50px;
+                    height: 50px;
                     background: var(--accent-1);
                 }
 
@@ -126,82 +125,34 @@
 
                 .background-lower{
                     position: absolute;
-                    top:-20px;
-                    left:-20px;
-                    width:calc(100% + 40px);
-                    height:calc(100% + 40px);
+                    top: -20px;
+                    left: -20px;
+                    width: calc(100% + 40px);
+                    height: calc(100% + 40px);
                     background: var(--base-2);  
-                    z-index:-5;        
+                    z-index: -5;        
                 }
 
                 .background-upper{
                     position: absolute;
-                    top:0px;
-                    left:0px;
-                    width:calc(100% + 0px);
-                    height:calc(100% + 0px);
+                    top: 0px;
+                    left: 0px;
+                    width: calc(100%);
+                    height: calc(100%);
                     background: var(--base-2); 
-                    z-index:-1;        
-
-
+                    z-index: -1;        
                 }
 
                 .text-container-inner{
-                    width:40%;
-          
+                    width: 40%;
                     background: var(--base-2); 
                     padding: 45px 60px 60px;
-                    margin:auto;
+                    margin: auto;
                     position: relative;
 
                     h3{
                         margin-bottom: 10px;
                     }
-                }
-            }
-        }
-    }
-}
-
-.horizontal{
-    .component.banner{
-        .slider{
-            .slide{
-                position: relative;
-                .text-container{   
-                    position: absolute;
-                    height:100%;
-
-                    top:0;
-                    right:0;
-
-                    .border-right,.border-left{
-                       display: none;
-                    }
-
-                    .background-lower{
-                        background: none;
-                    }
-    
-                    .background-upper{
-                        background: none;
-                    }
-                    .text-container-inner{
-                        margin:auto;
-                        margin-right:50px;
-                        
-                        background: rgba(120,120,120,0.5);
-                        @include blur(7);
-                        border:1px solid rgba(180,180,180,0.2);
-
-                        p,h3{
-                            color:white;
-                        }
-                        
-                        
-                    }
-                    
-                    
                 }
             }
         }
@@ -242,25 +193,15 @@
     }
 }
 
-
 .round{
-    .component.banner{
-      
-    
+    .component.banner{    
         .slide-counter{
-       
             border-radius: 10000px;
-            
-    
         }
     
         .slider{
-          
             .slide{
-              
                 .text-container{
-                  
-    
                     .border-right{
                         border-radius: 0 0 30px 0;
                     }
@@ -273,15 +214,12 @@
                         border-radius: 35px;
                     }
 
-                    
                     .background-upper{
                         border-radius: 30px;
                     }
                     
                     .text-container-inner{
-                       
-                        border-radius: 27px;
-    
+                        border-radius: 27px;    
                     }
                 }
             }
@@ -289,188 +227,53 @@
     }
 }
 
-
-
-
 .raised{
-    .component.banner{
-      
-
-    
+    .component.banner{    
         .slider{
-          
             .slide{
-              
                 .text-container{
-                  
-    
-                    .border-right,.border-left{
-                        //display:none;
-                    }
-    
                     .background-lower{
                         box-shadow: var(--shadow-1);
                         background: none;
                     }
 
-
-                    .text-container-inner{
-                       
-                        
+                    .text-container-inner{    
                         background: var(--base-1);
-    
                     }
                 }
             }
         }
     }
 }
-
-
-
-
 
 .float{
-    .component.banner{
-      
-
-    
+    .component.banner{    
         .slider{
-          
             .slide{
-              
                 .text-container{
-                  
-    
                     .background-lower{
                         box-shadow: 5px 10px 5px rgba(0,0,0,0.2);
                         background: var(--base-2);
                         border: 1px solid rgba(90,90,90,0.5);
                     }
 
-
-                    .text-container-inner{
-                       
-                        
+                    .text-container-inner{                        
                         background: var(--base-2);
-    
                     }
                 }
             }
         }
     }
 }
-
-
-
-.overlap{
-    .component.banner{
-      
-
-    
-        .slider{
-          
-            .slide{
-              
-                .text-container{
-                  
-    
-                    .background-lower{
-                        box-shadow: 5px 10px 5px rgba(0,0,0,0.2);
-                        background: var(--base-2);
-                        border: 1px solid rgba(90,90,90,0.5);
-                       
-                    }
-
-                    .background-upper{
-                        box-shadow: none;
-                        background: var(--base-2);
-                        border: none;
-                        z-index:25;
-                    }
-
-                    .border-left,.border-right{
-                        z-index:24;
-                    }
-                    .text-container-inner{
-                        top:-150px;
-                        z-index: 20;
-                        background: var(--base-2);
-    
-                    }
-                }
-            }
-        }
-    }
-}
-
-
-
-.raised.horizontal,.float.horizontal{
-    .component.banner{
-      
-
-    
-        .slider{
-          
-            .slide{
-              
-                .text-container{
-                  
-    
-                    .border-right,.border-left{
-                      //  display:none;
-                    }
-
-                    
-                    
-                    .background-lower{
-                        
-                        box-shadow: none;
-                        border:none;
-                        
-                        background: none;
-                    }
-                    .background-upper{
-                        box-shadow: none;
-                
-                        
-                        border:none;
-                        background: none;
-                    }
-
-
-                    .text-container-inner{
-                        box-shadow: 5px 10px 5px rgba(0,0,0,0.2);
-                
-                        background: rgba(120,120,120,0.5);
-                        @include blur(7);
-                        border:1px solid rgba(180,180,180,0.2);
-    
-                    }
-                }
-            }
-        }
-    }
-}
-
 
 .monochrome{
-    .component.banner{
-      
-
-    
+    .component.banner{    
         .slider{
-          
             .slide{
-              
                 .text-container{
-                  
-    
                     .border-right,.border-left{
-                        background:var(--base-2);
+                        background: var(--base-2);
                     }
-
                 }
             }
         }

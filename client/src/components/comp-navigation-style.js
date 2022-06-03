@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import './../styles/comp-navigation.scss';
 
 import * as u from '../scripts/utils'; 
@@ -6,9 +7,7 @@ import * as u from '../scripts/utils';
 export default function NavigationStyle(props) {
 
   const defaultClass = 'component nav-style ';
-  const activeClass = 'active ';
 
-  const [isActive, setIsActive] = useState(props.data['isActive']);
   const [componentClass, setComponentClass] = useState(defaultClass);
 
   useEffect(() => {
@@ -16,17 +15,7 @@ export default function NavigationStyle(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 
-  const toggleActive = (state=null) => setActive(state!==null?state:!isActive);
-
-  const setActive = (state) => {
-  //  setComponentClass(defaultClass+(isActive?activeClass:''));
-    //setIsActive(state);
-    let handleSelect = props.events['handleStyleSelect'];
-    handleSelect(props.data);
-  };
-
   const getComponent = () => {
-
     let title = props.data['title'];
     let componentData = props.data['componentData'];
     let activeStyles = props.data['activeStyles'];
@@ -64,7 +53,6 @@ export default function NavigationStyle(props) {
       </div>
     </div>
     );
-    
   }
 
   return getComponent();

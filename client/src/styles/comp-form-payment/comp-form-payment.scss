@@ -1,20 +1,15 @@
 @import "../mixins/mixins.scss";
 
-// default style settings: vertical sharp flat opaque no-wrapper
-
-// component general styling for both default state and focus state
-
 .component.narrow{
-
-    width:100%;
-    margin:0 auto;
+    width: 100%;
+    margin: 0 auto;
 
     @include media-md {
-        width:calc(100% - 80px);
+        width: calc(100% - 80px);
     }
 
     @include media-lg {
-        width:80%;
+        width: 80%;
     }
 } 
 
@@ -25,46 +20,44 @@
     margin-top: 20px;
     margin-bottom: 20px;
 
-
     .component-wrapper{
-        position:relative;
-        width:100%;
+        position: relative;
+        width: 100%;
         height: 100%;
-        margin:0;
+        margin: 0;
         border-radius: 0;
         box-shadow: none;
         overflow: hidden;
 
         .component-content{
             @include transition();
-            position:relative;
-            width:100%;
+            position: relative;
+            width: 100%;
             height: 100%;
             overflow: hidden;
             border-radius: 0;
             box-shadow: none;
-            display:flex;
+            display: flex;
             flex-direction: column;
 
             .form-container{
                 .form{
-                    
                     .form-inner{
-                        display:flex;
+                        display: flex;
                         flex-wrap: wrap;
-                        background: rgba(255,255,255,1);
-                        padding:50px;
+                        background: var(--text-2);
+                        padding: 50px;
                     }
 
                     .form-section-title{
-                        width:100%;
-                        color:black;
-                        padding:5px 15px 20px;
+                        width: 100%;
+                        color: black;
+                        padding: 5px 15px 20px;
                     }
 
                     .form-section{
-                        padding:0 15px;
-                        width:50%;
+                        padding: 0 15px;
+                        width: 50%;
                         
                         .form-validation-text,
                         .form-input-text,
@@ -75,19 +68,18 @@
                         }
 
                         .form-validation-text{
-                            display:flex;
+                            display: flex;
                             align-items: center;
-                            height:30px;
-                            color:red;
-                            padding-left:17px;
-
+                            height: 30px;
+                            color: red;
+                            padding-left: 17px;
                         }
 
                         .form-input-text{
                             @include transition();
-                            height:50px;
+                            height: 50px;
                             padding: 15px;
-                            width:100%;
+                            width: 100%;
                             background: rgba(255,255,255,0.9);
                             border: 2px solid var(--accent-2);
                             color: rgba(0,0,0,0.7);
@@ -100,9 +92,9 @@
 
                         .form-input-textarea{
                             @include transition();
-                            height:150px;
+                            height: 150px;
                             padding: 15px;
-                            width:100%;
+                            width: 100%;
                             background: rgba(255,255,255,0.9);
                             border: 2px solid var(--accent-2);
                             color: rgba(0,0,0,0.7);
@@ -114,64 +106,54 @@
                         }
                         
                         &.width-full{
-                            width:100%;
+                            width: 100%;
                         }
                     }
 
                     .form-submit{
                         @include transition();
-                        width:100%;
+                        width: 100%;
                         padding: 50px 70px;
                         text-align: right;
                         background: var(--accent-2);
-
-                        border:none;
-                        
+                        border: none;
                         color: white;
-
                         font-size: 13px;
                         font-weight: 500;
                         letter-spacing: 3px;
                         text-transform: uppercase;
-
                         cursor: pointer;
 
                         &:hover{
                             background: var(--accent-3);
-                            color:black;
+                            color: black;
                         }
                     }
                 }
             }
 
             .cart-action-container{
-                // taken from the comp collection narrow width
-               
-                margin:0 auto;
-                padding:0;
-
-                height:100px;
-                width:100%;
+                margin: 0 auto;
+                padding: 0;
+                height: 100px;
+                width: 100%;
                 background: var(--accent-1);
-
                 display: flex;
                 margin-bottom: 20px;
 
-
                 @include media-md {
-                    width:calc(100% - 100px);
+                    width: calc(100% - 100px);
                 }
 
                 @include media-lg {
-                    width:calc(80% - 20px);
+                    width: calc(80% - 20px);
                 }
 
                 .cart-action{
-                    height:100%;
-                    width:calc(220px);
+                    height: 100%;
+                    width: calc(220px);
                     background: var(--accent-1);
                     padding: 0 25px 0 25px;
-                    
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
@@ -180,24 +162,17 @@
                     .cart-action-section{
                         display: flex;
                         align-items: center;
-                        height:40px;
+                        height: 40px;
                         
                         h3{
                             margin-right: auto;
                         }
-
-                        h4{
-                            
-                        }
-        
                     }
-
-                    
                 }
 
                 .purchase-button{
-                    height:100%;
-                    width:calc(100% - 220px);
+                    height: 100%;
+                    width: calc(100% - 220px);
                     margin-left: auto;
                     padding: 25px 50px;
                     
@@ -205,12 +180,7 @@
                         margin-left: auto;
                     }
                 }
-
             }
-           
-
-            
         }
     }
-
 }

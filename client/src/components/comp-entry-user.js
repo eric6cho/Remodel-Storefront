@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import './../styles/comp-entry-user/comp-entry-user.scss';
-import './../styles/comp-entry-user/comp-entry-user-active.scss';
-import './../styles/comp-entry-user/comp-entry-user-active-variations.scss';
 import './../styles/comp-entry-user/comp-entry-user-variations.scss';
 
 import * as u from '../scripts/utils'; 
@@ -21,7 +19,6 @@ export default function User(props) {
   }, [props.data]);
   
   const getComponent = () => {
-
     let componentData = props.data['componentData'];
     let requiredData = [componentData];
     if(!u.isRequiredDataValid(requiredData)) return null;

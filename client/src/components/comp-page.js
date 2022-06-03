@@ -19,7 +19,6 @@ export default function Page(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-
   const getActivePage = (id,data,events) => {
     if(id==='products') return <ProductPage data={data} events={events}/>;
     if(id==='articles') return <ArticlePage data={data} events={events}/>;
@@ -29,13 +28,10 @@ export default function Page(props) {
     return <HomePage data={data} events={events}/>;
   };
 
-
   const getComponent = () => {
-
     let pageData = props.data['pageData'];
     let contentData = props.data['contentData'];
     let activePage = props.data['activePage'];
-
     let requiredData = [pageData,contentData,activePage];
     if(!u.isRequiredDataValid(requiredData)) return null;
 

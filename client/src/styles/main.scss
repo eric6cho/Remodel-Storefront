@@ -1,55 +1,46 @@
 @import "mixins/mixins.scss";
 
 @include custom-scrollbar();
-
 @include themes();
 
 body {
+    @include defaultText(); 
     position: relative;
     margin: 0;
-    padding:0;
+    padding: 0;
     background: var(--base-1);
-    @include defaultFont();
 
     .App{
         position: relative;
-       /*
-        height: 100vh;
-        min-height: 100vh;
-        max-height: 100vh;
-*/ 
-        @include defaultText();// define default style for h1,h2,h3,h4,p,span
 
         .icon{
             @include icon();
         }
 
         .loading-screen{
-            @include background();
-            padding:50px;
-            margin:auto;
+            background: white;
+            padding: 50px;
+            margin: auto;
             border-radius: 6px;
 
             h1{
                 text-align: center;
-                margin-bottom:30px;
+                margin-bottom: 30px;
             }
 
             p{
-                margin:10px 0;
+                margin: 10px 0;
             }
 
             .inline-error{
-                @include red();
+                color: rgba(255,120,140,1);
                 margin: 0 10px;
                 font-weight: 600;
             }
-
-
         }
 
         .component.page{
-            display:flex;
+            display: flex;
             flex-direction: column;
         }
     }

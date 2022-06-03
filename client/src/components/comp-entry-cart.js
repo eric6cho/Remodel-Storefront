@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import './../styles/comp-entry-cart/comp-entry-cart.scss';
-import './../styles/comp-entry-cart/comp-entry-cart-active.scss';
-import './../styles/comp-entry-cart/comp-entry-cart-active-variations.scss';
 import './../styles/comp-entry-cart/comp-entry-cart-variations.scss';
 
 import * as u from '../scripts/utils'; 
@@ -21,15 +19,10 @@ export default function Product(props) {
     <span className={"material-icons icon "+cssClass} onClick={click}>{title}</span>;
 
   const getComponent = () => {
-
-    console.log(props.data);
-    
     let componentData = props.data['componentData'];
     let requiredData = [componentData];
     let handleCartChange = props.events['handleCartChange'];
     if(!u.isRequiredDataValid(requiredData)) return null;
-
-    console.log(props.events)
 
     let data = componentData['data'];
     let metadata = componentData['metadata'];
@@ -68,7 +61,6 @@ export default function Product(props) {
           {getIcon('add','cart-icon plus',()=>handleCartChange(componentData,1))}
         </div>
         <div className="cart-action-section">
-          
           <h4 className="price">{u.formatPrice(parseInt(quantity) * data['price'])}</h4> 
         </div>     
       </div>;

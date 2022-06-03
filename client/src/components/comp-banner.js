@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import './../styles/comp-banner.scss';
 
 import * as u from '../scripts/utils'; 
@@ -12,13 +13,11 @@ export default function Banner(props) {
   const [activeSlide, setActiveSlide] = useState(0);
   
   useEffect(() => {
-   
     goToSlide(0);
 
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
 
   const getIcon = (title,cssClass='',click=(()=>{})) => 
     <span className={"material-icons icon "+cssClass} onClick={click}>{title}</span>;
@@ -33,11 +32,8 @@ export default function Banner(props) {
     setActiveSlide(i);
   };
 
-
   const getComponent = () => {
     let componentData = props.data['componentData'];
-    let contentData = props.data['contentData'];
-    let events = props.events;
     let requiredData = [componentData];
     if(!u.isRequiredDataValid(requiredData)) return null;
 

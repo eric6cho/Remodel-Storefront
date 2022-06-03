@@ -1,51 +1,48 @@
 @import "../mixins/mixins.scss";
 
-
 .component.narrow{
-
-    width:100%;
-    margin:0 auto;
+    width: 100%;
+    margin: 0 auto;
 
     @include media-md {
-        width:calc(100% - 80px);
+        width: calc(100% - 80px);
     }
 
     @include media-lg {
-        width:80%;
+        width: 80%;
     }
 } 
 
 .component.collection{
     &>.component-wrapper{
         &>.component-content{
-            
             &>.text-container{
-                width:100%;
-                margin:0 auto;
-                padding:10px;
+                width: 100%;
+                margin: 0 auto;
+                padding: 10px;
 
                 .title{
-                    color:var(--text-2)
+                    color: var(--text-2)
                 }
             }
 
             .entry-list-wrapper{
                 position: relative;
-                width:100%;
-                height:100%;
+                width: 100%;
+                height: 100%;
             
                 .entry-list{
                     @include transition();
                     position: relative;
-                    overflow:hidden;
-                    width:100%;
+                    overflow: hidden;
+                    width: 100%;
                     margin: 0 auto;
                     padding: 10px 0 10px;
 
                     .slider{
                         @include transition();
-                        display:flex;
-                        width:100%;
+                        display: flex;
+                        width: 100%;
                         margin: 0;
                         padding: 0;
                         position: relative;
@@ -63,28 +60,28 @@
 
                 &>.component{
                     @include transition();
-                    height:100%;
-                    width:100%;
-                    margin:0;
+                    height: 100%;
+                    width: 100%;
+                    margin: 0;
                 }
             }
                 
             .arrow-controls{
                 position: absolute;
-                display:flex;
+                display: flex;
                 align-content: center;
                 justify-content: space-between;
-                width:100%;
-                height:100%;
-                top:50%;
+                width: 100%;
+                top: 50%;
 
-                .arrow-left,.arrow-right{
+                .arrow-left,
+                .arrow-right{
                     @include transition();
                     position: absolute;
                     border-top: 2px solid rgb(100,100,100);
                     border-left: 2px solid rgb(100,100,100);
-                    height:30px;
-                    width:30px;
+                    height: 30px;
+                    width: 30px;
                     cursor: pointer;
 
                     &:hover{
@@ -94,36 +91,32 @@
                 }
 
                 .arrow-left{
-                    left:-50px;
+                    left: -50px;
                     transform: rotate(315deg);
                 }
 
                 .arrow-right{
-                    right:-50px;
+                    right: -50px;
                     transform: rotate(135deg);
                 }
             }
 
-
             .content-grid{
-                display:flex;
+                display: flex;
                 justify-content: center;
 
                 .entry-list-wrapper{
-                
                     .entry-list{
-                     
                         .slider{
-                            display:flex;
+                            display: flex;
                             flex-wrap: wrap;
-                            width:100%;
+                            width: 100%;
                             margin: 0;
                             padding: 0;
                             position: relative;
                         }
                     }
                 }
-
                         
                 .active-entry{
                     position: sticky;
@@ -150,24 +143,22 @@
                 .arrow-controls{
                     display:none;
                 }
-
             }
 
             .content-row{
-                display:flex;
+                display: flex;
                 justify-content: center;
                 flex-direction: column;
 
                 .entry-list-wrapper{
-                    margin:0 auto;
-                    width:100%;
+                    margin: 0 auto;
+                    width: 100%;
 
                     .entry-list{
-                
                         .slider{
-                            display:flex;
-                            width:calc(100% / 4 * 5);
                             @include transition();
+                            display: flex;
+                            width: calc(100% / 4 * 5);
                         }
                     }
                 }
@@ -176,23 +167,19 @@
                     height: 450px;  
                     width: 100%;
                     margin: 0 auto;
-
                 }
             }
-
             
             .content-column{
                 display:flex;
                 justify-content: center;
 
-                .entry-list-wrapper{
-                
+                .entry-list-wrapper{   
                     .entry-list{
-                     
                         .slider{
-                            display:flex;
+                            display: flex;
                             flex-wrap: wrap;
-                            width:100%;
+                            width: 100%;
                             margin: 0;
                             padding: 0;
                             position: relative;
@@ -200,7 +187,6 @@
                     }
                 }
 
-                        
                 .active-entry{
                     position: sticky;
                     top: 80px;
@@ -226,7 +212,26 @@
                 .arrow-controls{
                     display:none;
                 }
+            }
+        }
+    }
 
+    &.active{
+        &>.component-wrapper{
+            &>.component-content{
+                .active-entry{
+                    display: block;   
+                }
+    
+                .content-grid{
+                    .entry-list-wrapper{       
+                        display: none;
+    
+                        @include media-md {
+                            display:flex;
+                        }
+                    }
+                }
             }
         }
     }

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Collection from "./comp-collection";
 
 import './../styles/comp-cart/comp-cart.scss';
+import './../styles/comp-cart/comp-cart-variations.scss';
 
 import * as u from './../scripts/utils'; 
 
@@ -43,22 +44,20 @@ export default function Cart(props) {
     let cartEntries = <Collection data={data} events={events}/>;
 
     let cartActions = 
-        <div className="cart-action-container">
-            <div className="cart-action">
-                <div className="cart-action-section">
-                    <h3>Total Items: </h3>
-                    <h4>{totalItems}</h4>
-                </div>
-                <div className="cart-action-section">
-                    <h3>Total Price: </h3>
-                    <h4>{u.formatPrice(totalPrices)}</h4>
-                </div>     
-             
-            </div>
-                {getButton('Continue To Payment','purchase-button',()=>handlePageSelect('payment'))}
-        </div>;
+      <div className="cart-action-container">
+        <div className="cart-action">
+          <div className="cart-action-section">
+            <h3>Total Items: </h3>
+            <h4>{totalItems}</h4>
+          </div>
+          <div className="cart-action-section">
+            <h3>Total Price: </h3>
+            <h4>{u.formatPrice(totalPrices)}</h4>
+          </div>     
+        </div>
+        {getButton('Continue To Payment','purchase-button',()=>handlePageSelect('payment'))}
+      </div>;
         
-    
     let componentContent = 
       <>
         {cartEntries}
