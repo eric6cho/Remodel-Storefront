@@ -57,7 +57,6 @@ export default function App() {
     });
 
     return () => {};
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -69,11 +68,13 @@ export default function App() {
   
   const addContent = (data,category,subcatergory) => {
     let newData = contentData;
+
     if(subcatergory){
       if(newData[category]===undefined)newData[category]={};
       newData[category][subcatergory]=data;
     }
     else newData[category]=data;
+
     setContentData(newData);
   };
 
@@ -81,7 +82,9 @@ export default function App() {
     let stylesList = styleData['styles'][styleType];
     let activeStylesList = activeStyles.split(' ');
     let newActiveStyles = activeStylesList.filter(style=>!stylesList.includes(style)); 
+
     newActiveStyles.push(styleName);
+
     return newActiveStyles.join(' ');
   };
 
@@ -92,10 +95,13 @@ export default function App() {
 
   const changeTheme = (themeName,data) => {  
     if(!styleData&&!data) return;
+
     data = styleData?styleData:data;
     let theme = data['themes'][themeName];
+
     Object.keys(theme).forEach(themeVar =>
       document.documentElement.style.setProperty(themeVar, theme[themeVar]));
+
     setActiveTheme(theme);
   };
 
@@ -103,6 +109,7 @@ export default function App() {
     let type = item['metadata']['type'];
     let id = item['metadata']['id'];
     let contentCopy = u.shallowCopy(contentData['cart'][type]);
+
     if(contentCopy[id]===undefined)
      contentCopy[id] = {'id':id,'quantity':count};
     else{
@@ -110,8 +117,10 @@ export default function App() {
       if(newQuantity===0) delete contentCopy[id];
       else contentCopy[id]['quantity']=newQuantity;
     }
+
     let newContentData = u.shallowCopy(contentData);
     newContentData['cart'][type] = contentCopy;
+
     setContentData(newContentData);
   };
 
@@ -120,11 +129,17 @@ export default function App() {
     let id = item['metadata']['id'];
     let savedContentCopy = u.shallowCopy(contentData['saved'][type]);
     let prevContentLength = Object.keys(savedContentCopy).length;
+
     savedContentCopy[id] = {'id':id};
+
     let newContentLength = Object.keys(savedContentCopy).length;
+
     if(prevContentLength===newContentLength) delete savedContentCopy[id];
+
     let newContentData = u.shallowCopy(contentData);
+    
     newContentData['saved'][type] = savedContentCopy;
+
     setContentData(newContentData);
   };
 
