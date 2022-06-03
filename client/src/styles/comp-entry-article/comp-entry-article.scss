@@ -336,10 +336,16 @@
                             height:100%;
                             width:50%;
                             border-radius: 0;
+                            padding:0;
                             
                             .text-container-inner{
                                 padding:40px;
                             }
+                        }
+
+                        .close-icon{
+                            top: 20px;
+                            right: 20px;
                         }
                     }
                 }

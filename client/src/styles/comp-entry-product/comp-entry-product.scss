@@ -432,6 +432,7 @@
                             width:50%;
                             border-radius: 0;
                         }
+                        
                         .text-container{
                             bottom:0;
                             top:0;
@@ -439,6 +440,19 @@
                             height:100%;
                             width:50%;
                             border-radius: 0;
+                        }
+                        
+                        .active-title-container{
+                            display: none;
+                        }
+
+                        .preview-title-container{
+                            display: block;
+                        }
+
+                        .close-icon{
+                            top: 20px;
+                            right: 20px;
                         }
                     }
                 }
