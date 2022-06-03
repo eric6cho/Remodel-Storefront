@@ -137,7 +137,7 @@ export default function App() {
     if(prevContentLength===newContentLength) delete savedContentCopy[id];
 
     let newContentData = u.shallowCopy(contentData);
-    
+
     newContentData['saved'][type] = savedContentCopy;
 
     setContentData(newContentData);

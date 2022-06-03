@@ -312,3 +312,38 @@
         }
     }
 }
+
+// component active styling inside of content-row
+.component.collection{
+    .content-row{
+        .active-entry{
+            .component.entry-article{   
+                .component-wrapper{
+                    .component-content{
+                        .image-container,
+                        .image-overlay{
+                            top:0;
+                            right:0;
+                            left:50%;
+                            height:100%;
+                            width:50%;
+                            border-radius: 0;
+                        }
+                        .text-container{
+                            bottom:0;
+                            top:0;
+                            left:0;
+                            height:100%;
+                            width:50%;
+                            border-radius: 0;
+                            
+                            .text-container-inner{
+                                padding:40px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
