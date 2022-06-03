@@ -427,7 +427,7 @@ const getThemes = () => {
     themes['light-frost']['--accent-1'] = 'rgba(180,190,200,1)';
     themes['light-frost']['--accent-2'] = 'rgba(90,100,120,1)';
     themes['light-frost']['--accent-3'] = 'rgba(225,250,255,1)';
-    themes['light-frost']['--accent-4'] = 'rgba(95,130,150,1)';
+    themes['light-frost']['--accent-4'] = 'rgba(90,110,150,1)';
     themes['light-frost']['--accent-5'] = 'rgba(50,70,80,1)';
 
     themes['light-cerulean']['--accent-1'] = 'rgba(200,180,170,1)';
@@ -443,9 +443,9 @@ const getThemes = () => {
     themes['light-botanical']['--accent-5'] = 'rgba(40,70,60,1)';
 
     themes['light-lavender']['--accent-1'] = 'rgba(190,185,200,1)';
-    themes['light-lavender']['--accent-2'] = 'rgba(125,100,150,1)';
+    themes['light-lavender']['--accent-2'] = 'rgba(125,110,150,1)';
     themes['light-lavender']['--accent-3'] = 'rgba(245,210,180,1)';
-    themes['light-lavender']['--accent-4'] = 'rgba(215,185,195,1)';
+    themes['light-lavender']['--accent-4'] = 'rgba(120,120,190,1)';
     themes['light-lavender']['--accent-5'] = 'rgba(90,70,80,1)';
 
     themes['light-tangerine']['--accent-1'] = 'rgba(230,220,210,1)';
