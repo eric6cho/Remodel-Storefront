@@ -54,13 +54,13 @@ export default function Product(props) {
       </div>;
 
     let cartActionContainer = 
-      <div className="cart-action">
-        <div className="cart-action-section">
-          {getIcon('remove','cart-icon minus',()=>handleCartChange(componentData,-1))} 
+      <div className="item-action-container">
+        <div className="item-action-section">
+          {getIcon('remove','item-action-icon minus',()=>handleCartChange(componentData,-1))} 
           <h4>{quantity}</h4> 
-          {getIcon('add','cart-icon plus',()=>handleCartChange(componentData,1))}
+          {getIcon('add','item-action-icon plus',()=>handleCartChange(componentData,1))}
         </div>
-        <div className="cart-action-section">
+        <div className="item-action-section">
           <h4 className="price">{u.formatPrice(parseInt(quantity) * data['price'])}</h4> 
         </div>     
       </div>;

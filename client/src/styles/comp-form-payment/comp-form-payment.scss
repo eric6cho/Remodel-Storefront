@@ -45,7 +45,7 @@
                     .form-inner{
                         display: flex;
                         flex-wrap: wrap;
-                        background: var(--light-1);
+                        background: var(--base-3);
                         padding: 50px;
                     }
 
@@ -80,13 +80,13 @@
                             height: 50px;
                             padding: 15px;
                             width: 100%;
-                            background: rgba(255,255,255,0.9);
+                            background: var(--base-1);
                             border: 2px solid var(--accent-2);
                             color: rgba(0,0,0,0.7);
 
                             &:focus{
-                                background: var(--accent-1);
-                                color: var(--text-1);
+                                background: var(--base-2);
+                                color: var(--text-2);
                             }
                         }
 
@@ -95,12 +95,12 @@
                             height: 150px;
                             padding: 15px;
                             width: 100%;
-                            background: rgba(255,255,255,0.9);
+                            background: var(--base-1);
                             border: 2px solid var(--accent-2);
                             color: rgba(0,0,0,0.7);
 
                             &:focus{
-                                background: var(--accent-2);
+                                background: var(--base-2);
                                 color: white;
                             }
                         }

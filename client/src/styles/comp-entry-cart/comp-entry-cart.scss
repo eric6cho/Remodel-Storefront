@@ -37,6 +37,7 @@
             overflow: hidden;
             border-radius: 0;
             box-shadow: none;
+            background: var(--accent-1);
 
             @include reviews(var(--light-1));
             @include tags();
@@ -68,14 +69,15 @@
                 position: absolute;
                 height: 100%;
                 width: calc(100% - 220px); 
-                background: var(--accent-1);
                 bottom: 0;
-                right: 0;
+                left: 220px;
                 border-radius: 0;
                 display: flex;
                 flex-direction: column;
                 overflow: hidden;
                 z-index: 3;
+                padding: 30px; 
+                background: var(--accent-1);
 
                 .text-container-inner{
                     overflow-y: scroll;
@@ -83,7 +85,6 @@
                     display: flex;
                     flex-direction: column;
                     position: relative;
-                    padding: 20px; 
                 }
                
                 .price{
@@ -111,7 +112,7 @@
                 }
             }
 
-            .cart-action{
+            .item-action-container{
                 @include transition();
                 position: absolute;
                 height: 100%;
@@ -125,9 +126,9 @@
                 justify-content: center;
                 overflow: hidden;
                 z-index: 3;
-                padding: 0 30px;
+                padding: 0 10px;
 
-                .cart-action-section{
+                .item-action-section{
                     display: flex;
                     align-items: center;
                     height: 40px;
@@ -145,11 +146,11 @@
                 }
 
                 &:hover{
-                    background: var(--light-1);
+                    background: var(--base-2);
                 }
             }
         
-            .cart-icon{
+            .item-action-icon{
                 @include icon(20);
                 margin: 10px;
             }
