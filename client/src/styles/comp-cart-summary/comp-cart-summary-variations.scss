@@ -46,9 +46,7 @@
             margin: 20px;
             height: calc(100% - 40px);
             width: calc(100% - 40px);
-
         }
-
     }
 }
 
@@ -86,8 +84,6 @@
                     top:10px;
                     left:10px;
                     padding: 0 15px;
-
-
                 }
 
                 .purchase-button{
@@ -152,14 +148,10 @@
 .image-wrapper{
     .component.cart-summary{
         .component-wrapper{
-            .component-content{
-
-               
-                
+            .component-content{    
                 .text-container{
                     height: 100%;
                     width: 200px; 
-                    
                 }
 
                 .purchase-button{
@@ -168,7 +160,6 @@
                     bottom: 5px;
                     right: 5px;
                 }
-
             }
         }
     }
@@ -179,8 +170,7 @@
                 .component-content{
                     .purchase-button{
                         border-radius: 6px;
-                    }
-                    
+                    }     
                 }
             }
         }
@@ -192,11 +182,9 @@
                 .component-content{
                     .purchase-button{
                         border-radius: 20px;
-                    }
-                    
+                    }     
                 }
             }
         }
     }
-
 }

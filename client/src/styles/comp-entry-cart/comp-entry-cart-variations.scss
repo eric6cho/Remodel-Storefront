@@ -59,10 +59,7 @@
             margin: 20px;
             height: calc(100% - 40px);
             width: calc(100% - 40px);
-
-    
         }
-
     }
 }
 
@@ -96,8 +93,6 @@
                 
                 .text-container{
                     left: 190px;
-                
-
                 }
             }
         }
@@ -123,27 +118,6 @@
                     .image-container,
                     .image-overlay{
                         border-radius: 18px;
-                    }
-                }
-            }
-        }
-    }
-
-    &.raised,&.float{
-        .component.entry-cart{   
-            .component-wrapper{
-                .component-content{
-                    .image-container,
-                    .image-overlay{
-                        //width:200px;
-                    }
-
-                    .item-action-container{
-                        //width:210px;
-                    }
-
-                    .text-container{
-                        //left: 170px;
                     }
                 }
             }
@@ -183,12 +157,10 @@
     }
 }
 
-
 .image-wrapper{
     .component.entry-cart{
         .component-wrapper{
             .component-content{
-
                 background: rgba(50,50,50,1);
 
                 .image-container{
@@ -228,31 +200,6 @@
         }
     }
     
-    &.raised,&.float{
-        .component.entry-cart{
-            .component-wrapper{
-                .component-content{
-                    .image-container{
-                        //width: 220px;
-                    }
-                    
-                    .image-overlay{
-                        //width: 440px;
-                    }
-        
-                    .text-container{
-                        //width: calc(100% - 220px); 
-                        //left: 180px;
-                    }
-    
-                    .item-action-container{
-                        //width: 170px; 
-                    }
-                }
-            }
-        }
-    }
-    
     &.soft{
         .component.entry-cart{   
             .component-wrapper{
@@ -284,5 +231,4 @@
             }
         }
     }
-
 }
