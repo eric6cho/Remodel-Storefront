@@ -60,24 +60,9 @@
             height: calc(100% - 40px);
             width: calc(100% - 40px);
 
-            .image-container,
-            .image-overlay,
-            .item-action-container{  
-                width: 180px;
-            }
-
-            .text-container{
-                left: 180px;
-            }
+    
         }
 
-        &.active{
-            .component-wrapper{                
-                .text-container{
-                    padding: 0;
-                }
-            }
-        }
     }
 }
 
@@ -104,13 +89,15 @@
                 .image-container,
                 .image-overlay{
                     height: calc(100% - 20px);
-                    width: 200px;
+                    width: 180px;
                     top: 10px;
                     left: 10px;
                 }
                 
                 .text-container{
-                    left: 210px;
+                    left: 190px;
+                
+
                 }
             }
         }
@@ -148,15 +135,15 @@
                 .component-content{
                     .image-container,
                     .image-overlay{
-                        width:160px;
+                        //width:200px;
                     }
 
                     .item-action-container{
-                        width:180px;
+                        //width:210px;
                     }
 
                     .text-container{
-                        left: 170px;
+                        //left: 170px;
                     }
                 }
             }
@@ -206,7 +193,7 @@
 
                 .image-container{
                     height: 100%;
-                    width: 260px;
+                    width: 240px;
                     top: 0;
                     left: 0;
 
@@ -217,7 +204,7 @@
                 
                 .image-overlay{
                     height: calc(100%);
-                    width: 520px;
+                    width: 480px;
                     top: 0;
                     left: 0;
                     background: rgb(200,200,200);
@@ -228,7 +215,7 @@
                     height:calc(100% - 10px);
                     width: calc(100% - 260px); 
                     bottom: 5px;
-                    left: 220px;
+                    left: 200px;
                 }
 
                 .item-action-container{    
@@ -246,20 +233,20 @@
             .component-wrapper{
                 .component-content{
                     .image-container{
-                        width: 220px;
+                        //width: 220px;
                     }
                     
                     .image-overlay{
-                        width: 440px;
+                        //width: 440px;
                     }
         
                     .text-container{
-                        width: calc(100% - 220px); 
-                        left: 180px;
+                        //width: calc(100% - 220px); 
+                        //left: 180px;
                     }
     
                     .item-action-container{
-                        width: 170px; 
+                        //width: 170px; 
                     }
                 }
             }

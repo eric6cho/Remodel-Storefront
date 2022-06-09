@@ -8,7 +8,7 @@
     overflow: hidden;
     width: calc(100% / 1);
 
-    .component-wrapper{
+    &>.component-wrapper{
         position: relative;
         width: 100%;
         height: 100%;
@@ -17,7 +17,7 @@
         box-shadow: none;
         overflow: hidden;
 
-        .component-content{
+        &>.component-content{
             @include transition();
             position: relative;
             width: 100%;
@@ -28,56 +28,21 @@
             display: flex;
             flex-direction: column;
 
-            @include button();
-
-            .cart-action-container{
+            .cart-summary-container{
                 margin: 0 auto;
-                padding: 0;
-                height: 100px;
                 width: 100%;
-                background: var(--accent-1);
-                display: flex;
-                margin-bottom: 20px;
-
+                
                 @include media-md {
                     width: calc(100% - 100px);
                 }
 
                 @include media-lg {
-                    width: calc(80% - 20px);
+                    width: calc(80%);
                 }
+            }
 
-                .cart-action{
-                    height: 100%;
-                    width: 220px;
-                    background: var(--accent-1);
-                    padding: 0 25px 0 25px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    background: var(--light-1);
-
-                    .cart-action-section{
-                        display: flex;
-                        align-items: center;
-                        height: 40px;
-                        
-                        h3{
-                            margin-right: auto;
-                        }
-                    }
-                }
-
-                .purchase-button{
-                    height: 100%;
-                    width: calc(100% - 220px);
-                    margin-left: auto;
-                    padding: 25px 50px;
-                    
-                    h4{
-                        margin-left: auto;
-                    }
-                }
+            .component.collection .entry-list{
+                padding-bottom: 0;
             }
         }
     }
