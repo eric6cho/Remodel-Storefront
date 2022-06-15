@@ -43,5 +43,19 @@ body {
             display: flex;
             flex-direction: column;
         }
+
+              
+      .component.narrow{
+        width: calc(100% - 70px);
+        margin: 0 auto;
+
+        @include media-md {
+            width: calc(100% - 150px);
+        }
+
+        @include media-lg {
+            width: 80%;
+        }
+      } 
     }
 }

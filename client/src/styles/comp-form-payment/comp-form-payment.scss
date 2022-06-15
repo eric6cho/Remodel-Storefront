@@ -1,18 +1,5 @@
 @import "../mixins/mixins.scss";
 
-.component.narrow{
-    width: 100%;
-    margin: 0 auto;
-
-    @include media-md {
-        width: calc(100% - 80px);
-    }
-
-    @include media-lg {
-        width: 80%;
-    }
-} 
-
 .component.form-payment{
     @include transition(); 
     padding: 0;

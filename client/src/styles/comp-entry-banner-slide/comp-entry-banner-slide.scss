@@ -1,0 +1,88 @@
+@import "../mixins/mixins.scss";
+
+.component.entry-banner-slide{
+  width: 100vw;
+
+  .image-container{
+    height: 600px;
+    width:100%;
+    overflow: hidden;
+    position: relative;
+
+    .image-overlay{
+      background: rgba(0,0,0,0.4);
+      position: absolute;
+      height: 100%;
+      width: 100%; 
+    }
+
+    img{
+      background: var(--base-2);
+      position: absolute;
+      height: 100%;
+      width: 100%; 
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+    }
+  }
+
+  .text-container{
+    display: flex;
+    position: relative;
+    width: 100%;
+    padding: 70px 50px;
+
+    .border-right,
+    .border-left{
+      position: absolute;
+      z-index: -1;
+      width: 50px;
+      height: 50px;
+      background: var(--accent-1);
+    }
+
+    .border-right{
+      right: -5px;
+      bottom: -5px;
+    }
+
+    .border-left{
+      left: -5px;
+      top: -5px;
+    }
+
+    .background-lower{
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: calc(100% + 40px);
+      height: calc(100% + 40px);
+      background: var(--base-2);  
+      z-index: -5;        
+    }
+
+    .background-upper{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: calc(100%);
+      height: calc(100%);
+      background: var(--base-2); 
+      z-index: -1;        
+    }
+
+    .text-container-inner{
+      width: 40%;
+      background: var(--base-2); 
+      padding: 45px 60px 60px;
+      margin: auto;
+      position: relative;
+
+      h3{
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

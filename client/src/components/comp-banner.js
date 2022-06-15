@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
-import './../styles/comp-banner.scss';
+import BannerSlide from "./comp-entry-banner-slide";
+
+import './../styles/comp-banner/comp-banner.scss';
+import './../styles/comp-banner/comp-banner-variations.scss';
 
 import * as u from '../scripts/utils'; 
 
@@ -9,12 +12,29 @@ export default function Banner(props) {
   const [componentName] = useState('banner');
   const [componentClass] = useState('component '+componentName);
   const [componentData] = useState(props.data['componentData']);
-  const [style, setStyle] = useState(null);
   const [activeSlide, setActiveSlide] = useState(0);
   
+  const [width, setWidth] = useState(0);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const setComponentWidth = () => setWidth(ref.current?ref.current.offsetWidth:0);
+
+    const resizeAction = () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(setComponentWidth, 200);
+    };
+
+    let timeout = false;
+    window.addEventListener('resize', resizeAction);
+    setComponentWidth();
+
+    return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(() => {
     goToSlide(0);
-
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -24,11 +44,8 @@ export default function Banner(props) {
 
   const goToSlide = (i) => {
     let length = componentData['slides'].length;
-    
     if(i<0) i=length-1;
     if(i>=length) i=0;
-
-    setStyle({'marginLeft': (i * -100).toString()+'%'});
     setActiveSlide(i);
   };
 
@@ -41,56 +58,52 @@ export default function Banner(props) {
 
     let title = <h1 className="title">{componentData['title']}</h1>
 
+    let sliderStyles = {
+      'width': width===0?'100'+slides.length+'vx':width*slides.length+'px',
+      'marginLeft': 'calc('+ (0-activeSlide*width)+'px - 0px)',
+    };
+
     let slider = 
-        <div className="slider" style={style}>
-            {slides.map(slide=>(
-                <div className="slide" key={slide['title']}>
-                    <div className="image-container">
-                        <img src={slide['image']} alt='product entry'/>
-                        <div className="image-overlay"></div>
-                    </div>
-                    <div className="text-container">
-                        <div className="text-container-inner"> 
-                            <div className="background-lower"></div>
-                            <div className="background-upper"></div>
-                            <div className="border-left"></div>
-                            <div className="border-right"></div>
-                            <h3>{slide['title']}</h3>
-                            <p>{slide['description']}</p>
-                        </div>
-                    </div>
-                </div>
-            ))}
-        </div>;
+      <div className="slider" style={sliderStyles}>
+        {slides.map((slide,i)=>
+          <BannerSlide 
+            key={i}
+            image={slide['image']}
+            title={slide['title']}
+            description={slide['description']}
+            width={width}
+            />
+        )}
+      </div>;
 
     let slideCounter = slides.length===1?null:
-        <div className="slide-counter">
-            {getIcon('chevron_left','',()=>goToSlide(activeSlide-1))}
-            {slides.map((slide,i)=>
-                <div 
-                    key={i} 
-                    className={"dot "+(activeSlide===i?'active':'')} 
-                    onClick={()=>goToSlide(i)}>
-                </div>
-            )}
-            {getIcon('chevron_right','',()=>goToSlide(activeSlide+1))}
-        </div>;
+      <div className="slide-counter">
+        {getIcon('chevron_left','',()=>goToSlide(activeSlide-1))}
+        {slides.map((slide,i)=>
+          <div 
+            key={i} 
+            className={"dot "+(activeSlide===i?'active':'')} 
+            onClick={()=>goToSlide(i)}>
+          </div>
+        )}
+        {getIcon('chevron_right','',()=>goToSlide(activeSlide+1))}
+      </div>;
 
     let componentContent = 
-        <>
-            {title}
-            {slideCounter}
-            {slider}
-        </>;
+      <>
+        {title}
+        {slideCounter}
+        {slider}
+      </>;
 
     let component =  
-        <div className={componentClass}>
-            <div className="component-wrapper">
-                <div className="component-content">
-                    {componentContent}
-                </div>
-            </div>
-        </div>;
+      <div className={componentClass} ref={ref}>
+        <div className="component-wrapper">
+          <div className="component-content">
+            {componentContent}
+          </div>
+        </div>
+      </div>;
 
     return component;
   };

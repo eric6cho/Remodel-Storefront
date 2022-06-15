@@ -1,0 +1,73 @@
+@import "../mixins/mixins.scss";
+
+.component.banner{
+  position: relative;
+  overflow-x: hidden;
+  min-width: 100%;
+  max-width: 100%;
+
+  .title{
+    position: absolute;
+    color: white;
+    top: calc(300px - 40px);
+    left: 60px;
+    z-index: 5;
+    font-size: 44px;
+  }
+
+  .slide-counter{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: calc(600px - 75px);
+    left: 50px;
+    z-index: 5;
+    padding: 10px;
+    border-radius: 3px;
+    
+    &:hover{
+      background: rgba(255,255,255,0.1);
+    }
+
+    .dot{
+      @include transition();
+      width: 7px;
+      height: 7px;
+      background: rgba(30,30,30,1);
+      border-radius: 50%;
+      margin-left: 8px;
+      cursor: pointer;
+
+      &:hover{
+        background: rgba(255,255,255,0.5);
+      }
+
+      &.active{
+        background: white;
+      }
+    }
+
+    .icon{
+      @include transition();
+      @include icon(20);
+      font-weight: 700;
+      margin-left: 3px;
+      color: rgba(30,30,30,1);
+      cursor: pointer;
+
+      &:hover{
+        color: rgba(255,255,255,0.5);
+      }
+    }
+
+    :first-child{
+      margin-left: 0;
+      margin-right: -4px;
+    }
+  }
+
+  .slider{
+    @include transition(0.7);
+    display: flex;
+  }
+}

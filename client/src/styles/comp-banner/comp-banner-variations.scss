@@ -1,0 +1,10 @@
+@import "../mixins/mixins.scss";
+
+.soft,
+.round{
+  .component.banner{
+      .slide-counter{
+          border-radius: 10000px;
+      }
+  }
+}

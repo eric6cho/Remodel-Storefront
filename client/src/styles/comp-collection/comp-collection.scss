@@ -1,238 +1,216 @@
 @import "../mixins/mixins.scss";
 
-.component.narrow{
-    width: 100%;
-    margin: 0 auto;
-
-    @include media-md {
-        width: calc(100% - 80px);
-    }
-
-    @include media-lg {
-        width: 80%;
-    }
-} 
-
 .component.collection{
-    &>.component-wrapper{
-        &>.component-content{
-            &>.text-container{
-                width: 100%;
-                margin: 0 auto;
-                padding: 10px;
+  &>.component-wrapper{
+    &>.component-content{
+      &>.text-container{
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px;
 
-                .title{
-                    color: var(--text-2)
-                }
+        .title{
+          color: var(--text-2)
+        }
+      }
+
+      .entry-list-wrapper{
+        position: relative;
+        width: 100%;
+        height: 100%;
+    
+        .entry-list{
+          @include transition();
+          position: relative;
+          overflow: hidden;
+          width: 100%;
+          margin: 0 auto;
+          padding: 10px 0 10px;
+
+          .slider{
+            @include transition();
+            display: flex;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+          }
+        }
+      }
+
+      .active-entry{
+        border-radius: 0;
+        overflow: hidden;
+        box-shadow: none;
+        display: none;
+        background: none;
+        padding: 10px 0px;
+
+        &>.component{
+          @include transition();
+          height: 100%;
+          width: 100%;
+          margin: 0;
+        }
+      }
+        
+      .arrow-controls{
+        position: absolute;
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        width: 100%;
+        top: 50%;
+
+        .arrow-left,
+        .arrow-right{
+          @include transition();
+          position: absolute;
+          border-top: 2px solid rgb(100,100,100);
+          border-left: 2px solid rgb(100,100,100);
+          height: 20px;
+          width: 20px;
+          cursor: pointer;
+
+          &:hover{
+            border-top: 2px solid rgb(180,180,180);
+            border-left: 2px solid rgb(180,180,180);
+          }
+
+          @include media-md{
+            height: 30px;
+            width: 30px;
+          }
+        }
+
+        .arrow-left{
+          left: -20px;
+          transform: rotate(315deg);
+
+          @include media-md{
+            left: -40px;
+          }
+        }
+
+        .arrow-right{
+          right: -20px;
+          transform: rotate(135deg);
+
+          @include media-md{
+            right: -40px;
+          }
+        }
+      }
+
+      .content-grid{
+        display: flex;
+        justify-content: center;
+
+        .entry-list-wrapper{
+          .entry-list{
+            .slider{
+              display: flex;
+              flex-wrap: wrap;
+              width: 100%;
+              margin: 0;
+              padding: 0;
+              position: relative;
             }
-
-            .entry-list-wrapper{
-                position: relative;
-                width: 100%;
-                height: 100%;
-            
-                .entry-list{
-                    @include transition();
-                    position: relative;
-                    overflow: hidden;
-                    width: 100%;
-                    margin: 0 auto;
-                    padding: 10px 0 10px;
-
-                    .slider{
-                        @include transition();
-                        display: flex;
-                        width: 100%;
-                        margin: 0;
-                        padding: 0;
-                        position: relative;
-                    }
-                }
-            }
-
-            .active-entry{
-                border-radius: 0;
-                overflow: hidden;
-                box-shadow: none;
-                display: none;
-                background: none;
-                padding: 10px 0px;
-
-                &>.component{
-                    @include transition();
-                    height: 100%;
-                    width: 100%;
-                    margin: 0;
-                }
-            }
+          }
+        }
                 
-            .arrow-controls{
-                position: absolute;
-                display: flex;
-                align-content: center;
-                justify-content: space-between;
-                width: 100%;
-                top: 50%;
+        .active-entry{
+          position: sticky;
+          top: 80px;
+          height: calc(100vh - 80px);  
+          width: 100%;
+        
+          @include media-md {
+            min-width: 450px;
+            width: 70%;
+          }
 
-                .arrow-left,
-                .arrow-right{
-                    @include transition();
-                    position: absolute;
-                    border-top: 2px solid rgb(100,100,100);
-                    border-left: 2px solid rgb(100,100,100);
-                    height: 30px;
-                    width: 30px;
-                    cursor: pointer;
+          @include media-lg {
+            min-width: 600px;
+            width: 50%;
+          }
 
-                    &:hover{
-                        border-top: 2px solid rgb(180,180,180);
-                        border-left: 2px solid rgb(180,180,180);
-                    }
-                }
-
-                .arrow-left{
-                    left: -50px;
-                    transform: rotate(315deg);
-                }
-
-                .arrow-right{
-                    right: -50px;
-                    transform: rotate(135deg);
-                }
-            }
-
-            .content-grid{
-                display: flex;
-                justify-content: center;
-
-                .entry-list-wrapper{
-                    .entry-list{
-                        .slider{
-                            display: flex;
-                            flex-wrap: wrap;
-                            width: 100%;
-                            margin: 0;
-                            padding: 0;
-                            position: relative;
-                        }
-                    }
-                }
-                        
-                .active-entry{
-                    position: sticky;
-                    top: 80px;
-                    height: calc(100vh - 80px);  
-                    width: 100%;
-                  
-                    @include media-md {
-                        min-width: 450px;
-                        width: 70%;
-                    }
-
-                    @include media-lg {
-                        min-width: 600px;
-                        width: 50%;
-                    }
-
-                    @include media-xl {
-                        min-width: 600px;
-                        width: 600px;
-                    }
-                }
-
-                .arrow-controls{
-                    display:none;
-                }
-            }
-
-            .content-row{
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-
-                .entry-list-wrapper{
-                    margin: 0 auto;
-                    width: 100%;
-
-                    .entry-list{
-                        .slider{
-                            @include transition();
-                            display: flex;
-                            width: calc(100% / 4 * 5);
-                        }
-                    }
-                }
-                        
-                .active-entry{
-                    height: 600px;  
-                    width: 100%;
-                    margin: 0 auto;
-                }
-            }
-            
-            .content-column{
-                display:flex;
-                justify-content: center;
-
-                .entry-list-wrapper{   
-                    .entry-list{
-                        .slider{
-                            display: flex;
-                            flex-wrap: wrap;
-                            width: 100%;
-                            margin: 0;
-                            padding: 0;
-                            position: relative;
-                        }
-                    }
-                }
-
-                .active-entry{
-                    position: sticky;
-                    top: 80px;
-                    height: calc(100vh - 80px);  
-                    width: 100%;
-                  
-                    @include media-md {
-                        min-width: 450px;
-                        width: 70%;
-                    }
-
-                    @include media-lg {
-                        min-width: 600px;
-                        width: 50%;
-                    }
-
-                    @include media-xl {
-                        min-width: 600px;
-                        width: 600px;
-                    }
-                }
-
-                .arrow-controls{
-                    display:none;
-                }
-            }
+          @include media-xl {
+            min-width: 600px;
+            width: 600px;
+          }
         }
-    }
 
-    &.active{
-        &>.component-wrapper{
-            &>.component-content{
-                .active-entry{
-                    display: block;   
-                }
-    
-                .content-grid{
-                    .entry-list-wrapper{       
-                        display: none;
-    
-                        @include media-md {
-                            display:flex;
-                        }
-                    }
-                }
-            }
+        .arrow-controls{
+          display:none;
         }
+      }
+
+      .content-row{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .entry-list-wrapper{
+          margin: 0 auto;
+          width: 100%;
+
+          .entry-list{
+            .slider{
+              @include transition();
+              display: flex;
+              width: calc(100% / 4 * 5);
+            }
+          }
+        }
+                
+        .active-entry{
+          height: 600px;  
+          width: 100%;
+          margin: 0 auto;
+        }
+      }
+      
+      .content-column{
+        display:flex;
+        justify-content: center;
+
+        .entry-list-wrapper{   
+          .entry-list{
+            .slider{
+              display: flex;
+              flex-wrap: wrap;
+              width: 100%;
+              margin: 0;
+              padding: 0;
+              position: relative;
+            }
+          }
+        }
+
+        .arrow-controls{
+          display:none;
+        }
+      }
     }
+  }
+
+  &.active{
+    &>.component-wrapper{
+      &>.component-content{
+        .active-entry{
+          display: block;   
+        }
+
+        .content-grid{
+          .entry-list-wrapper{       
+            display: none;
+
+            @include media-md {
+              display:flex;
+            }
+          }
+        }
+      }
+    }
+  }
 } 

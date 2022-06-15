@@ -11,7 +11,7 @@ import * as u from './../scripts/utils';
 export default function Cart(props) {
 
   const [componentName] = useState('cart');
-  const [componentClass] = useState('component '+componentName);
+  const [componentClass] = useState('component '+componentName+' narrow');
     
   useEffect(() => {
     return () => {};
@@ -23,6 +23,8 @@ export default function Cart(props) {
     let events = props.events;
     let requiredData = [data];
     if(!u.isRequiredDataValid(requiredData)) return null;
+
+    data['componentData']['isNarrow']=false;
 
     let cartProducts = data['contentData']['cart']['product'];
     let siteProducts = data['contentData']['site']['product'];
