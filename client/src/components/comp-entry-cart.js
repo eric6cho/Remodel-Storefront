@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-
 import './../styles/comp-entry-cart/comp-entry-cart.scss';
 import './../styles/comp-entry-cart/comp-entry-cart-variations.scss';
-
 import * as u from '../scripts/utils'; 
 
 export default function Product(props) {
-
   const [componentName] = useState('entry-cart');
   const [componentClass] = useState('component '+componentName+' '+(props.data['isFocus']?u.ACTIVECLASS:''));
   

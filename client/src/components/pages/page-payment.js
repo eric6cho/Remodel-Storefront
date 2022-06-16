@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-
-import Banner from "../comp-banner";
 import PaymentForm from "../comp-form-payment";
-
 import * as u from '../../scripts/utils'; 
 
 export default function PaymentPage(props) {
@@ -13,7 +10,6 @@ export default function PaymentPage(props) {
   }, []);
 
   const getComponent = () => {
-
     let pageData = props.data['pageData']['data'];
     let contentData = props.data['contentData'];
     let events = props.events;

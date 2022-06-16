@@ -1,13 +1,10 @@
 
 import React, { useState, useEffect } from "react";
-
 import './../styles/comp-entry-article/comp-entry-article.scss';
 import './../styles/comp-entry-article/comp-entry-article-variations.scss';
-
 import * as u from '../scripts/utils'; 
 
 export default function Article(props) {
-
   const [componentName] = useState('entry-article');
   const [componentClass] = useState('component '+componentName+' '+(props.data['isFocus']?u.ACTIVECLASS:''));
   

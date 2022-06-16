@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
-
 import './../styles/comp-navigation.scss';
-
 import * as u from '../scripts/utils'; 
 
 export default function NavigationTheme(props) {
-
   const defaultClass = 'component nav-theme ';
   const activeClass = 'active ';
-
   const [isActive, setIsActive] = useState(props.data['isActive']);
   const [componentClass, setComponentClass] = useState(defaultClass);
 
@@ -21,7 +17,6 @@ export default function NavigationTheme(props) {
 
   const setActive = (state) => {
     setComponentClass(defaultClass+(isActive?activeClass:''));
-    //setIsActive(state);
     let handleSelect = props.events['handleThemeSelect'];
     handleSelect(props.data['title']);
   };

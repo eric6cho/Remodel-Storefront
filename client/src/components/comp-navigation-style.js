@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
-
 import './../styles/comp-navigation.scss';
-
 import * as u from '../scripts/utils'; 
 
 export default function NavigationStyle(props) {
-
   const defaultClass = 'component nav-style ';
-
   const [componentClass, setComponentClass] = useState(defaultClass);
 
   useEffect(() => {
@@ -22,6 +18,8 @@ export default function NavigationStyle(props) {
     let handleSelect = props.events['handleStyleSelect'];
     let requiredData = [componentData,title];
     if(!u.isRequiredDataValid(requiredData)) return null;
+
+    let titleText = <h3>{title}</h3>;
 
     let styles = 
      <div className="style-list">
@@ -40,7 +38,7 @@ export default function NavigationStyle(props) {
 
     let componentContent = 
       <>
-        <h3>{title}</h3>
+        {titleText}
         {styles}
       </>;
 

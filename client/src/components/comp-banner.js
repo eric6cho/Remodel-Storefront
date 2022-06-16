@@ -1,19 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
-
 import BannerSlide from "./comp-entry-banner-slide";
-
 import './../styles/comp-banner/comp-banner.scss';
 import './../styles/comp-banner/comp-banner-variations.scss';
-
 import * as u from '../scripts/utils'; 
 
 export default function Banner(props) {
-
   const [componentName] = useState('banner');
   const [componentClass] = useState('component '+componentName);
   const [componentData] = useState(props.data['componentData']);
   const [activeSlide, setActiveSlide] = useState(0);
-  
   const [width, setWidth] = useState(0);
   const ref = useRef(null);
 
@@ -28,7 +23,6 @@ export default function Banner(props) {
     let timeout = false;
     window.addEventListener('resize', resizeAction);
     setComponentWidth();
-
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -55,8 +49,6 @@ export default function Banner(props) {
     if(!u.isRequiredDataValid(requiredData)) return null;
 
     let slides = componentData['slides'];
-
-    let title = <h1 className="title">{componentData['title']}</h1>
 
     let sliderStyles = {
       'width': width===0?'100'+slides.length+'vx':width*slides.length+'px',
@@ -88,6 +80,8 @@ export default function Banner(props) {
         )}
         {getIcon('chevron_right','',()=>goToSlide(activeSlide+1))}
       </div>;
+
+    let title = <h1 className="title">{componentData['title']}</h1>
 
     let componentContent = 
       <>

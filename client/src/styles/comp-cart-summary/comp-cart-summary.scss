@@ -2,74 +2,74 @@
 
 // component general styling
 .component.cart-summary{
-    @include transition(); 
-    height: 120px;
+  @include transition(); 
+  height: 120px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: calc(100%);
+
+  .component-wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
     margin: 0;
-    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
     overflow: hidden;
-    width: calc(100%);
 
-    .component-wrapper{
-        position: relative;
-        width: 100%;
+    .component-content{
+      @include transition();
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 0;
+      box-shadow: none;
+      background: var(--accent-1);
+
+      @include button();
+
+      .text-container{
+        @include transition();
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
         height: 100%;
-        padding: 10px;
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
-        overflow: hidden;
+        width: 200px;
+        padding: 0 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: var(--accent-1);
 
-        .component-content{
-            @include transition();
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            border-radius: 0;
-            box-shadow: none;
-            background: var(--accent-1);
-
-            @include button();
-
-            .text-container{
-                @include transition();
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 3;
-                height: 100%;
-                width: 200px;
-                padding: 0 30px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                background: var(--accent-1);
-
-                .text-section{
-                    display: flex;
-                    align-items: center;
-                    height: 40px;
-                    
-                    h3{
-                        margin-right: auto;
-                    }
-                }
-            }
-
-            .purchase-button{
-                @include transition();
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                height: 100%;
-                width: calc(100% - 200px);
-                margin-left: auto;
-                padding: 25px 50px;
-                
-                h4{
-                    margin-left: auto;
-                }
-            }
+        .text-section{
+          display: flex;
+          align-items: center;
+          height: 40px;
+          
+          h3{
+            margin-right: auto;
+          }
         }
+      }
+
+      .purchase-button{
+        @include transition();
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        width: calc(100% - 200px);
+        margin-left: auto;
+        padding: 25px 50px;
+        
+        h4{
+          margin-left: auto;
+        }
+      }
     }
+  }
 }

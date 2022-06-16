@@ -1,25 +1,19 @@
 import React, { useState, useEffect } from "react";
-
 import NavigationTheme from "./comp-navigation-theme";
 import NavigationStyle from "./comp-navigation-style";
-
 import './../styles/comp-navigation.scss';
-
 import * as u from '../scripts/utils'; 
 
 export default function Navigation(props) {
-
   const componentId = 'navigation';
   const componentBodyId = 'navigation-body';
   const defaultClass = 'component '+componentId+' ';
   const activeClass = 'active ';
-
   const [isActive, setIsActive] = useState(false);
   const [componentClass, setComponentClass] = useState(defaultClass);
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside.bind(this), true);
-
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);

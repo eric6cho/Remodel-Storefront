@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-
 import ProductPage from "./pages/page-product";
 import HomePage from "./pages/page-home";
 import ArticlePage from "./pages/page-article";
 import SavedPage from "./pages/page-saved";
 import CartPage from "./pages/page-cart";
 import PaymentPage from "./pages/page-payment";
-
 import * as u from '../scripts/utils'; 
 
 export default function Page(props) {
-  
   const [componentName] = useState('page ');
   const [componentClass] = useState('component '+componentName);
 

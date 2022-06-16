@@ -1,293 +1,289 @@
 @mixin themes(){
-    :root {
-        --image-overlay-default:rgb(25,25,25);
-        --image-overlay-gradient: linear-gradient(0deg, rgba(25,25,25,0.5) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.2) 85%, rgba(25,25,25,0.7) 100%);
-    }
+  :root {
+    --image-overlay-default:rgb(25,25,25);
+    --image-overlay-gradient: linear-gradient(0deg, rgba(25,25,25,0.5) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.2) 85%, rgba(25,25,25,0.7) 100%);
+  }
 }
 
 @mixin custom-scrollbar () {
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
-    
-    ::-webkit-scrollbar-track {
-        background: rgba(0,0,0,0);
-    }
-    
-    ::-webkit-scrollbar-thumb {
-        background: rgba(0,0,0,0.35);
-    }
-    
-    ::-webkit-scrollbar-thumb:hover {
-        background: rgba(0,0,0,0.5);
-    }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.35);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,0.5);
+  }
 }
 
 @mixin defaultText () {
-    color: var(--primary-text-color);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    
-      h1{
-        font-size: 26px;
-        font-weight: 100;
-        line-height: 30px;
-        letter-spacing: 10px;
-        text-transform: uppercase;
-        color: var(--text-2);
-        margin: 0; 
-    }
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  color: black;
 
-    h2{
-        font-size: 26px;
-        font-weight: 400;
-        line-height: 30px;
-        letter-spacing: 3px;
-        color: var(--text-1);
-        margin: 0;  
-    }   
+  h1,h2,h3,h4,p,span{
+    color: var(--text-2);
+    margin: 0;
+  }
 
-    h3{
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 24px;
-        letter-spacing: 1px;
-        color: var(--text-2);
-        margin: 0;  
-    }
+  h1{
+    font-size: 26px;
+    font-weight: 100;
+    line-height: 30px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+  }
 
-    h4{
-        font-size:13px;
-        font-weight: 600;
-        line-height: 18px;
-        letter-spacing: 2px;
-        color: var(--text-2);
-        margin: 0;
-    }
+  h2{
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 3px;
+    color: var(--text-1);
+  }   
 
-    p,span{
-        font-size: 13px;
-        font-weight: 400;
-        line-height: 18px;
-        letter-spacing: 1px;
-        color: var(--text-2);
-        margin: 0;
-    }
+  h3{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 1px;
+  }
 
-    .secondary{
-        color: rgba(100,100,100,1);
-        font-size: 11px;
-    }
+  h4{
+    font-size:13px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 2px;
+  }
+
+  p,span{
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 1px;
+  }
+
+  .secondary{
+      color: rgba(100,100,100,1);
+      font-size: 11px;
+  }
 }
 
 @mixin media-xs {
-    @media (max-width: 576px) { @content; }
+  @media (max-width: 576px) { @content; }
 }
 
 @mixin media-sm {
-    @media (min-width: 576px) { @content; }
+  @media (min-width: 576px) { @content; }
 }
 
 @mixin media-md {
-    @media (min-width: 768px) { @content; }
+  @media (min-width: 768px) { @content; }
 }
 
 @mixin media-lg {
-    @media (min-width: 992px) { @content; }
+  @media (min-width: 992px) { @content; }
 }
 
 @mixin media-xl {
-    @media (min-width: 1200px) { @content; }
+  @media (min-width: 1200px) { @content; }
 }
 
 @mixin media-xxl {
-    @media (min-width: 1400px) { @content; }
+  @media (min-width: 1400px) { @content; }
 }
 
 @mixin blur($blur:15){
-    -webkit-backdrop-filter: blur($blur + unquote("px"));
-    backdrop-filter: blur($blur + unquote("px"));
+  -webkit-backdrop-filter: blur($blur + unquote("px"));
+  backdrop-filter: blur($blur + unquote("px"));
 };
 
 @mixin transition ($duration:0.3) {
-    transition-duration: $duration + unquote("s");
+  transition-duration: $duration + unquote("s");
 }
 
 @mixin button() {
-    .button{
-        @include transition();
-        border: 2px solid var(--accent-2);
-        padding: 13px;
-        border-radius: 0;
-        cursor: pointer;
-        background: var(--accent-2);
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        &.secondary{
-            background: none;
-
-            h4{
-                color: var(--text-2);
-            }
-        }
-
-        &:hover{
-            background: var(--accent-3);
-            border: 2px solid  var(--accent-3);
-
-            h4{
-                color: var(--text-2);
-            }
-        }
-
-        h4{
-            color: var(--text-3);
-            font-size: 13px;
-            letter-spacing: 3px;
-            margin: 0;
-            text-transform: uppercase;
-            text-align: center;
-        }
-    } 
-}
-
-@mixin icon ($size:25){
+  .button{
     @include transition();
-    font-size: $size + unquote("px");
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    border: 2px solid rgba(0,0,0,0);
-    padding-left: 1.5px;
-    margin: 5px;
+    border: 2px solid var(--accent-2);
+    padding: 13px;
+    border-radius: 0;
     cursor: pointer;
+    background: var(--accent-2);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    @keyframes activeAnimation {
-        0% {
-            border: 2px solid var(--accent-4);
-            color: var(--accent-4);
-        }
-        20% {
-            border: 3px solid var(--accent-3);
-            color: var(--accent-3);
-        }
-        80% {
-            border: 3px solid var(--accent-3);
-            color: var(--accent-3);
-        }
-        100% {
-            border: 2px solid var(--accent-4);
-            color: var(--accent-4);
-        }
+    &.secondary{
+      background: none;
+
+      h4{
+        color: var(--text-2);
+      }
     }
 
     &:hover{
-        color: var(--accent-4);
-        border: 2px solid var(--accent-4);
+      background: var(--accent-3);
+      border: 2px solid  var(--accent-3);
+
+      h4{
+        color: var(--text-2);
+      }
     }
 
-    &:active{
-        animation: activeAnimation 0.3s 1;
+    h4{
+      color: var(--text-3);
+      font-size: 13px;
+      letter-spacing: 3px;
+      margin: 0;
+      text-transform: uppercase;
+      text-align: center;
     }
+  } 
+}
+
+@mixin icon ($size:25){
+  @include transition();
+  font-size: $size + unquote("px");
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,0);
+  padding-left: 1.5px;
+  margin: 5px;
+  cursor: pointer;
+
+  @keyframes activeAnimation {
+    0% {
+      border: 2px solid var(--accent-4);
+      color: var(--accent-4);
+    }
+    20% {
+      border: 3px solid var(--accent-3);
+      color: var(--accent-3);
+    }
+    80% {
+      border: 3px solid var(--accent-3);
+      color: var(--accent-3);
+    }
+    100% {
+      border: 2px solid var(--accent-4);
+      color: var(--accent-4);
+    }
+  }
+
+  &:hover{
+    color: var(--accent-4);
+    border: 2px solid var(--accent-4);
+  }
+
+  &:active{
+    animation: activeAnimation 0.3s 1;
+  }
 } 
 
 @mixin close-icon() {
-    .close-icon{
-        @include icon(22);
-        position: absolute;
-        top: 20px;
-        right: 17px;
-        color: white;
-        z-index: 10;
-        display: none;
+  .close-icon{
+    @include icon(22);
+    position: absolute;
+    top: 20px;
+    right: 17px;
+    color: white;
+    z-index: 10;
+    display: none;
 
-        &:hover{
-            border: 2px solid rgba(0,0,0,0);
-        }
+    &:hover{
+      border: 2px solid rgba(0,0,0,0);
     }
+  }
 }
 
 @mixin tags($border:var(--accent-2)) {
-    .tags{
-        display: flex;
-        margin-bottom: 10px;
+  .tags{
+    display: flex;
+    margin-bottom: 10px;
 
-        span{
-            padding: 3px 7px;
-            border-radius: 0;
-            border: 2px solid $border;
-            color: var(--text-2);
-            font-size: 11px;
-            font-weight: 500;
-            margin-right: 5px;
-        }
+    span{
+      padding: 3px 7px;
+      border-radius: 0;
+      border: 2px solid $border;
+      color: var(--text-2);
+      font-size: 11px;
+      font-weight: 500;
+      margin-right: 5px;
     }
+  }
 }
 
 @mixin reviews($color:var(--accent-2)) {    
-    .reviews{
-        display: flex;
-        align-items: center;
+  .reviews{
+    display: flex;
+    align-items: center;
 
-        p{
-            font-size: 12px;
+    p{
+      font-size: 12px;
 
-            &.review-count{
-                margin-left: 4px;
-            }
-        }
-
-        .star-container{
-            margin: 0 6px 2px;
-            position: relative;
-            margin-top: 1px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-
-            .star{
-                width: 8px;
-                height: 8px;
-                border-radius: 50%;
-                background: none;
-                margin-right: 4px;
-
-                &:last-child{
-                    margin-right: 0;    
-                }
-
-                &.full{
-                    background-color: $color;
-                }
-
-                &.partial{
-                    width: 4px;
-                    height: 8px;
-                    border-radius: 1000px 0 0 1000px;
-                    background-color: $color;
-                }
-            }
-        }
+      &.review-count{
+        margin-left: 4px;
+      }
     }
+
+    .star-container{
+      margin: 0 6px 2px;
+      position: relative;
+      margin-top: 1px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      .star{
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: none;
+        margin-right: 4px;
+
+        &:last-child{
+          margin-right: 0;    
+        }
+
+        &.full{
+          background-color: $color;
+        }
+
+        &.partial{
+          width: 4px;
+          height: 8px;
+          border-radius: 1000px 0 0 1000px;
+          background-color: $color;
+        }
+      }
+    }
+  }
 }
 
 @mixin image() {
-    img{
-        @include transition();
-        background: var(--base-2);
-        position: absolute;
-        height: 108%;
-        width: 108%;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        object-fit: cover;
-    }
+  img{
+    @include transition();
+    background: var(--base-2);
+    position: absolute;
+    height: 108%;
+    width: 108%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+  }
 }

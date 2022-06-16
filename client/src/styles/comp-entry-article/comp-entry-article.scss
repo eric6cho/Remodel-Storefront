@@ -2,329 +2,329 @@
 
 // component sizing
 .collection{
-    .content-grid{
-        .entry-list{
-            .component.entry-article{
-                width: calc(100% / 1);
-    
-                @include media-md{
-                    width: calc(100% / 1);
-                }
-                
-                @include media-lg{
-                    width: calc(100% / 2);
-                }
-            
-                @include media-xl{
-                    width: calc(100% / 2);
-                }
-    
-                @include media-xxl{
-                    width: calc(100% / 2);
-                }
-            }
-        } 
-    }
+  .content-grid{
+    .entry-list{
+      .component.entry-article{
+        width: calc(100% / 1);
 
-    .content-row{
-        .entry-list{
-            .component.entry-article{
-                width: calc(100% / 2);
-    
-                @include media-md{
-                    width: calc(100% / 1);
-                }
-                
-                @include media-lg{
-                    width: calc(100% / 2);
-                }
-            
-                @include media-xl{
-                    width: calc(100% / 2);
-                }
-    
-                @include media-xxl{
-                    width: calc(100% / 2);
-                }
-            }
-        } 
-    }
-
-    &.active{
-        .content-grid{
-            .entry-list{  
-                .component.entry-article{
-                    width: calc(100% / 1);
-                }
-            } 
+        @include media-md{
+          width: calc(100% / 1);
         }
+        
+        @include media-lg{
+          width: calc(100% / 2);
+        }
+    
+        @include media-xl{
+          width: calc(100% / 2);
+        }
+
+        @include media-xxl{
+          width: calc(100% / 2);
+        }
+      }
+    } 
+  }
+
+  .content-row{
+    .entry-list{
+      .component.entry-article{
+        width: calc(100% / 2);
+
+        @include media-md{
+          width: calc(100% / 1);
+        }
+        
+        @include media-lg{
+          width: calc(100% / 2);
+        }
+    
+        @include media-xl{
+          width: calc(100% / 2);
+        }
+
+        @include media-xxl{
+          width: calc(100% / 2);
+        }
+      }
+    } 
+  }
+
+  &.active{
+    .content-grid{
+      .entry-list{  
+        .component.entry-article{
+          width: calc(100% / 1);
+        }
+      } 
     }
+  }
 }
 
 // component general styling
 .component.entry-article{
-    @include transition();
-    height: 650px;
+  @include transition();
+  height: 650px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  .component-wrapper{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
     margin: 0;
-    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
     overflow: hidden;
 
-    .component-wrapper{
-        position: relative;
-        height: 100%;
-        width: 100%;
-        padding: 10px;
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
+    .component-content{
+      @include transition();
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 0;
+      box-shadow: none;
+
+      @include reviews(var(--light-1));
+      @include tags();
+      @include button();
+      @include close-icon();
+
+      .image-container,
+      .image-overlay{
+        @include transition();
         overflow: hidden;
+        position: absolute;
+        height: 400px;
+        width: 100%;
+        top: 0px;
+        left: 0px;
+        border-radius: 0; 
+        background: none;  
+        z-index: 1;
 
-        .component-content{
-            @include transition();
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            border-radius: 0;
-            box-shadow: none;
+        @include image();
+      }
 
-            @include reviews(var(--light-1));
-            @include tags();
-            @include button();
-            @include close-icon();
+      .image-overlay{
+        z-index: 2;
+        background: rgba(0,0,0,0.2);
+      }
 
-            .image-container,
-            .image-overlay{
-                @include transition();
-                overflow: hidden;
-                position: absolute;
-                height: 400px;
-                width: 100%;
-                top: 0px;
-                left: 0px;
-                border-radius: 0; 
-                background: none;  
-                z-index: 1;
+      .text-container{
+        @include transition();
+        position: absolute;
+        height: calc(100% - 400px);
+        width: 100%; 
+        background: none;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 3;
 
-                @include image();
-            }
+        .text-container-inner{
+          overflow-y: scroll;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          padding: 20px 0; 
+        }                
+        
+        .title-container{
+          .title{
+            font-weight: 500;
+            color: var(--text-2);
+            font-size: 18px;
+            letter-spacing: 1px;
+            line-height: 24px;
+            margin-bottom: 0px;
+          }
 
-            .image-overlay{
-                z-index: 2;
-                background: rgba(0,0,0,0.2);
-            }
-
-            .text-container{
-                @include transition();
-                position: absolute;
-                height: calc(100% - 400px);
-                width: 100%; 
-                background: none;
-                bottom: 0;
-                right: 0;
-                border-radius: 0;
-                display: flex;
-                flex-direction: column;
-                overflow: hidden;
-                z-index: 3;
-
-                .text-container-inner{
-                    overflow-y: scroll;
-                    height: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    position: relative;
-                    padding: 20px 0; 
-                }                
-               
-                .title-container{
-                    .title{
-                       font-weight: 500;
-                       color: var(--text-2);
-                       font-size: 18px;
-                       letter-spacing: 1px;
-                       line-height: 24px;
-                       margin-bottom: 0px;
-                    }
-
-                    .category{
-                        margin-bottom: 15px;
-                    }
-                }
-
-                p,.text{
-                    font-weight: 400;
-                    margin-bottom: 10px;
-                    color: var(--text-2);
-                    font-size: 13px;
-                    letter-spacing: 1px;
-                    line-height: 18px;
-                }
-
-                .text{
-                    display: none;
-                }
-            }
-
-            .preview-button-container{
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                width: 100%;
-                display: flex;
-            }
-
-            .button{
-                width: 100%;
-                justify-content: end;
-            }
-
-            .active-icon-container{
-                position: absolute;
-                top: 30px;
-                right: 30px;
-                display: none;
-                
-                .icon{
-                    @include icon(22);
-                    color: var(--accent-2);
-                }
-            }
+          .category{
+            margin-bottom: 15px;
+          }
         }
+
+        p,.text{
+          font-weight: 400;
+          margin-bottom: 10px;
+          color: var(--text-2);
+          font-size: 13px;
+          letter-spacing: 1px;
+          line-height: 18px;
+        }
+
+        .text{
+          display: none;
+        }
+      }
+
+      .preview-button-container{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        display: flex;
+      }
+
+      .button{
+        width: 100%;
+        justify-content: end;
+      }
+
+      .active-icon-container{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        display: none;
+        
+        .icon{
+          @include icon(22);
+          color: var(--accent-2);
+        }
+      }
     }
+  }
 }
 
 // component active styling
 .component.entry-article{
-    &.active{
-        .component-wrapper{
-            .component-content{
-                @include tags();
-                @include button();
+  &.active{
+    .component-wrapper{
+      .component-content{
+        @include tags();
+        @include button();
 
-                .image-container,
-                .image-overlay{
-                    height: 600px;
-                    width: 100%;
-                }
-
-                .image-container{
-                    z-index: 1;
-                }
-
-                .image-overlay{
-                    z-index: 2;
-                    background: var(--image-overlay-default);
-                    background: var(--image-overlay-gradient);
-                }
-
-                .text-container{
-                    height: calc(100% - 600px);
-                    background: var(--base-2);
-                    display: block;
-
-                    .text-container-inner{
-                        padding: 50px;
-                    }
-
-                    .title{
-                        margin-bottom: 35px;
-                    }
-
-                    p{
-                        line-height: 22px;
-                        margin-bottom: 30px;
-                    }
-                
-                    .text{
-                        display: block;
-                        margin-bottom: 0px;
-                    }
-                    
-                    .tags{
-                        margin-bottom: 30px;
-                    }
-
-                    .read-more{
-                        display: none;
-                    }
-                }
-
-                .preview-button-container{
-                    display: none;
-                }
-
-                .active-icon-container,
-                .close-icon{
-                    display: flex;
-                } 
-            }
+        .image-container,
+        .image-overlay{
+          height: 600px;
+          width: 100%;
         }
+
+        .image-container{
+          z-index: 1;
+        }
+
+        .image-overlay{
+          z-index: 2;
+          background: var(--image-overlay-default);
+          background: var(--image-overlay-gradient);
+        }
+
+        .text-container{
+          height: calc(100% - 600px);
+          background: var(--base-2);
+          display: block;
+
+          .text-container-inner{
+            padding: 50px;
+          }
+
+          .title{
+            margin-bottom: 35px;
+          }
+
+          p{
+            line-height: 22px;
+            margin-bottom: 30px;
+          }
+      
+          .text{
+            display: block;
+            margin-bottom: 0px;
+          }
+          
+          .tags{
+            margin-bottom: 30px;
+          }
+
+          .read-more{
+            display: none;
+          }
+        }
+
+        .preview-button-container{
+          display: none;
+        }
+
+        .active-icon-container,
+        .close-icon{
+          display: flex;
+        } 
+      }
     }
+  }
 }
 
 // component hover effects
 .component.entry-article{
-    &:not(.active){
-        .component-wrapper{
-            &:hover{
-                background: var(--light-1);
+  &:not(.active){
+    .component-wrapper{
+      &:hover{
+        background: var(--light-1);
 
-                .component-content{
-                    .image-container{
-                        img{
-                            height: 100%;
-                            width: 100%;
-                        }
-                    }
-
-                    .image-overlay{
-                        background: none;
-                    }
-                }
+        .component-content{
+          .image-container{
+            img{
+              height: 100%;
+              width: 100%;
             }
+          }
+
+          .image-overlay{
+            background: none;
+          }
         }
+      }
     }
+  }
 }
 
 // component active styling inside of content-row
 .component.collection{
-    .content-row{
-        .active-entry{
-            .component.entry-article{   
-                .component-wrapper{
-                    .component-content{
-                        .image-container,
-                        .image-overlay{
-                            top:0;
-                            right:0;
-                            left:50%;
-                            height:100%;
-                            width:50%;
-                            border-radius: 0;
-                        }
-                        
-                        .text-container{
-                            bottom:0;
-                            top:0;
-                            left:0;
-                            height:100%;
-                            width:50%;
-                            border-radius: 0;
-                            padding:0;
-
-                            .text-container-inner{
-                                padding:40px;
-                            }
-                        }
-
-                        .close-icon{
-                            top: 20px;
-                            right: 20px;
-                        }
-                    }
-                }
+  .content-row{
+    .active-entry{
+      .component.entry-article{   
+        .component-wrapper{
+          .component-content{
+            .image-container,
+            .image-overlay{
+              top:0;
+              right:0;
+              left:50%;
+              height:100%;
+              width:50%;
+              border-radius: 0;
             }
+            
+            .text-container{
+              bottom:0;
+              top:0;
+              left:0;
+              height:100%;
+              width:50%;
+              border-radius: 0;
+              padding:0;
+
+              .text-container-inner{
+                padding:40px;
+              }
+            }
+
+            .close-icon{
+              top: 20px;
+              right: 20px;
+            }
+          }
         }
+      }
     }
+  }
 }

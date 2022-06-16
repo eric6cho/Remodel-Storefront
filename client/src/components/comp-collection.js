@@ -1,25 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
-
 import Product from "./comp-entry-product";
 import Article from "./comp-entry-article";
 import User from "./comp-entry-user";
 import Cart from "./comp-entry-cart";
-
+import './../styles/comp-collection/comp-collection.scss';
 import * as u from '../scripts/utils'; 
 
-import './../styles/comp-collection/comp-collection.scss';
-
 export default function Collection(props) {
-
   const [activeData, setActiveData] = useState(null);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [style, setStyle] = useState(null);
-
   const [componentName] = useState('collection');
   const [componentClass,setComponentClass] = useState('component '+componentName+' '+(props.data['componentData']['isNarrow']?' narrow ':' full ')+(activeData?' active ':''));
-
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [style, setStyle] = useState(null);
   const [rowLength,setRowLength] = useState(props.data['componentData']['rowLength']);
-
   const [width, setWidth] = useState(0);
   const ref = useRef(null);
 
@@ -34,7 +27,6 @@ export default function Collection(props) {
     let timeout = false;
     window.addEventListener('resize', resizeAction);
     setComponentWidth();
-
     return () => {};
   }, []);
 
@@ -44,19 +36,15 @@ export default function Collection(props) {
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   
   useEffect(() => { 
-    
     adjustRowLength();
-    
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width]);
 
   useEffect(() => { 
     setComponentClass('component '+componentName+' '+(props.data['componentData']['isNarrow']?' narrow ':' full ')+(activeData?' active ':''));
-  
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeData]);
@@ -68,12 +56,8 @@ export default function Collection(props) {
 
     if(breakpoint===u.SM)newRowLength=2;
     if(breakpoint===u.XS)newRowLength=1;
-    
 
     setRowLength(newRowLength);
-
-    console.log(rowLength);
-    console.log(props.data['componentData']['contentType'],props.data['componentData']['listType'],defaultRowLength,newRowLength,width,breakpoint);
   };
 
   const getContent = (idList, allContentData, source, contentType) => {
@@ -128,82 +112,78 @@ export default function Collection(props) {
     setActiveSlide(slide);
   };
 
-    const getComponent = () => {
-      let componentData = props.data['componentData'];
-      let contentData = props.data['contentData'];
-      let events = props.events;
-      let requiredData = [componentData,contentData];
-      if(!u.isRequiredDataValid(requiredData)) return null;
+  const getComponent = () => {
+    let componentData = props.data['componentData'];
+    let contentData = props.data['contentData'];
+    let events = props.events;
+    let requiredData = [componentData,contentData];
+    if(!u.isRequiredDataValid(requiredData)) return null;
 
-      let contentIdList = componentData['content'];
-      let contentType = componentData['contentType'];
-      let collectionType = componentData['listType'];
-      let source = componentData['source'];
-      let isClickable = componentData['isClickable'];
-      let title = componentData['title'];
-      let subtitle = componentData['subtitle'];
-      let description = componentData['description'];
-     // let rowLength = componentData['rowLength'];
-      let contentLength = contentIdList.length;
+    let contentIdList = componentData['content'];
+    let contentType = componentData['contentType'];
+    let collectionType = componentData['listType'];
+    let source = componentData['source'];
+    let isClickable = componentData['isClickable'];
+    let title = componentData['title'];
+    let subtitle = componentData['subtitle'];
+    let description = componentData['description'];
+    let contentLength = contentIdList.length;
 
-      let content = getContent(contentIdList,contentData,source,contentType);
-      let entries = getEntries(content,contentData,contentType,source,isClickable,false,events);
-      let activeEntry = getEntries(activeData,contentData,contentType,source,isClickable,true,events);
-    
-      let sliderStyle = 
-        collectionType!=='content-row'?null:{
-          'width':'calc(100% /'+rowLength+' *'+contentLength+')',
-          'marginLeft': 'calc('+(activeSlide * -100).toString()+'% / '+rowLength+')',
-        };
+    let content = getContent(contentIdList,contentData,source,contentType);
+    let entries = getEntries(content,contentData,contentType,source,isClickable,false,events);
+    let activeEntry = getEntries(activeData,contentData,contentType,source,isClickable,true,events);
+  
+    let sliderStyle = 
+      collectionType!=='content-row'?null:{
+        'width':'calc(100% /'+rowLength+' *'+contentLength+')',
+        'marginLeft': 'calc('+(activeSlide * -100).toString()+'% / '+rowLength+')',
+      };
 
+    let textContainer = 
+      <div className="text-container">
+        <div className="text-container-inner">
+          <h2 className="title">{title}</h2>
+          <h3 className="subtitle">{subtitle}</h3>
+          <p className="description">{description}</p>
+        </div>
+      </div>;
 
+    let arrowControls = 
+      <div className="arrow-controls">
+        <div className="arrow-left" onClick={()=>goToSlide(activeSlide-1,rowLength,contentLength)}></div>
+        <div className="arrow-right" onClick={()=>goToSlide(activeSlide+1,rowLength,contentLength)}></div>
+      </div>;
 
-
-      let textContainer = 
-        <div className="text-container">
-          <div className="text-container-inner">
-            <h2 className="title">{title}</h2>
-            <h3 className="subtitle">{subtitle}</h3>
-            <p className="description">{description}</p>
-          </div>
-        </div>;
-
-      let arrowControls = 
-        <div className="arrow-controls">
-          <div className="arrow-left" onClick={()=>goToSlide(activeSlide-1,rowLength,contentLength)}></div>
-          <div className="arrow-right" onClick={()=>goToSlide(activeSlide+1,rowLength,contentLength)}></div>
-        </div>;
-
-      let listContent = 
-        <div className={collectionType}>
-          <div className="entry-list-wrapper">
-            <div className="entry-list">
-              <div className="slider" style={sliderStyle}>
-                {entries}
-              </div>
-            </div>
-            {arrowControls}
-          </div>
-          <div className="active-entry">{activeEntry}</div>
-        </div>;                
-
-      let componentContent = 
-        <>
-          {textContainer}
-          {listContent}
-        </>;
-
-      let component = 
-        <div className={componentClass} ref={ref}>
-          <div className="component-wrapper">
-            <div className="component-content">
-              {componentContent}
+    let listContent = 
+      <div className={collectionType}>
+        <div className="entry-list-wrapper">
+          <div className="entry-list">
+            <div className="slider" style={sliderStyle}>
+              {entries}
             </div>
           </div>
-        </div>;
+          {arrowControls}
+        </div>
+        <div className="active-entry">{activeEntry}</div>
+      </div>;                
 
-      return component;
-    };
+    let componentContent = 
+      <>
+        {textContainer}
+        {listContent}
+      </>;
 
-    return getComponent();
+    let component = 
+      <div className={componentClass} ref={ref}>
+        <div className="component-wrapper">
+          <div className="component-content">
+            {componentContent}
+          </div>
+        </div>
+      </div>;
+
+    return component;
+  };
+
+  return getComponent();
 }

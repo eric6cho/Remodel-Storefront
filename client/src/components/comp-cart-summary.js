@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-
 import './../styles/comp-cart-summary/comp-cart-summary.scss';
 import './../styles/comp-cart-summary/comp-cart-summary-variations.scss';
 
 export default function CartSummary(props) {
-
   const [componentName] = useState('cart-summary');
   const [componentClass] = useState('component '+componentName);
     

@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-
 import Banner from '../comp-banner';
 import Collection from "../comp-collection";
-
 import * as u from '../../scripts/utils'; 
 
 export default function HomePage(props) {
@@ -40,11 +38,8 @@ export default function HomePage(props) {
     };
 
     let banner = <Banner data={bannerData} events={events}/>;
-    
     let products = <Collection data={productData} events={events}/>;
-
     let articles = <Collection data={articleData} events={events}/>;
-
     let users = <Collection data={userData} events={events}/>;
 
     let component = 

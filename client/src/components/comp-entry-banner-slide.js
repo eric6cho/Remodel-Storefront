@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-
 import './../styles/comp-entry-banner-slide/comp-entry-banner-slide.scss';
 import './../styles/comp-entry-banner-slide/comp-entry-banner-slide-variations.scss';
-
 import * as u from '../scripts/utils'; 
 
 export default function BannerSlide(props) {
-
   const [componentName] = useState('entry-banner-slide');
   const [componentClass] = useState('component '+componentName);
   

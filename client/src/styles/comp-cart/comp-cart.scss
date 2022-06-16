@@ -2,40 +2,40 @@
 
 // component general styling
 .component.cart{
-    @include transition(); 
+  @include transition(); 
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: calc(100% / 1);
+
+  &>.component-wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
     margin: 0;
-    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
     overflow: hidden;
-    width: calc(100% / 1);
 
-    &>.component-wrapper{
-        position: relative;
+    &>.component-content{
+      @include transition();
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 0;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+
+      .cart-summary-container{
+        margin: 0 auto;
         width: 100%;
-        height: 100%;
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
-        overflow: hidden;
+      }
 
-        &>.component-content{
-            @include transition();
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            border-radius: 0;
-            box-shadow: none;
-            display: flex;
-            flex-direction: column;
-
-            .cart-summary-container{
-                margin: 0 auto;
-                width: 100%;
-            }
-
-            .component.collection .entry-list{
-                padding-bottom: 0;
-            }
-        }
+      .component.collection .entry-list{
+        padding-bottom: 0;
+      }
     }
+  }
 }

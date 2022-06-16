@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-
 import Banner from '../comp-banner';
 import Collection from "../comp-collection";
-
 import * as u from '../../scripts/utils'; 
 
 export default function SavedPage(props) {
@@ -13,7 +11,6 @@ export default function SavedPage(props) {
   }, []);
 
   const getComponent = () => {
-   
     let pageData = props.data['pageData']['data'];
     let contentData = props.data['contentData'];
     let events = props.events;
@@ -35,9 +32,7 @@ export default function SavedPage(props) {
     };
   
     let banner = <Banner data={bannerData} events={events}/>;
-    
     let products = <Collection data={productData} events={events}/>;
-
     let articles = <Collection data={articleData} events={events}/>;
     
     let component = 

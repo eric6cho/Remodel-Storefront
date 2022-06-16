@@ -4,58 +4,56 @@
 @include themes();
 
 body {
-    @include defaultText(); 
+  @include defaultText(); 
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background: var(--base-1);
+
+  .App{
     position: relative;
-    margin: 0;
-    padding: 0;
-    background: var(--base-1);
 
-    .App{
-        position: relative;
-
-        .icon{
-            @include icon();
-        }
-
-        .loading-screen{
-            background: white;
-            padding: 50px;
-            margin: auto;
-            border-radius: 6px;
-
-            h1{
-                text-align: center;
-                margin-bottom: 30px;
-            }
-
-            p{
-                margin: 10px 0;
-            }
-
-            .inline-error{
-                color: rgba(255,120,140,1);
-                margin: 0 10px;
-                font-weight: 600;
-            }
-        }
-
-        .component.page{
-            display: flex;
-            flex-direction: column;
-        }
-
-              
-      .component.narrow{
-        width: calc(100% - 70px);
-        margin: 0 auto;
-
-        @include media-md {
-            width: calc(100% - 150px);
-        }
-
-        @include media-lg {
-            width: 80%;
-        }
-      } 
+    .icon{
+      @include icon();
     }
+
+    .loading-screen{
+      background: white;
+      padding: 50px;
+      margin: auto;
+
+      h1{
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      p{
+        margin: 10px 0;
+      }
+
+      .inline-error{
+        color: red;
+        margin: 10px;
+        font-weight: 600;
+      }
+    }
+
+    .component.page{
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .component.narrow{
+      width: calc(100% - 70px);
+      margin: 0 auto;
+
+      @include media-md {
+          width: calc(100% - 150px);
+      }
+
+      @include media-lg {
+          width: 80%;
+      }
+    } 
+  }
 }

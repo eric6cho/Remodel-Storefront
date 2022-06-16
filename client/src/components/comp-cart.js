@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
-
 import Collection from "./comp-collection";
 import CartSummary from "./comp-cart-summary";
-
 import './../styles/comp-cart/comp-cart.scss';
 import './../styles/comp-cart/comp-cart-variations.scss';
-
 import * as u from './../scripts/utils'; 
 
 export default function Cart(props) {
-
   const [componentName] = useState('cart');
   const [componentClass] = useState('component '+componentName+' narrow');
     
@@ -25,10 +21,8 @@ export default function Cart(props) {
     if(!u.isRequiredDataValid(requiredData)) return null;
 
     data['componentData']['isNarrow']=false;
-
     let cartProducts = data['contentData']['cart']['product'];
     let siteProducts = data['contentData']['site']['product'];
-    
     let totalPrices = 0;
     let totalItems = 0;
 
@@ -40,6 +34,7 @@ export default function Cart(props) {
     });
     
     let cartEntries = <Collection data={data} events={events}/>;
+    
     let cartSummary = 
       <div className="cart-summary-container">
         <CartSummary items={totalItems} total={u.formatPrice(totalPrices)} events={events}/>

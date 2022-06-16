@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import Banner from "../comp-banner";
 import Cart from "../comp-cart";
-
 import * as u from '../../scripts/utils'; 
 
 export default function CartPage(props) {
@@ -13,7 +11,6 @@ export default function CartPage(props) {
   }, []);
 
   const getComponent = () => {
-
     let pageData = props.data['pageData']['data'];
     let contentData = props.data['contentData'];
     let events = props.events;
@@ -30,7 +27,6 @@ export default function CartPage(props) {
     };
 
     let banner = <Banner data={bannerData} events={events}/>;
-
     let cart = <Cart data={cartData} events={events}/>;
 
     let component = 
