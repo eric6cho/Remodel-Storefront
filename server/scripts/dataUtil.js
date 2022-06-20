@@ -429,51 +429,60 @@ const getThemes = () => {
     themes['light-frost']['--accent-3'] = 'rgba(225,250,255,1)';
     themes['light-frost']['--accent-4'] = 'rgba(90,110,150,1)';
     themes['light-frost']['--accent-5'] = 'rgba(50,70,80,1)';
+    themes['light-frost']['--accent-6'] = 'rgba(100,100,100,1)';
 
     themes['light-cerulean']['--accent-1'] = 'rgba(200,180,170,1)';
     themes['light-cerulean']['--accent-2'] = 'rgba(105,135,170,1)';
     themes['light-cerulean']['--accent-3'] = 'rgba(190,225,255,1)';
     themes['light-cerulean']['--accent-4'] = 'rgba(55,70,115,1)';
     themes['light-cerulean']['--accent-5'] = 'rgba(40,45,65,1)';
+    themes['light-cerulean']['--accent-6'] = 'rgba(100,100,100,1)';
 
     themes['light-botanical']['--accent-1'] = 'rgba(180,190,180,1)';
     themes['light-botanical']['--accent-2'] = 'rgba(75,115,110,1)';
     themes['light-botanical']['--accent-3'] = 'rgba(180,230,215,1)';
     themes['light-botanical']['--accent-4'] = 'rgba(95,165,145,1)';
     themes['light-botanical']['--accent-5'] = 'rgba(40,70,60,1)';
+    themes['light-botanical']['--accent-6'] = 'rgba(100,100,100,1)';
 
     themes['light-lavender']['--accent-1'] = 'rgba(190,185,200,1)';
     themes['light-lavender']['--accent-2'] = 'rgba(125,110,150,1)';
     themes['light-lavender']['--accent-3'] = 'rgba(245,210,180,1)';
     themes['light-lavender']['--accent-4'] = 'rgba(120,120,190,1)';
     themes['light-lavender']['--accent-5'] = 'rgba(90,70,80,1)';
+    themes['light-lavender']['--accent-6'] = 'rgba(100,100,100,1)';
 
     themes['light-tangerine']['--accent-1'] = 'rgba(230,220,210,1)';
     themes['light-tangerine']['--accent-2'] = 'rgba(220,160,125,1)';
     themes['light-tangerine']['--accent-3'] = 'rgba(255,205,150,1)';
     themes['light-tangerine']['--accent-4'] = 'rgba(215,150,135,1)';
     themes['light-tangerine']['--accent-5'] = 'rgba(90,70,50,1)';
+    themes['light-tangerine']['--accent-6'] = 'rgba(100,100,100,1)';
 
     themes['light-horizon']['--accent-1'] = 'rgba(180,190,200,1)';
     themes['light-horizon']['--accent-2'] = 'rgba(80,105,130,1)';
     themes['light-horizon']['--accent-3'] = 'rgba(250,210,200,1)';
     themes['light-horizon']['--accent-4'] = 'rgba(240,120,100,1)';
     themes['light-horizon']['--accent-5'] = 'rgba(75,70,80,1)';
+    themes['light-horizon']['--accent-6'] = 'rgba(100,100,100,1)';
 
     themes['dark-botanical']['--accent-2'] = 'rgba(75,115,110,1)';
     themes['dark-botanical']['--accent-3'] = 'rgba(180,230,215,1)';
     themes['dark-botanical']['--accent-4'] = 'rgba(95,165,145,1)';
     themes['dark-botanical']['--accent-5'] = 'rgba(40,70,60,1)';
+    themes['dark-botanical']['--accent-6'] = 'rgba(100,100,100,1)';
     
     themes['dark-cerulean']['--accent-2'] = 'rgba(105,135,170,1)';
     themes['dark-cerulean']['--accent-3'] = 'rgba(190,225,255,1)';
     themes['dark-cerulean']['--accent-4'] = 'rgba(55,70,115,1)';
     themes['dark-cerulean']['--accent-5'] = 'rgba(40,45,65,1)';
+    themes['dark-cerulean']['--accent-6'] = 'rgba(100,100,100,1)';
 
     themes['dark-lavender']['--accent-2'] = 'rgba(125,100,150,1)';
     themes['dark-lavender']['--accent-3'] = 'rgba(245,210,180,1)';
     themes['dark-lavender']['--accent-4'] = 'rgba(215,185,195,1)';
     themes['dark-lavender']['--accent-5'] = 'rgba(90,70,80,1)';
+    themes['dark-lavender']['--accent-6'] = 'rgba(100,100,100,1)';
 
     return themes;
 };

@@ -10,7 +10,7 @@ export default function BannerSlide(props) {
   useEffect(() => {
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.width]);
+  }, []);
 
   const getComponent = () => {
     let requiredData = [props.title,props.image,props.description];
@@ -25,14 +25,15 @@ export default function BannerSlide(props) {
       </div>;
 
     let textContainer = 
-      <div className="text-container">
-        <div className="text-container-inner"> 
-          <div className="background-lower"></div>
-          <div className="background-upper"></div>
+      <div className="text-container-wrapper">
+        <div className="text-container">
+          <div className="text-background"></div>
           <div className="border-left"></div>
           <div className="border-right"></div>
-          <h3>{props.title}</h3>
-          <p>{props.description}</p>
+          <div className="text-foreground"> 
+            <h3>{props.title}</h3>
+            <p>{props.description}</p>
+          </div>
         </div>
       </div>;
 
