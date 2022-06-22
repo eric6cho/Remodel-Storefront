@@ -1,14 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-
-import Navigation from "./components/comp-navigation";
+import NavBar from "./components/comp-nav-bar";
 import Page from "./components/comp-page";
-
 import * as u from './scripts/utils'; 
 
 export default function App() {
-  
   const appTitle = 'Re-Model';
-
   const [pageData, setPageData] = useState({});
   const [contentData, setContentData] = useState({});
   const [styleData, setStyleData] = useState(null);
@@ -184,7 +180,7 @@ export default function App() {
       'activePage':activePage,
     };
       
-    let navigation = <Navigation data={data} events={events}/>;
+    let navigation = <NavBar data={data} events={events}/>;
 
     let mainContent = <Page data={data} events={events}/>;
 

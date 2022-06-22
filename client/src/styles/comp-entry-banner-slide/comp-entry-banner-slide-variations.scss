@@ -218,6 +218,46 @@
 
       .text-container{ 
         box-shadow: none; 
+        padding:0;
+        
+        .border-left,.border-right{
+          display: none;
+        }
+        
+        .text-background{
+          background: var(--accent-4);
+          opacity: 0.3;
+          
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+        }
+
+        .text-foreground{
+          @include blur(5);
+          background: rgba(50,50,50,0.3);
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+          
+          p,h3{
+            color:white;
+          }
+        }
+      }
+    }
+  }
+
+  &.monochrome{
+    .component.entry-banner-slide{
+      .text-container-wrapper{
+        .text-container{ 
+          .text-background{
+            background: var(--base-2);
+          }
+        }
       }
     }
   }

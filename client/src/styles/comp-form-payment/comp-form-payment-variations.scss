@@ -65,18 +65,10 @@
   }
 }
 
-.raised,.float{
-  .component.form-payment{   
-    .component-wrapper{
-      margin: 20px;
-      height: calc(100% - 40px);
-      width: calc(100% - 40px);
-    }
-  }
-}
-
 .raised{
   .component.form-payment{   
+    padding: 20px;
+
     .component-wrapper{
       box-shadow: var(--shadow-1);
     }
@@ -85,6 +77,8 @@
 
 .float{
   .component.form-payment{   
+    padding: 20px;
+
     .component-wrapper{
       box-shadow: var(--shadow-2);
     }

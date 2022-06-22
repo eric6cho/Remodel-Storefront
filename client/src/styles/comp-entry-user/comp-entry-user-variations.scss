@@ -45,18 +45,10 @@
   }
 }
 
-.raised,.float{
-  .component.entry-user{
-    .component-wrapper{
-      margin: 20px;
-      height: calc(100% - 40px);
-      width: calc(100% - 40px);
-    }
-  }
-}
-
 .raised{
   .component.entry-user{
+    padding: 20px;
+
     .component-wrapper{
       box-shadow: var(--shadow-1);
     }
@@ -65,6 +57,8 @@
 
 .float{
   .component.entry-user{
+    padding: 20px;
+
     .component-wrapper{
       box-shadow: var(--shadow-2);
     }

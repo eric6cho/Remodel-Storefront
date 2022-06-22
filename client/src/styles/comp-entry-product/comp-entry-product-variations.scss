@@ -40,32 +40,30 @@
   }
 }
 
-.raised,.float{
-  .component.entry-product{
-    .component-wrapper{
-      margin: 20px;
-      height: calc(100% - 40px);
-      width: calc(100% - 40px);
-
-      .preview-icon-container{
-        top:90px;
-      }
-    }
-  }
-}
-
 .raised{
   .component.entry-product{
+    padding: 20px;
+
     .component-wrapper{
       box-shadow: var(--shadow-1);
+      
+      .preview-icon-container{
+        top:95px;
+      }
     }
   }
 }
 
 .float{
   .component.entry-product{
+    padding: 20px;
+
     .component-wrapper{
       box-shadow: var(--shadow-2);
+      
+      .preview-icon-container{
+        top:95px;
+      }
     }
   }
 }

@@ -51,11 +51,9 @@
 
 .raised,.float{
   .component.entry-article{
-    .component-wrapper{
-      margin: 20px;
-      height: calc(100% - 40px);
-      width: calc(100% - 40px);
+    padding: 20px;
 
+    .component-wrapper{
       .image-container,
       .image-overlay{  
         height: 360px;

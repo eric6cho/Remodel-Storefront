@@ -53,18 +53,10 @@
   }
 }
 
-.raised,.float{
-  .component.entry-cart{
-    .component-wrapper{
-      margin: 20px;
-      height: calc(100% - 40px);
-      width: calc(100% - 40px);
-    }
-  }
-}
-
 .raised{
   .component.entry-cart{
+    padding: 20px;
+
     .component-wrapper{
       box-shadow: var(--shadow-1);
     }
@@ -73,6 +65,8 @@
 
 .float{
   .component.entry-cart{
+    padding: 20px;
+
     .component-wrapper{
       box-shadow: var(--shadow-2);
     }

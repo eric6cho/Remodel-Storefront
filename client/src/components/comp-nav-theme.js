@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import './../styles/comp-navigation.scss';
+import './../styles/comp-nav-theme/comp-nav-theme.scss';
+import './../styles/comp-nav-theme/comp-nav-theme-variations.scss';
 import * as u from '../scripts/utils'; 
 
-export default function NavigationTheme(props) {
+export default function NavTheme(props) {
   const defaultClass = 'component nav-theme ';
   const activeClass = 'active ';
   const [isActive, setIsActive] = useState(props.data['isActive']);
@@ -27,26 +28,34 @@ export default function NavigationTheme(props) {
     let requiredData = [componentData,title];
     if(!u.isRequiredDataValid(requiredData)) return null;
 
-    let headerSection = 
-      <div className="theme-preview">
-        <div className="theme">
-          <h4 className="title">{title}</h4>
-          <div className="color-list">
-            <div className="color" style={{'background':componentData['--base-1']}}></div>
-            <div className="color" style={{'background':componentData['--accent-1']}}></div>
-            <div className="color" style={{'background':componentData['--accent-2']}}></div>
-            <div className="color" style={{'background':componentData['--accent-3']}}></div>
-            <div className="color" style={{'background':componentData['--accent-4']}}></div>
-            <div className="color" style={{'background':componentData['--accent-5']}}></div>
+    let themeColors = ['--base-1','--accent-1','--accent-2','--accent-3','--accent-4','--accent-5'];
+    let themeColorList = themeColors.map(color=><div className="color" style={{'background':componentData[color]}}></div>);
+
+    let themeContainer = 
+      <div className="theme-container" onClick={()=>toggleActive()}>
+        <h4 className="title">
+          {title}
+        </h4>
+        <div className="color-list">
+          {themeColorList}
+        </div>
+      </div>;
+ 
+    let componentContent = 
+      <>
+        {themeContainer}
+      </>;
+
+    let component = 
+      <div className={componentClass}>
+        <div className="component-wrapper">
+          <div className="component-content">
+            {componentContent}
           </div>
         </div>
       </div>;
-  
-    return (
-      <div className={componentClass} onClick={()=>toggleActive()}>
-        {headerSection}
-      </div>
-    );
+
+    return component;
   }
 
   return getComponent();

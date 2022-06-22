@@ -38,20 +38,11 @@
   }
 }
 
-.raised,.float{
-  .component.cart-summary{
-    height:160px;
-
-    .component-wrapper{
-      margin: 20px;
-      height: calc(100% - 40px);
-      width: calc(100% - 40px);
-    }
-  }
-}
-
 .raised{
   .component.cart-summary{
+    height:160px;
+    padding:20px;
+
     .component-wrapper{
       box-shadow: var(--shadow-1);
     }
@@ -60,6 +51,9 @@
 
 .float{
   .component.cart-summary{
+    height:160px;
+    padding:20px;
+
     .component-wrapper{
       box-shadow: var(--shadow-2);
     }
@@ -143,7 +137,6 @@
     }
   }
 }
-
 
 .image-wrapper{
   .component.cart-summary{
