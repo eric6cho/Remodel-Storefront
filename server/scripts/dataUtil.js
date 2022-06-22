@@ -392,9 +392,8 @@ const getThemes = () => {
         '--light-1': 'rgba(255,255,255,0.2)', // white transparent
         '--glass-1': 'rgba(30,30,30,0.8)',
         '--border-1': '2px solid rgba(90,90,100,0.5)', // grey transparent
-        '--shadow-1': '7px 7px 14px #151718, -7px -7px 14px #313538', // darker grey shadow
-        '--shadow-2': ' 7px 7px 9px #282a2c, -7px -7px 9px #3c4042', // dark grey shadow
-        '--shadow-3': 'inset 7px 7px 9px #282a2c, inset -7px -7px 9px #3c4042', // dark grey shadow inset
+        '--shadow-raised': ' 3px 3px 6px #88888888, -3px -3px 6px #fafafa88', // raised shadow
+        '--shadow-float': '1px 3px 6px 2px #00000022', // floating shadow
     };
 
     let lightThemeDefaultColors = {
@@ -407,9 +406,8 @@ const getThemes = () => {
         '--light-1': 'rgba(255,255,255,0.8)', // white transparent
         '--glass-1': 'rgba(245,245,245,0.8)',
         '--border-1': '2px solid rgba(90,90,100,0.5)', // grey transparent
-        '--shadow-1': '7px 7px 14px #bdb9b4, -7px -7px 14px #f1ebe6', // light beige shadow
-        '--shadow-2': '7px 7px 14px #aca7a3, -7px -7px 14px #dad5cf', // beige shadow
-        '--shadow-3': 'inset 7px 7px 9px #9c9894, inset -7px -7px 9px #eae4de', // beige shadow inset
+        '--shadow-raised': ' 3px 3px 6px #88888888, -3px -3px 6px #fafafa88', // raised shadow
+        '--shadow-float': '1px 3px 6px 2px #00000022', // floating shadow
     };
 
     let themes = {

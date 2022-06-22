@@ -51,7 +51,7 @@
 
 .raised,.float{
   .component.entry-article{
-    padding: 20px;
+    padding: 10px;
 
     .component-wrapper{
       .image-container,
@@ -78,7 +78,7 @@
 .raised{
   .component.entry-article{
     .component-wrapper{
-      box-shadow: var(--shadow-1);
+      box-shadow: var(--shadow-raised);
     }
   }
 }
@@ -86,7 +86,7 @@
 .float{
   .component.entry-article{
     .component-wrapper{
-      box-shadow: var(--shadow-2);
+      box-shadow: var(--shadow-float);
     }
   }
 }

@@ -188,7 +188,7 @@
   .component.entry-banner-slide{
     .text-container-wrapper{
       .text-container{ 
-        box-shadow: var(--shadow-1);
+        box-shadow: var(--shadow-raised);
       }
     }
   }
@@ -198,7 +198,7 @@
   .component.entry-banner-slide{
     .text-container-wrapper{
       .text-container{ 
-        box-shadow: var(--shadow-2);
+        box-shadow: var(--shadow-float);
       }
     }
   }

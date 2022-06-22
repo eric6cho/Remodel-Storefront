@@ -41,10 +41,10 @@
 .raised{
   .component.cart-summary{
     height:160px;
-    padding:20px;
+    padding:10px;
 
     .component-wrapper{
-      box-shadow: var(--shadow-1);
+      box-shadow: var(--shadow-raised);
     }
   }
 }
@@ -52,10 +52,10 @@
 .float{
   .component.cart-summary{
     height:160px;
-    padding:20px;
+    padding:10px;
 
     .component-wrapper{
-      box-shadow: var(--shadow-2);
+      box-shadow: var(--shadow-float);
     }
   }
 }

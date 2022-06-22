@@ -47,20 +47,20 @@
 
 .raised{
   .component.entry-user{
-    padding: 20px;
+    padding: 10px;
 
     .component-wrapper{
-      box-shadow: var(--shadow-1);
+      box-shadow: var(--shadow-raised);
     }
   }
 }
 
 .float{
   .component.entry-user{
-    padding: 20px;
+    padding: 10px;
 
     .component-wrapper{
-      box-shadow: var(--shadow-2);
+      box-shadow: var(--shadow-float);
     }
   }
 }
