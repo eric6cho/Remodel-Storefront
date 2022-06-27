@@ -1,0 +1,127 @@
+@import "../mixins/mixins.scss";
+
+.component.image-row{
+  @include transition(); 
+  width: 100%;
+  position: relative;
+  margin-bottom: 80px;
+  padding: 0;
+  overflow: hidden;
+
+  .component-wrapper{
+    @include transition(); 
+    position:relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+
+    .component-content{  
+      @include transition();
+      position:relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 0;
+      box-shadow: none;
+
+      .image-container{
+        height:400px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+          
+        .image-overlay{
+          @include transition();
+          @include blur(5);
+          background: rgba(50,50,50,0.3);
+          position: absolute;
+          height: 100%;
+          width: 100%; 
+          top:0;
+          left:0;
+        }
+      }
+
+      .text-container{
+        width: 100%;
+        background: var(--base-1);
+
+        .text-container-inner{
+          padding: 100px 0;
+          width:80%;
+          margin:auto;
+          text-align: center;
+
+          h2{
+            margin-bottom: 40px;
+            color: var(--text-2);
+          }
+        }
+
+        .focus-image-list-wrapper{
+          width: 100%;
+          padding: 0 0 100px;
+          position: relative;
+          @include button();
+  
+          .focus-image-list{
+            margin:auto;
+            display: flex;
+            width:80%;
+  
+            .focus-image-wrapper{
+              height: 400px;
+              width: calc(100% / 3);
+              padding:10px;
+  
+              .focus-image-container{
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+                position: relative;
+            
+                @include image();
+              }
+            }
+          }
+        
+          .products-link-button{
+            width: 100%;
+            height: 300px;
+            background: var(--accent-5);
+            position: absolute;
+            padding: 50px calc(10% + 10px);
+            bottom: 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            border: none;
+        
+            h4{
+              text-transform: uppercase;
+              color: white;
+              font-weight: 300;
+              font-size: 13px;
+              letter-spacing: 3px;
+            }
+
+            &:hover{
+              background: var(--accent-2);
+              border: none;
+
+              h4{
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

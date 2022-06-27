@@ -136,16 +136,16 @@ const createSavedData = () => {
 
 const getBannerData = (title='Title',num=3) => {
     let slides = [...Array(num).keys()].map(i => (
-        {
-            'title':'Slide '+(i+1),
-            'description':getText(250),
-            'image':'./images/home/'+i+'.jpg',
-        }
+      {
+        'title':'Slide '+(i+1),
+        'description':getText(250),
+        'image':'./images/home/'+i+'.jpg',
+      }
     ));
     
     let data = {
-        'title':title,
-        'slides':slides,
+      'title':title,
+      'slides':slides,
     };
 
     return data;
@@ -241,11 +241,21 @@ const getHomePageData = () => {
 
     let banner = getBannerData('Home Page Title',3);
 
+    let imageRow = {
+      'title': 'Check Out Our Stuff',
+      'description': 'This is a description for the image row component which features three images of a related set. I am writing more text here to fill up the space. '+getText(250),
+      'backgroundImage': './images/home/2.jpg',
+      'focusImage1': './images/shop/8.jpg',
+      'focusImage2': './images/shop/9.jpg',
+      'focusImage3': './images/shop/10.jpg',
+    };
+
     let data = {
         'banner': banner,
         'featuredProducts': productCollection,
         'featuredArticles': articleCollection,
         'teamUsers':userCollection,
+        'imageRow':imageRow,
     };
    
     return data;
