@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NavTheme from "./comp-nav-theme";
 import NavStyle from "./comp-nav-style";
-import './../styles/comp-nav-bar/comp-nav-bar.scss';
-import './../styles/comp-nav-bar/comp-nav-bar-variations.scss';
+import './../styles/comp-nav-bar.scss';
 import * as u from '../scripts/utils'; 
 
 export default function NavBar(props) {

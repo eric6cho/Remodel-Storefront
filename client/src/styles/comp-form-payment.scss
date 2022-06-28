@@ -1,5 +1,6 @@
-@import "../mixins/mixins.scss";
+@import "./mixins/mixins.scss";
 
+// component general styling
 .component.form-payment{
   @include transition(); 
   padding: 0;
@@ -110,6 +111,92 @@
           }
         }
       }
+    }
+  }
+}
+
+// component variation styling
+.monochrome{
+  .component.form-payment{
+    .component-wrapper{
+      .component-content{
+        background: var(--base-2);
+        
+        .form-container{
+          .form-section{
+            .form-input-text,
+            .form-input-textarea{   
+              background: var(--base-2);
+              
+              &:focus{
+                background: var(--accent-1);
+              }
+            }   
+          }
+        }
+      }
+    }
+  }
+}
+
+.soft{
+  .component.form-payment{   
+    .component-wrapper{
+      border-radius: 15px;
+
+      .component-content{
+        border-radius: 10px;
+        
+        .form-container{
+          .form-section{
+            .form-input-text,
+            .form-input-textarea{   
+              border-radius: 10px;          
+            }   
+          }
+        }    
+      }
+    }
+  }
+}
+
+.round{
+  .component.form-payment{   
+    .component-wrapper{
+      border-radius: 30px;
+
+      .component-content{
+        border-radius: 25px;
+        
+        .form-container{
+          .form-section{
+            .form-input-text,
+            .form-input-textarea{   
+              border-radius: 25px;          
+            }   
+          }
+        }    
+      }
+    }
+  }
+}
+
+.raised{
+  .component.form-payment{   
+    padding: 20px;
+
+    .component-wrapper{
+      box-shadow: var(--shadow-raised);
+    }
+  }
+}
+
+.float{
+  .component.form-payment{   
+    padding: 20px;
+
+    .component-wrapper{
+      box-shadow: var(--shadow-float);
     }
   }
 }

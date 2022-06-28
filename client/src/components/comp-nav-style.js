@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import './../styles/comp-nav-style/comp-nav-style.scss';
-import './../styles/comp-nav-style/comp-nav-style-variations.scss';
+import './../styles/comp-nav-style.scss';
 import * as u from '../scripts/utils'; 
 
 export default function NavStyle(props) {

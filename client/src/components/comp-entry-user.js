@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import './../styles/comp-entry-user/comp-entry-user.scss';
-import './../styles/comp-entry-user/comp-entry-user-variations.scss';
+import './../styles/comp-entry-user.scss';
 import * as u from '../scripts/utils'; 
 
 export default function User(props) {

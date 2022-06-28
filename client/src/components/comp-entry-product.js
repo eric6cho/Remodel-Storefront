@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import './../styles/comp-entry-product/comp-entry-product.scss';
-import './../styles/comp-entry-product/comp-entry-product-variations.scss';
+import './../styles/comp-entry-product.scss';
 import * as u from '../scripts/utils'; 
 
 export default function Product(props) {

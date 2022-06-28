@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect, useRef } from "react";
-import './../styles/comp-image-row/comp-image-row.scss';
-import './../styles/comp-image-row/comp-image-row-variations.scss';
+import './../styles/comp-image-row.scss';
 import * as u from '../scripts/utils'; 
 
 export default function ImageRow(props) {

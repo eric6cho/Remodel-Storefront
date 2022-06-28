@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Collection from "./comp-collection";
 import CartSummary from "./comp-cart-summary";
-import './../styles/comp-cart/comp-cart.scss';
-import './../styles/comp-cart/comp-cart-variations.scss';
+import './../styles/comp-cart.scss';
 import * as u from './../scripts/utils'; 
 
 export default function Cart(props) {

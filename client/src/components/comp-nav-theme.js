@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import './../styles/comp-nav-theme/comp-nav-theme.scss';
-import './../styles/comp-nav-theme/comp-nav-theme-variations.scss';
+import './../styles/comp-nav-theme.scss';
 import * as u from '../scripts/utils'; 
 
 export default function NavTheme(props) {

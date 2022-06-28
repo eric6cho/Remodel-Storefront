@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import BannerSlide from "./comp-entry-banner-slide";
-import './../styles/comp-banner/comp-banner.scss';
-import './../styles/comp-banner/comp-banner-variations.scss';
+import './../styles/comp-banner.scss';
 import * as u from '../scripts/utils'; 
 
 export default function Banner(props) {

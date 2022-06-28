@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import './../styles/comp-footer/comp-footer.scss';
-import './../styles/comp-footer/comp-footer-variations.scss';
+import './../styles/comp-footer.scss';
 import * as u from './../scripts/utils'; 
 
 export default function Footer(props) {

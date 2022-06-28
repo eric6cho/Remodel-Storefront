@@ -1,4 +1,4 @@
-@import "../mixins/mixins.scss";
+@import "./mixins/mixins.scss";
 
 // component general styling
 .component.nav-theme{
@@ -66,6 +66,62 @@
 
     &:hover{
       background: var(--light-1);
+    }
+  }
+}
+
+// component variation styling
+.soft{
+  .component.nav-theme{   
+    .component-wrapper{
+      border-radius: 15px;
+      
+      .component-content{
+        border-radius: 13px;
+      }
+    }
+  }
+}
+
+.round{
+  .component.nav-theme{   
+    .component-wrapper{
+      border-radius: 10000px;
+      
+      .component-content{
+        border-radius: 10000px;
+      }
+    }
+  }
+}
+
+.raised,.float{
+  .component.nav-theme{
+    padding:10px;   
+    height:70px;
+    
+    .component-wrapper{
+      background: none;
+      
+      &:hover{
+        background: var(--light-1);
+      }
+    }
+  }
+}
+
+.raised{
+  .component.nav-theme{ 
+    .component-wrapper{
+      box-shadow: var(--shadow-raised);
+    }
+  }
+}
+
+.float{
+  .component.nav-theme{   
+    .component-wrapper{
+      box-shadow: var(--shadow-float);
     }
   }
 }

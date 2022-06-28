@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './../styles/comp-form-payment/comp-form-payment.scss';
-import './../styles/comp-form-payment/comp-form-payment-variations.scss';
+import './../styles/comp-form-payment.scss';
 import * as u from './../scripts/utils'; 
 
 export default function PaymentForm(props) {

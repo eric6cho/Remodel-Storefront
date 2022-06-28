@@ -1,5 +1,6 @@
-@import "../mixins/mixins.scss";
+@import "./mixins/mixins.scss";
 
+// component general styling
 .component.banner{
   position: relative;
   overflow-x: hidden;
@@ -61,5 +62,20 @@
   .slider{
     @include transition(0.7);
     display: flex;
+  }
+}
+
+// component variation styling
+.image-wrapper{
+  .component.banner{
+    margin-bottom: 80px;
+
+    .title{
+      top: 220px;
+    }
+
+    .slide-counter{
+      top: 720px;
+    }
   }
 }

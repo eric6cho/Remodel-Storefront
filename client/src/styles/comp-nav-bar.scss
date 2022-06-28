@@ -1,4 +1,4 @@
-@import "../mixins/mixins.scss";
+@import "./mixins/mixins.scss";
 
 // component general styling
 .component.nav-bar{
@@ -98,6 +98,71 @@
   &.active{
     .nav-body-section{
       height: 500px;
+    }
+  }
+}
+
+// component variation styling
+.monochrome{
+  .component.nav-bar{   
+    .component-wrapper{
+      .component-content{
+        .list-container{
+          .list-header{
+            background: var(--base-2);
+          }
+        }
+      }
+    }
+  }
+}
+
+.soft{
+  .component.nav-bar{   
+    .component-wrapper{
+      .component-content{
+        .list-container{
+          border-radius: 15px;
+        }
+      }
+    }
+  }
+}
+
+.round{
+  .component.nav-bar{   
+    .component-wrapper{
+      .component-content{
+        .list-container{
+          border-radius: 30px;
+        }
+      }
+    }
+  }
+}
+
+.raised{
+  .component.nav-bar{   
+    .component-wrapper{
+      .component-content{
+        .list-container{
+          border:none;
+          box-shadow: var(--shadow-raised);
+        }
+      }
+    }
+  }
+}
+
+.float{
+  .component.nav-bar{   
+    .component-wrapper{
+      .component-content{
+        .list-container{
+          border:none;
+          box-shadow: var(--shadow-float);
+        }
+      }
     }
   }
 }

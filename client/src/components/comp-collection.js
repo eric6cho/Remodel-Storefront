@@ -3,7 +3,7 @@ import Product from "./comp-entry-product";
 import Article from "./comp-entry-article";
 import User from "./comp-entry-user";
 import Cart from "./comp-entry-cart";
-import './../styles/comp-collection/comp-collection.scss';
+import './../styles/comp-collection.scss';
 import * as u from '../scripts/utils'; 
 
 export default function Collection(props) {
