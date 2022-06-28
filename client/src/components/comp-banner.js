@@ -32,8 +32,8 @@ export default function Banner(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getIcon = (title,cssClass='',click=(()=>{})) => 
-    <span className={"material-icons icon "+cssClass} onClick={click}>{title}</span>;
+  const getIcon = (title,cssClass='',click=(()=>{}),key) => 
+    <span key={key} className={"material-icons icon "+cssClass} onClick={click}>{title}</span>;
 
   const goToSlide = (i) => {
     let length = componentData['slides'].length;

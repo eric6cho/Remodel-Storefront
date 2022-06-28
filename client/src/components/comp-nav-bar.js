@@ -18,15 +18,15 @@ export default function NavBar(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
   
-  const getIcon = (title,cssClass='',click=(()=>{})) => 
-    <span className={"material-icons icon "+cssClass} onClick={click}>{title}</span>;
+  const getIcon = (title,cssClass='',click=(()=>{}),key) => 
+    <span className={"material-icons icon "+cssClass} onClick={click} key={key}>{title}</span>;
 
-  const getNavIcon = (pageData,page,activePage,handlePageSelect) => {
+  const getNavIcon = (pageData,page,activePage,handlePageSelect,key) => {
     let isNav = pageData[page]['isNav'];
     let iconTitle = pageData[page]['icon'];
     let iconClass = activePage['title']===pageData[page]['title']?'active':'';
     let iconClickEvent = ()=>handlePageSelect(page);
-    return isNav ? getIcon(iconTitle,iconClass,iconClickEvent) : null;
+    return isNav ? getIcon(iconTitle,iconClass,iconClickEvent,key) : null;
   };
 
   const getNavList = (title,cssClass,list) => (
@@ -90,7 +90,7 @@ export default function NavBar(props) {
       return <NavStyle key={i} events={events} data={data}/>;
     });
 
-    let navIcons = Object.keys(pageData).map(page => getNavIcon(pageData,page,activePage,handlePageSelect));
+    let navIcons = Object.keys(pageData).map((page,i) => getNavIcon(pageData,page,activePage,handlePageSelect,i));
     
     let settingsIcon = getIcon('settings','',() => toggleExpand(true));
 

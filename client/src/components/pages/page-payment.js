@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import PaymentForm from "../comp-form-payment";
 import * as u from '../../scripts/utils'; 
 

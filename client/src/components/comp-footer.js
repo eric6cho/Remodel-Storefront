@@ -21,7 +21,7 @@ export default function Footer(props) {
     let gitHubLink = footerData['githubLink'];
 
     let text = textList.map((line,i)=>
-      <p>{line}{(i<textList.length-1)?'':<a href={gitHubLink} target="_blank" rel="noreferrer">here</a>}</p>);
+      <p key={i}>{line}{(i<textList.length-1)?'':<a href={gitHubLink} target="_blank" rel="noreferrer">here</a>}</p>);
 
     let componentContent = 
       <>

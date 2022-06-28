@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import './../styles/comp-entry-cart.scss';
 import * as u from '../scripts/utils'; 
 
@@ -11,8 +11,8 @@ export default function Product(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getIcon = (title,cssClass='',click=(()=>{})) => 
-    <span className={"material-icons icon "+cssClass} onClick={click}>{title}</span>;
+  const getIcon = (title,cssClass='',click=(()=>{}),key) => 
+    <span key={key} className={"material-icons icon "+cssClass} onClick={click}>{title}</span>;
 
   const getComponent = () => {
     let componentData = props.data['componentData'];

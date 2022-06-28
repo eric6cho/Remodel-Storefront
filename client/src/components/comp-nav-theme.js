@@ -5,7 +5,7 @@ import * as u from '../scripts/utils';
 export default function NavTheme(props) {
   const defaultClass = 'component nav-theme ';
   const activeClass = 'active ';
-  const [isActive, setIsActive] = useState(props.data['isActive']);
+  const [isActive] = useState(props.data['isActive']);
   const [componentClass, setComponentClass] = useState(defaultClass);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function NavTheme(props) {
     if(!u.isRequiredDataValid(requiredData)) return null;
 
     let themeColors = ['--base-1','--accent-1','--accent-2','--accent-3','--accent-4','--accent-5'];
-    let themeColorList = themeColors.map(color=><div className="color" style={{'background':componentData[color]}}></div>);
+    let themeColorList = themeColors.map((color,i)=><div key={i} className="color" style={{'background':componentData[color]}}></div>);
 
     let themeContainer = 
       <div className="theme-container" onClick={()=>toggleActive()}>

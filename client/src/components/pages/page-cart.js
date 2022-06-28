@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Banner from "../comp-banner";
 import Cart from "../comp-cart";
 import * as u from '../../scripts/utils'; 

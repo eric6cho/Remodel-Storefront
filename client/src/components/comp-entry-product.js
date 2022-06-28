@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import './../styles/comp-entry-product.scss';
 import * as u from '../scripts/utils'; 
 
@@ -16,11 +16,11 @@ export default function Product(props) {
     e.stopPropagation(); // prevent any click events in the parent
   };
   
-  const getButton = (title,cssClass='',click=(()=>{})) =>
-    <div className={"button "+cssClass} onClick={click}><h4>{title}</h4></div>;
+  const getButton = (title,cssClass='',click=(()=>{}),key) =>
+    <div key={key} className={"button "+cssClass} onClick={click}><h4>{title}</h4></div>;
 
-  const getIcon = (title,cssClass='',click=(()=>{})) => 
-    <span className={"material-icons icon "+cssClass} onClick={click}>{title}</span>;
+  const getIcon = (title,cssClass='',click=(()=>{}),key) => 
+    <span key={key} className={"material-icons icon "+cssClass} onClick={click}>{title}</span>;
 
   const getComponent = () => {
     let componentData = props.data['componentData'];

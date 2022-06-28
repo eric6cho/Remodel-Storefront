@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import './../styles/comp-image-row.scss';
 import * as u from '../scripts/utils'; 
 
@@ -12,8 +12,8 @@ export default function ImageRow(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getButton = (title,cssClass='',click=(()=>{})) =>
-    <div className={"button "+cssClass} onClick={click}><h4>{title}</h4></div>;
+  const getButton = (title,cssClass='',click=(()=>{}),key) =>
+    <div key={key} className={"button "+cssClass} onClick={click}><h4>{title}</h4></div>;
 
   const getFocusImage = (src,alt) => 
     <div className="focus-image-wrapper">

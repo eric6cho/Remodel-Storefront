@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Banner from "../comp-banner";
 import Collection from "../comp-collection";
 import * as u from '../../scripts/utils'; 

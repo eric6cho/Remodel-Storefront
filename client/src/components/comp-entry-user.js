@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import './../styles/comp-entry-user.scss';
 import * as u from '../scripts/utils'; 
 

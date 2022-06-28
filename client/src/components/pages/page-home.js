@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import Banner from '../comp-banner';
 import Collection from "../comp-collection";
 import ImageRow from "../comp-image-row";

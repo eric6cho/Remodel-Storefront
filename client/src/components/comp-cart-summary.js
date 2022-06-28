@@ -10,8 +10,8 @@ export default function CartSummary(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getButton = (title,cssClass='',click=(()=>{})) =>
-    <div className={"button "+cssClass} onClick={click}><h4>{title}</h4></div>;
+  const getButton = (title,cssClass='',click=(()=>{}),key) =>
+    <div key={key} className={"button "+cssClass} onClick={click}><h4>{title}</h4></div>;
 
   const getComponent = () => {
     let total = props.total;

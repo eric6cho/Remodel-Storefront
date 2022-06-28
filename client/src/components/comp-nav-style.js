@@ -11,8 +11,8 @@ export default function NavStyle(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 
-  const getStyleButton = (title,isActive,click=(()=>{})) => 
-    <div className={"style-wrapper "+(isActive?'active':'')} onClick={click}>
+  const getStyleButton = (title,isActive,click=(()=>{}),key) => 
+    <div key={key} className={"style-wrapper "+(isActive?'active':'')} onClick={click}>
       <div className="style">{title}</div>      
     </div>; 
   
@@ -24,9 +24,9 @@ export default function NavStyle(props) {
     let requiredData = [componentData,categoryTitle];
     if(!u.isRequiredDataValid(requiredData)) return null;
 
-    let styleList = componentData.map(styleTitle=>{
+    let styleList = componentData.map((styleTitle,i)=>{
       let isActive = activeStyles.split(' ').includes(styleTitle);
-      return getStyleButton(styleTitle,isActive,()=>handleSelect(styleTitle,categoryTitle));
+      return getStyleButton(styleTitle,isActive,()=>handleSelect(styleTitle,categoryTitle),i);
     });
 
     let styleContainer = 
