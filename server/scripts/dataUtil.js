@@ -343,6 +343,21 @@ const getPaymentPageData = () => {
     return data;
 };
 
+const getFooterData = () => {
+  
+  let data = {
+    'text': [
+      'This site is a project made for personal and educational use and is '+
+      'not meant to be used as any actual ecommerce site or business.',
+      'Images for this project are stock images that can be found on pexels, '+
+      'and icons are sourced from Google Fonts.',
+      'Documentation for this project can be found on this GitHub link '], 
+    'githubLink':'https://github.com/eric6cho',
+  };
+ 
+  return data;
+};
+
 const createPageData = () => {   
     let pages = {
         'home':{
@@ -386,6 +401,13 @@ const createPageData = () => {
             'icon':'',
             'data': getPaymentPageData(),
             'isNav':false,
+        },
+        'footer':{
+          'id':'footer',
+          'title':'footer',
+          'icon':'',
+          'data': getFooterData(),
+          'isNav':false,
         },
     };
 

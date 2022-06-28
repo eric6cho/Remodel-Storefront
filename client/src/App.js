@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import NavBar from "./components/comp-nav-bar";
 import Page from "./components/comp-page";
+import Footer from "./components/comp-footer";
 import * as u from './scripts/utils'; 
 
 export default function App() {
@@ -184,10 +185,13 @@ export default function App() {
 
     let mainContent = <Page data={data} events={events}/>;
 
+    let footer = <Footer data={data} events={events}/>;
+
     let component = 
       <div className="App">
         {navigation}
         {mainContent}
+        {footer}
       </div>;
 
     return component;
