@@ -243,7 +243,9 @@ const getHomePageData = () => {
 
     let imageRow = {
       'title': 'Check Out Our Stuff',
-      'description': 'This is a description for the image row component which features three images of a related set. I am writing more text here to fill up the space. '+getText(250),
+      'description': 
+        'This is a description for the image row component which features three images of '+
+        'a related set. I am writing more text here to fill up the space. '+getText(250),
       'backgroundImage': './images/home/2.jpg',
       'focusImage1': './images/shop/8.jpg',
       'focusImage2': './images/shop/9.jpg',

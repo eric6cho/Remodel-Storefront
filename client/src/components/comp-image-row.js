@@ -39,36 +39,36 @@ export default function ImageRow(props) {
     
     let productLink = getButton('View Our Products','products-link-button',()=>handlePageSelect('products'));
     
-    let imageContainer = 
-      <div 
-        className="image-container" 
-        style={{'backgroundImage':'url('+backgroundImage+')'}}>
-        <div className="image-overlay"> </div>
-      </div>;
-
     let focusImages = 
-      <div className="focus-image-list-wrapper">
-        {productLink}
         <div className="focus-image-list">
           {getFocusImage(focusImage1,'focus image 1')}
           {getFocusImage(focusImage2,'focus image 2')}
           {getFocusImage(focusImage3,'focus image 3')}
-        </div>
-      </div>;
+        </div>;
 
     let textContainer = 
-      <div className="text-container">
-        <div className="text-container-inner">
-          <h2 className="title">{title}</h2>
-          <p className="description">{description}</p>
+      <div className="text-container-background">
+        <div className="text-container-wrapper">
+          <div className="text-container">
+            <div className="text-container-inner">
+              <h2 className="title">{title}</h2>
+              <p className="description">{description}</p>      
+              {focusImages}
+            </div> 
+          </div>
         </div>
-        {focusImages}
+        {productLink}
+      </div>;
+
+    let imageContainer = 
+      <div className="image-container" style={{'backgroundImage':'url('+backgroundImage+')'}}>
+        <div className="image-overlay">
+          {textContainer}
+        </div>
       </div>;
 
     let componentContent = 
       <>
-        {imageContainer}
-        {textContainer}
         {imageContainer}
       </>;
 

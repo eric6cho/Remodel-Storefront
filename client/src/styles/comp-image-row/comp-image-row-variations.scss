@@ -1,0 +1,280 @@
+@import "../mixins/mixins.scss";
+
+.monochrome{
+  .component.image-row{
+    .component-wrapper{
+      .component-content{
+        .image-container{
+          .image-overlay{
+            .text-container-background{
+              .products-link-button{
+                background: rgba(50,50,50,1);
+              
+                &:hover{
+                  background: var(--accent-5);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.soft{
+  .component.image-row{
+    .component-wrapper{
+      .component-content{ 
+        .image-container{
+          .image-overlay{
+            .text-container-background{
+              .text-container-wrapper{
+                .text-container{
+                  border-radius: 20px;
+
+                  .text-container-inner{
+                    border-radius: 15px;
+                  }
+          
+                  .focus-image-list{
+                    border-radius: 15px;
+
+                    .focus-image-wrapper{
+                      .focus-image-container{
+                        border-radius: 12px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.round{
+  .component.image-row{
+    .component-wrapper{
+      .component-content{
+        .image-container{
+          .image-overlay{
+            .text-container-background{
+              .text-container-wrapper{
+                .text-container{
+                  border-radius: 35px;
+          
+                  .text-container-inner{
+                    border-radius: 30px;
+                  }
+
+                  .focus-image-list{
+                    border-radius: 30px;
+
+                    .focus-image-wrapper{
+                      .focus-image-container{
+                        border-radius: 25px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.raised{
+  .component.image-row{
+    .component-wrapper{
+      .component-content{  
+        .image-container{
+          .image-overlay{
+            .text-container-background{
+              .text-container-wrapper{
+                .text-container{
+                  padding: 10px;
+                  
+                  .text-container-inner{
+                    overflow: visible;
+                  }
+          
+                  .focus-image-list{
+                    box-shadow: var(--shadow-raised);
+                
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.float{
+  .component.image-row{
+    .component-wrapper{
+      .component-content{  
+        .image-container{
+          .image-overlay{
+            .text-container-background{
+              .text-container-wrapper{
+                .text-container{
+                  padding: 10px;
+                  
+                  .text-container-inner{
+                    overflow: visible;
+                  }
+          
+                  .focus-image-list{
+                    box-shadow: var(--shadow-float);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.text-wrapper{
+  .component.image-row{
+    .component-wrapper{
+      .component-content{  
+        .image-container{
+          .image-overlay{
+            .text-container-background{
+              .text-container-wrapper{ 
+                padding: 20px 0 0;
+
+                .text-container{
+                  .text-container-inner{
+                    background: var(--base-2);
+                    padding: 60px 50px 50px;
+                  }
+          
+                  .focus-image-list{
+                    margin-top: 40px;
+                    background: none;
+                    box-shadow: none;
+                  } 
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.raised{
+    .component.image-row{
+      .component-wrapper{
+        .component-content{  
+          .text-container-wrapper{ 
+            .text-container{
+              .text-container-inner{
+                box-shadow: var(--shadow-raised);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.float{
+    .component.image-row{
+      .component-wrapper{
+        .component-content{  
+          .text-container-wrapper{ 
+            .text-container{
+              .text-container-inner{
+                box-shadow: var(--shadow-float);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.image-wrapper{
+  .component.image-row{
+    .component-wrapper{
+      .component-content{        
+        .image-container{
+          .image-overlay{
+            padding: 150px 0;
+
+            .text-container-background{
+              background: none;
+              width:80%;
+
+              .text-container-wrapper{ 
+                .text-container{
+                  width:100%;
+                  .text-container-inner{
+                    padding: 60px 50px 50px;
+                  }
+                }
+              }
+          
+              .products-link-button{
+                width:100%;
+                padding: 50px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.soft{
+    .component.image-row{
+      .component-wrapper{
+        .component-content{     
+          .image-container{
+            .image-overlay{
+              .text-container-background{
+                .products-link-button{
+                  border-radius: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.round{
+    .component.image-row{
+      .component-wrapper{
+        .component-content{  
+          .image-container{
+            .image-overlay{
+              .text-container-background{
+                .products-link-button{
+                  border-radius: 35px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

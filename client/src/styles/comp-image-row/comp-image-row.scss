@@ -27,96 +27,108 @@
       overflow: hidden;
       border-radius: 0;
       box-shadow: none;
-
+      @include button();
+      
       .image-container{
-        height:400px;
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
-          
+
         .image-overlay{
           @include transition();
           @include blur(5);
           background: rgba(50,50,50,0.3);
-          position: absolute;
+          padding: 400px 0;
           height: 100%;
           width: 100%; 
           top:0;
           left:0;
-        }
-      }
+          z-index: 0;
 
-      .text-container{
-        width: 100%;
-        background: var(--base-1);
-
-        .text-container-inner{
-          padding: 100px 0;
-          width:80%;
-          margin:auto;
-          text-align: center;
-
-          h2{
-            margin-bottom: 40px;
-            color: var(--text-2);
-          }
-        }
-
-        .focus-image-list-wrapper{
-          width: 100%;
-          padding: 0 0 100px;
-          position: relative;
-          @include button();
-  
-          .focus-image-list{
+          .text-container-background{            
+            width: 100%;
+            background: var(--base-1);
             margin:auto;
-            display: flex;
-            width:80%;
-  
-            .focus-image-wrapper{
-              height: 400px;
-              width: calc(100% / 3);
-              padding:10px;
-  
-              .focus-image-container{
-                height: 100%;
-                width: 100%;
+
+            .text-container-wrapper{ 
+              width: 100%;
+              position: relative;
+              padding: 50px 0 0;
+              
+              .text-container{
+                width:80%;
+                margin: 0 auto;
+                background: var(--base-1);
+                z-index: 1;
                 overflow: hidden;
-                position: relative;
-            
-                @include image();
+        
+                .text-container-inner{
+                  text-align: center;
+                  background: var(--base-1);
+                  overflow: hidden;
+                  padding: 50px 0 0;
+        
+                  h2{
+                    margin-bottom: 40px;
+                    color: var(--text-2);
+                  }
+                }
+        
+                .focus-image-list{
+                  margin: 100px auto 0;
+                  position: relative;
+                  display: flex;
+                  padding: 10px;
+                  background: var(--base-2);
+
+                  .focus-image-wrapper{
+                    height: 400px;
+                    width: calc(100% / 3);
+                    padding:10px;
+
+                    .focus-image-container{
+                      height: 100%;
+                      width: 100%;
+                      overflow: hidden;
+                      position: relative;
+                  
+                      @include image();
+                    }
+                  }
+                } 
               }
             }
-          }
-        
-          .products-link-button{
-            width: 100%;
-            height: 300px;
-            background: var(--accent-5);
-            position: absolute;
-            padding: 50px calc(10% + 10px);
-            bottom: 0;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
-            border: none;
-        
-            h4{
-              text-transform: uppercase;
-              color: white;
-              font-weight: 300;
-              font-size: 13px;
-              letter-spacing: 3px;
-            }
 
-            &:hover{
-              background: var(--accent-2);
+            .products-link-button{
+              width: 100%;
+              height: 300px;
+              background: var(--accent-5);
+              padding: 50px 10%;
+              bottom: 0;
+              display: flex;
+              align-items: flex-end;
+              justify-content: flex-end;
               border: none;
-
+              margin:-190px auto 0;
+              z-index: 1;
+          
               h4{
+                text-transform: uppercase;
                 color: white;
+                font-weight: 300;
+                font-size: 13px;
+                letter-spacing: 3px;
+              }
+
+              &:hover{
+                background: var(--accent-2);
+                border: none;
+
+                h4{
+                  color: white;
+                }
               }
             }
           }
