@@ -41,12 +41,16 @@
           @include transition();
           @include blur(5);
           background: rgba(50,50,50,0.3);
-          padding: 400px 0;
+          padding: 150px 0;
           height: 100%;
           width: 100%; 
           top:0;
           left:0;
           z-index: 0;
+
+          @include media-md{
+            padding: 400px 0;
+          }
 
           .text-container-background{            
             width: 100%;
@@ -56,20 +60,32 @@
             .text-container-wrapper{ 
               width: 100%;
               position: relative;
-              padding: 50px 0 0;
+              padding: 20px 0 0;
+
+              @include media-md{
+                padding: 50px 0 0;
+              }
               
               .text-container{
-                width:80%;
+                width:calc(100% - 70px);
                 margin: 0 auto;
                 background: var(--base-1);
                 z-index: 1;
                 overflow: hidden;
+
+                @include media-md{
+                  width:80%;
+                }
         
                 .text-container-inner{
                   text-align: center;
                   background: var(--base-1);
                   overflow: hidden;
-                  padding: 50px 0 0;
+                  padding: 20px 0 0;
+
+                  @include media-md{
+                    padding: 50px 0 0;
+                  }
         
                   h2{
                     margin-bottom: 40px;
@@ -78,16 +94,37 @@
                 }
         
                 .focus-image-list{
-                  margin: 100px auto 0;
+                  margin: 60px auto 0;
                   position: relative;
                   display: flex;
                   padding: 10px;
                   background: var(--base-2);
 
+                  @include media-md{
+                    margin: 100px auto 0;
+                  }
+
                   .focus-image-wrapper{
-                    height: 400px;
-                    width: calc(100% / 3);
+                    @include transition();
+                    height: 250px;
+                    width: 100%;
                     padding:10px;
+
+                    @include media-md{
+                      height: 400px;
+                    }
+
+                    &:hover{
+                      width:300%;
+
+                      @include media-md{
+                        width:200%;
+                      }
+
+                      @include media-lg{
+                        width:150%;
+                      }
+                    }
 
                     .focus-image-container{
                       height: 100%;
@@ -106,7 +143,7 @@
               width: 100%;
               height: 300px;
               background: var(--accent-5);
-              padding: 50px 10%;
+              padding: 50px 35px;
               bottom: 0;
               display: flex;
               align-items: flex-end;
@@ -114,6 +151,11 @@
               border: none;
               margin:-190px auto 0;
               z-index: 1;
+
+              @include media-md{
+                padding: 50px 10%;
+
+              }
           
               h4{
                 text-transform: uppercase;
@@ -307,6 +349,11 @@
                     margin-top: 40px;
                     background: none;
                     box-shadow: none;
+                    padding:0;
+
+                    .focus-image-wrapper{
+                      padding:3px;
+                    }
                   } 
                 }
               }
@@ -356,17 +403,28 @@
       .component-content{        
         .image-container{
           .image-overlay{
-            padding: 150px 0;
+            padding: 70px 0;
 
+            @include media-md{
+              padding: 150px 0;
+            }
             .text-container-background{
               background: none;
-              width:80%;
+              width: calc(100% - 70px);
+              
+              @include media-md{
+                width:80%;
+              }
 
               .text-container-wrapper{ 
                 .text-container{
                   width:100%;
                   .text-container-inner{
-                    padding: 60px 50px 50px;
+                    padding: 40px 35px 35px;
+                          
+                    @include media-md{
+                      padding: 60px 50px 50px;
+                    }
                   }
                 }
               }
