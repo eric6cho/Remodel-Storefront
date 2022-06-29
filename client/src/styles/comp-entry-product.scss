@@ -5,7 +5,7 @@
   .content-grid{
     .entry-list{
       .component.entry-product{
-        width: calc(100% / 2);
+        width: 100%;
 
         @include media-md{
           width: calc(100% / 2);
@@ -187,10 +187,14 @@
       .active-title-container{
         position: absolute;
         width: calc(100% - 60px);
-        bottom: calc(100% - 570px);
+        bottom: calc(60% + 30px);
         left: 30px;
         z-index: 5;
         display: none;
+
+        @include media-md{
+          bottom: calc(100% - 570px);
+        }
 
         .title,
         .category{
@@ -280,7 +284,11 @@
         .image-container,
         .image-overlay{
           width: 100%;
-          height: 600px;
+          height: 40%;
+
+          @include media-md{
+            height: 600px;
+          }
         }
 
         .image-overlay{
@@ -290,8 +298,12 @@
 
         .text-container{
           background: var(--base-2);
-          height: calc(100% - 600px);
-          width: calc(100%);
+          height: 60%;
+          width: 100%;
+
+          @include media-md{
+            height: calc(100% - 600px);
+          }
 
           .text-container-inner{
             padding: 30px 20px 0 30px;
@@ -396,25 +408,27 @@
       .component.entry-product{   
         .component-wrapper{
           .component-content{
+
+
             .image-container,
             .image-overlay{
               top:0;
               right:0;
-              left:50%;
-              height:100%;
-              width:50%;
-              border-radius: 0;
+              left:0;
+              height:40%;
+              width:100%;
             }
             
             .text-container{
               bottom:0;
-              top:0;
+              top:40%;
               left:0;
-              height:100%;
-              width:50%;
+              height:60%;
+              width:100%;
               border-radius: 0;
+              padding:0;
             }
-            
+
             .active-title-container{
               display: none;
             }
@@ -426,6 +440,30 @@
             .close-icon{
               top: 20px;
               right: 20px;
+            }
+
+            
+            @include media-md{
+              .image-container,
+              .image-overlay{
+                top:0;
+                right:0;
+                left:50%;
+                height:100%;
+                width:50%;
+                border-radius: 0;
+              }
+              
+              .text-container{
+                bottom:0;
+                top:0;
+                left:0;
+                height:100%;
+                width:50%;
+                border-radius: 0;
+                padding:0;
+
+              }
             }
           }
         }

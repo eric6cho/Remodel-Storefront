@@ -204,8 +204,12 @@
 
         .image-container,
         .image-overlay{
-          height: 600px;
+          height: 40%;
           width: 100%;
+
+          @include media-md{
+            height: 600px;
+          }
         }
 
         .image-container{
@@ -219,9 +223,13 @@
         }
 
         .text-container{
-          height: calc(100% - 600px);
+          height: 60%;
           background: var(--base-2);
           display: block;
+
+          @include media-md{
+            height: calc(100% - 600px);
+          }
 
           .text-container-inner{
             padding: 50px;
@@ -294,22 +302,22 @@
       .component.entry-article{   
         .component-wrapper{
           .component-content{
+
             .image-container,
             .image-overlay{
               top:0;
               right:0;
-              left:50%;
-              height:100%;
-              width:50%;
-              border-radius: 0;
+              left:0;
+              height:40%;
+              width:100%;
             }
             
             .text-container{
               bottom:0;
-              top:0;
+              top:40%;
               left:0;
-              height:100%;
-              width:50%;
+              height:60%;
+              width:100%;
               border-radius: 0;
               padding:0;
 
@@ -321,6 +329,32 @@
             .close-icon{
               top: 20px;
               right: 20px;
+            }
+
+            @include media-md{
+              .image-container,
+              .image-overlay{
+                top:0;
+                right:0;
+                left:50%;
+                height:100%;
+                width:50%;
+                border-radius: 0;
+              }
+              
+              .text-container{
+                bottom:0;
+                top:0;
+                left:0;
+                height:100%;
+                width:50%;
+                border-radius: 0;
+                padding:0;
+
+                .text-container-inner{
+                  padding:40px;
+                }
+              }
             }
           }
         }

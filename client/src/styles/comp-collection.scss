@@ -165,9 +165,13 @@
         }
                 
         .active-entry{
-          height: 600px;  
+          height: 900px;  
           width: 100%;
           margin: 0 auto;
+
+          @include media-md{
+            height: 600px; 
+          }
         }
       }
       

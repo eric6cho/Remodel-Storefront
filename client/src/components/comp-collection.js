@@ -117,6 +117,7 @@ export default function Collection(props) {
     let contentData = props.data['contentData'];
     let events = props.events;
     let requiredData = [componentData,contentData];
+    console.log(requiredData)
     if(!u.isRequiredDataValid(requiredData)) return null;
 
     let contentIdList = componentData['content'];
