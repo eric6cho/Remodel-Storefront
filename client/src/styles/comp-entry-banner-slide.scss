@@ -6,8 +6,8 @@
   position: relative;
 
   .image-container{
-    height: 750px;
-    width:100%;
+    height: 400px;
+    width: 100%;
     overflow: hidden;
     position: relative;
 
@@ -19,11 +19,19 @@
     }
 
     @include image();
+
+    @include media-md{
+      height: 750px;
+    }
   }
 
   .text-container-wrapper{
-    padding: 80px 25%;
+    padding: 100px 35px 80px;
     overflow: hidden;
+
+    @include media-md{
+      padding: 80px 15%;
+    }
 
     .text-container{ 
       padding:15px;
@@ -59,10 +67,14 @@
 
       .text-foreground{
         background: var(--base-1); 
-        padding: 45px 80px 60px;
+        padding: 30px 30px 35px;
         z-index: 2;
         position: relative;
      
+        @include media-md{
+          padding: 45px 80px 60px;
+        }
+
         h3{
           margin-bottom: 10px;
         }
@@ -153,6 +165,30 @@
         .text-foreground{
           background: var(--base-2); 
         }
+
+        @include media-md{
+          padding:40px;
+
+          .border-left{
+            top: 35px;
+            left: 35px;
+          }
+
+          .border-right{
+            bottom: 35px;
+            right: 35px;
+          }
+
+          .text-background{
+            background: var(--base-2);
+            top:10px;
+            left:10px;
+          }
+
+          .text-foreground{
+            background: var(--base-2); 
+          }
+        }
       }
     }
   }
@@ -161,8 +197,7 @@
 .monochrome{
   .component.entry-banner-slide{
     .text-container-wrapper{
-      padding: 80px 20%;
-
+    
       .text-container{ 
         .border-left,.border-right{
           background: var(--accent-6);
@@ -225,12 +260,6 @@
 }
 
 .raised,.float{
-  .component.entry-banner-slide{
-    .text-container-wrapper{
-      padding: 80px 20%;
-    }
-  }
-
   &.soft{
     .component.entry-banner-slide{
       .text-container-wrapper{
@@ -279,14 +308,22 @@
 .image-wrapper{
   .component.entry-banner-slide{
     .image-container{
-      height: 800px;
+      height: 600px;
+
+      @include media-md{
+        height: 800px;
+      }
     }
 
     .text-container-wrapper{
-      padding: 0 60px 0 calc(40% - 60px) ;
+      padding: 0 35px;
       position:absolute;
       bottom: 100px;
       left:0;
+
+      @include media-md{    
+        padding: 0 60px 0 calc(40% - 60px);
+      }
 
       .text-container{ 
         box-shadow: none; 
@@ -297,40 +334,23 @@
         }
         
         .text-background{
-          background: var(--accent-4);
-          opacity: 0.3;
-          
+         
+          @include blur(5);
+          background: rgba(150,150,150,0.5);
           top:0;
           left:0;
           width:100%;
           height:100%;
         }
 
-        .text-foreground{
-          @include blur(5);
-          background: rgba(50,50,50,0.3);
-          top:0;
-          left:0;
-          width:100%;
-          height:100%;
-          
+        .text-foreground{  
+          background: none;
+
           p,h3{
             color:white;
           }
         }
       }
     }
-  }
-
-  &.monochrome{
-    .component.entry-banner-slide{
-      .text-container-wrapper{
-        .text-container{ 
-          .text-background{
-            background: var(--base-2);
-          }
-        }
-      }
-    }
-  }
+  } 
 }

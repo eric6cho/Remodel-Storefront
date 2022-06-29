@@ -9,19 +9,31 @@
 
   .title{
     position: absolute;
-    color: white;
-    top: 335px;
-    left: 60px;
+    color: var(--text-2);
+    top: 420px;
+    left: 35px;
     z-index: 5;
-    font-size: 44px;
+    font-size: 30px;
+    line-height: 40px;
+    letter-spacing: 5px;
+    width:calc(100% - 70px);
+
+    @include media-md{
+      color: white; 
+      font-size: 44px;
+      line-height: 60px;
+      letter-spacing: 7px;
+      top: 335px;
+      left: 60px;
+    }
   }
 
   .slide-counter{
     display: flex;
     align-items: center;
     position: absolute;
-    top: 680px;
-    right: 50px;
+    top: 340px;
+    right: 0;
     z-index: 5;
     padding: 10px 15px;
     border-radius: 3px;
@@ -57,6 +69,11 @@
         border: 2px solid rgba(0,0,0,0);
       }
     }
+    
+    @include media-md{
+      top: 680px;
+      right: 50px;
+    }
   }
 
   .slider{
@@ -68,14 +85,27 @@
 // component variation styling
 .image-wrapper{
   .component.banner{
-    margin-bottom: 80px;
+    margin-bottom: 35px;
+
+    @include media-md{
+      margin-bottom: 80px;
+    }
 
     .title{
-      top: 220px;
+      top: 150px;
+      color:white;
+      
+      @include media-md{
+        top: 220px;
+      }
     }
 
     .slide-counter{
-      top: 720px;
+      top: 540px;
+
+      @include media-md{
+        top: 720px;
+      }
     }
   }
 }
