@@ -172,13 +172,22 @@ export default function App() {
     };
 
     let data = {
-      'title':appTitle,
       'pageData':pageData,
       'contentData':contentData,
-      'styleData':styleData,
-      'activeTheme':activeTheme,
-      'activeStyles':activeStyles,
-      'activePage':activePage,
+      'navData':{
+        'title':appTitle,
+        'styleData':styleData,
+        'activeTheme':activeTheme,
+        'activeStyles':activeStyles,
+        'activePage':activePage,
+        'stylePreviewData':{
+          'title':'Sample Card Title',
+          'description':'This is a description for this card. Below is a set of sample icons and a sample button. Any text overflow of this text will allow for scrolling.',
+          'image':'./images/shop/1.jpg',
+          'buttonText':'Sample Button',
+          'iconTextList':['home','search','person','navigation'],
+        }
+      }, 
     };
       
     let navigation = <NavBar data={data} events={events}/>;

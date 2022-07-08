@@ -3,23 +3,13 @@ import './../styles/comp-nav-theme.scss';
 import * as u from '../scripts/utils'; 
 
 export default function NavTheme(props) {
-  const defaultClass = 'component nav-theme ';
-  const activeClass = 'active ';
-  const [isActive] = useState(props.data['isActive']);
-  const [componentClass, setComponentClass] = useState(defaultClass);
+  const [componentName] = useState('component nav-theme ');
+  const [componentClass] = useState(componentName);
 
   useEffect(() => {
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
-  
-  const toggleActive = (state=null) => setActive(state!==null?state:!isActive);
-
-  const setActive = (state) => {
-    setComponentClass(defaultClass+(isActive?activeClass:''));
-    let handleSelect = props.events['handleThemeSelect'];
-    handleSelect(props.data['title']);
-  };
 
   const getComponent = () => {
     let title = props.data['title'];
@@ -27,11 +17,13 @@ export default function NavTheme(props) {
     let requiredData = [componentData,title];
     if(!u.isRequiredDataValid(requiredData)) return null;
 
+    let handleSelect = props.events['handleThemeSelect'];
+
     let themeColors = ['--base-1','--accent-1','--accent-2','--accent-3','--accent-4','--accent-5'];
     let themeColorList = themeColors.map((color,i)=><div key={i} className="color" style={{'background':componentData[color]}}></div>);
 
     let themeContainer = 
-      <div className="theme-container" onClick={()=>toggleActive()}>
+      <div className="theme-container" onClick={()=>handleSelect(title)}>
         <h4 className="title">
           {title}
         </h4>

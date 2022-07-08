@@ -53,116 +53,22 @@
     overflow: hidden;
     overflow-x: hidden;
 
-    .list-wrapper{
+    .nav-body-subsection{
       height: calc(100% - 35px);
       width: 25%;
-      padding:20px;
       overflow: hidden;
       position: relative;
 
-      &.styles-list{
+      &.large{
         width: 50%;
       }
 
-      .list-container{
-        width:100%;
-        height:100%;
-        background: var(--base-3);
-        border: 2px solid rgba(255,255,255,0.2);
-        overflow: hidden;
-
-        .list-header{
-          width:100%;
-          height:50px;
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          background: var(--accent-1);
-          padding: 0 15px;
-
-          h3{
-            color:var(--text-2);
-          }
-        }
-      
-        .list-body{
-          width:100%;
-          height:calc(100% - 50px);
-          overflow-y: scroll;
-          padding:5px 0;
-        }
-      }
     }
   }
 
   &.active{
     .nav-body-section{
       height: 500px;
-    }
-  }
-}
-
-// component variation styling
-.monochrome{
-  .component.nav-bar{   
-    .component-wrapper{
-      .component-content{
-        .list-container{
-          .list-header{
-            background: var(--base-2);
-          }
-        }
-      }
-    }
-  }
-}
-
-.soft{
-  .component.nav-bar{   
-    .component-wrapper{
-      .component-content{
-        .list-container{
-          border-radius: 15px;
-        }
-      }
-    }
-  }
-}
-
-.round{
-  .component.nav-bar{   
-    .component-wrapper{
-      .component-content{
-        .list-container{
-          border-radius: 30px;
-        }
-      }
-    }
-  }
-}
-
-.raised{
-  .component.nav-bar{   
-    .component-wrapper{
-      .component-content{
-        .list-container{
-          border:none;
-          box-shadow: var(--shadow-raised);
-        }
-      }
-    }
-  }
-}
-
-.float{
-  .component.nav-bar{   
-    .component-wrapper{
-      .component-content{
-        .list-container{
-          border:none;
-          box-shadow: var(--shadow-float);
-        }
-      }
     }
   }
 }

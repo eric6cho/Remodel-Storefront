@@ -3,8 +3,8 @@ import './../styles/comp-nav-style.scss';
 import * as u from '../scripts/utils'; 
 
 export default function NavStyle(props) {
-  const defaultClass = 'component nav-style ';
-  const [componentClass] = useState(defaultClass);
+  const [componentName] = useState('component nav-style ');
+  const [componentClass] = useState(componentName);
 
   useEffect(() => {
     return () => {};
@@ -19,7 +19,7 @@ export default function NavStyle(props) {
   const getComponent = () => {
     let categoryTitle = props.data['title'];
     let componentData = props.data['componentData'];
-    let activeStyles = props.data['activeStyles'];
+    let activeStyles = props.data['active'];
     let handleSelect = props.events['handleStyleSelect'];
     let requiredData = [componentData,categoryTitle];
     if(!u.isRequiredDataValid(requiredData)) return null;

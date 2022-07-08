@@ -1,0 +1,238 @@
+@import "./mixins/mixins.scss";
+
+// component general styling
+.component.nav-style-preview{
+  width:100%;
+  height:100%;
+  overflow: hidden;
+
+  &>.component-wrapper{
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+
+    &>.component-content{
+      position: relative;
+      width:100%;
+      height:100%;
+      overflow: hidden;
+      background: var(--accent-1);
+
+      @include button();
+
+      .image-container{
+        @include transition();
+        overflow: hidden;
+        position: absolute;
+        height: 50%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-radius: 0; 
+        background: none;  
+        z-index: 1;
+        
+        @include image();
+
+        .image-overlay{ 
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          z-index: 2;
+          background: rgba(0,0,0,0.5);
+        }
+      }
+      
+      .text-container{
+        @include transition();
+        position: absolute;
+        height: 50%;
+        width: 100%; 
+        bottom: 0;
+        right: 0;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        background: var(--accent-1);
+
+        h3{
+          margin-bottom: 10px;
+        }
+
+        .text-container-inner{
+          padding:20px;
+          height:calc(100% - 120px);
+          overflow-y: auto;
+        }
+
+        .icon-container{
+          height:60px;
+          width:100%;
+          display: flex;
+          margin-top:auto;
+
+          .icon{
+            margin:auto;
+            width:35px;
+            height:35px;
+            font-size: 22px;
+          }
+        }
+
+        .button-container{
+          height:60px;
+
+          .button{
+            height: 100%;
+          }
+        }
+      } 
+    }
+  }
+}
+
+// component variation styling
+.monochrome{
+  .component.nav-style-preview{
+    &>.component-wrapper{
+      &>.component-content{  
+        background: var(--base-2);
+  
+        .text-container{
+          background: var(--base-2);
+        }
+      }
+    }
+  }
+}
+
+.soft{
+  .component.nav-style-preview{   
+    &>.component-wrapper{
+      border-radius: 15px;
+
+      &>.component-content{
+        border-radius: 12px;
+      }
+    }
+  }
+}
+
+.round{
+  .component.nav-style-preview{   
+    &>.component-wrapper{
+      border-radius: 30px;
+
+      &>.component-content{
+        border-radius: 25px;
+      }
+    }
+  }
+}
+
+.raised{
+  .component.nav-style-preview{ 
+    padding: 10px;
+      
+    &>.component-wrapper{
+      box-shadow: var(--shadow-raised);
+    }
+  }
+}
+
+.float{
+  .component.nav-style-preview{  
+    padding: 10px; 
+
+    &>.component-wrapper{
+      box-shadow: var(--shadow-float); 
+    }
+  }
+}
+
+
+.text-wrapper{
+  .component.nav-style-preview{   
+    &>.component-wrapper{
+      &>.component-content{
+        .image-container{
+          top: 10px;
+          left: 10px;
+          height: calc(50% - 20px);
+          width: calc(100% - 20px);
+        }
+      }
+    }
+  }
+  
+  &.soft{
+    .component.nav-style-preview{   
+      &>.component-wrapper{
+        &>.component-content{
+          .image-container{
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  &.round{
+    .component.nav-style-preview{   
+      &>.component-wrapper{
+        &>.component-content{
+          .image-container{
+            border-radius: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.image-wrapper{
+  .component.nav-style-preview{   
+    &>.component-wrapper{
+      &>.component-content{
+        .image-container{
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+        }
+
+        .text-container{
+          bottom: 5px;
+          right: 5px;
+          width: calc(100% - 10px);
+          height: calc(70% - 10px);
+        }
+      }
+    }
+  }
+
+  &.soft{
+    .component.nav-style-preview{   
+      &>.component-wrapper{
+        &>.component-content{
+          .text-container{
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  &.round{
+    .component.nav-style-preview{   
+      &>.component-wrapper{
+        &>.component-content{
+          .text-container{
+            border-radius: 22px;
+          }
+        }
+      }
+    }
+  }
+}

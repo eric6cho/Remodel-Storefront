@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import NavTheme from "./comp-nav-theme";
-import NavStyle from "./comp-nav-style";
+import NavList from "./comp-nav-list";
+import NavStylePreview from "./comp-nav-style-preview";
 import './../styles/comp-nav-bar.scss';
 import * as u from '../scripts/utils'; 
 
@@ -29,21 +29,6 @@ export default function NavBar(props) {
     return isNav ? getIcon(iconTitle,iconClass,iconClickEvent,key) : null;
   };
 
-  const getNavList = (title,cssClass,list) => (
-    <div className={"list-wrapper "+cssClass}> 
-      <div className="list-container">
-        <div className="list-header">
-          <h3>
-            {title}
-          </h3> 
-        </div>
-        <div className="list-body">
-          {list}
-        </div>
-      </div>
-    </div>
-  );
-
   const handleClickOutside = e => {
     let comp = document.getElementById(componentBodyId);
     if(!comp) return;
@@ -58,37 +43,34 @@ export default function NavBar(props) {
   };
 
   const getComponent = () => {
-    let styleData = props.data['styleData'];
+    let navData = props.data['navData'];
     let pageData = props.data['pageData'];
-    let activePage = props.data['activePage'];
-    let activeTheme = props.data['activeTheme'];
-    let activeStyles = props.data['activeStyles'];
-    let title = props.data['title'];
     let events = props.events;
-    let requiredData = [styleData,pageData,activePage,title];
+    let requiredData = [navData,pageData];
     if(!u.isRequiredDataValid(requiredData)) return null;
-      
-    let themeList = styleData['themes'];
-    let styleList = styleData['styles'];
+
+    let activeStyles = navData['activeStyles'];
+    let activeTheme = navData['activeTheme'];
+    let activePage = navData['activePage'];
+    let styleData = navData['styleData'];
+    let stylePreviewData = navData['stylePreviewData']
+    let title = navData['title'];
+
     let handlePageSelect = events['handlePageSelect'];
 
-    let themes = Object.keys(themeList).map((theme,i)=>{
-      let data = {
-        'componentData':themeList[theme],
-        'title':theme,
-        'isActive':activeTheme===theme,
-      };
-      return <NavTheme key={i} events={events} data={data}/>;
-    });
-     
-    let styles = Object.keys(styleList).map((style,i)=>{
-      let data = {
-        'componentData':styleList[style],
-        'title':style,
-        'activeStyles':activeStyles,
-      };
-      return <NavStyle key={i} events={events} data={data}/>;
-    });
+    let themesData = {
+      'title':'Themes',
+      'listData':styleData['themes'],
+      'type':'THEME',
+      'active':activeTheme,
+    }
+
+    let stylesData = {
+      'title':'Styles',
+      'listData':styleData['styles'],
+      'type':'STYLE',
+      'active':activeStyles,
+    }
 
     let navIcons = Object.keys(pageData).map((page,i) => getNavIcon(pageData,page,activePage,handlePageSelect,i));
     
@@ -96,8 +78,15 @@ export default function NavBar(props) {
 
     let bodySection = 
       <div className="nav-body-section" id={componentBodyId}>
-        {getNavList('Themes','',themes)}
-        {getNavList('Styles','styles-list',styles)}
+        <div className="nav-body-subsection">
+          <NavList events={events} data={themesData} />
+        </div>
+        <div className="nav-body-subsection large">
+          <NavList events={events} data={stylesData} />
+        </div>
+        <div className="nav-body-subsection">
+          <NavStylePreview  events={events} data={stylePreviewData}/>
+        </div>
       </div>;
 
     let headerSection = 

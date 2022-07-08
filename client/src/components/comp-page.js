@@ -26,14 +26,15 @@ export default function Page(props) {
   };
 
   const getComponent = () => {
-    let pageData = props.data['pageData'];
     let contentData = props.data['contentData'];
-    let activePage = props.data['activePage'];
-    let requiredData = [pageData,contentData,activePage];
+    let pageData = props.data['pageData'];
+    let navData = props.data['navData'];
+    let events = props.events;
+    let requiredData = [pageData,contentData,navData];
     if(!u.isRequiredDataValid(requiredData)) return null;
 
+    let activePage = navData['activePage'];
     let id = activePage['id'];
-    let events = props.events;
     let data = {
       'pageData': pageData[id],
       'contentData': contentData,

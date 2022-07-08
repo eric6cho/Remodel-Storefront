@@ -5,8 +5,6 @@
   @include transition(); 
   padding: 0;
   overflow: hidden;
-  margin-top: 20px;
-  margin-bottom: 20px;
 
   .component-wrapper{
     position: relative;
@@ -34,18 +32,32 @@
         .form{
           display: flex;
           flex-wrap: wrap;
-          padding: 50px;
+          padding: 30px;
+
+          @include media-md{
+            padding: 50px;
+          }
         }
 
         .form-section-title{
           width: 100%;
           color: black;
           padding: 5px 15px 20px;
+          text-align: center;
+
+          @include media-md{
+            text-align: left;
+          }
         }
 
         .form-section{
-          padding: 0 15px;
-          width: 50%;
+          padding: 0;
+          width: 100%;
+
+          @include media-md{
+            padding: 0 15px;
+            width: 50%;
+          }
           
           .form-validation-text,
           .form-input-text,
@@ -95,7 +107,6 @@
           @include transition();
           width: 100%;
           padding: 50px 70px;
-          text-align: right;
           background: var(--accent-2);
           border: none;
           color: white;
@@ -104,10 +115,15 @@
           letter-spacing: 3px;
           text-transform: uppercase;
           cursor: pointer;
+          text-align: center;
 
           &:hover{
             background: var(--accent-3);
             color: black;
+          }
+
+          @include media-md{
+            text-align: right;
           }
         }
       }
