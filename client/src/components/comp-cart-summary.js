@@ -1,38 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import Button from "./comp-button";
 import './../styles/comp-cart-summary.scss';
 
 export default function CartSummary(props) {
   const [componentName] = useState('cart-summary');
   const [componentClass] = useState('component '+componentName);
     
-  useEffect(() => {
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const getButton = (title,cssClass='',click=(()=>{}),key) =>
-    <div key={key} className={"button "+cssClass} onClick={click}><h4>{title}</h4></div>;
-
   const getComponent = () => {
     let total = props.total;
     let items = props.items;
     let events = props.events;
     let handlePageSelect = events['handlePageSelect'];
         
+    let paymentButton = <Button title={'Continue To Payment'} cssClass={'purchase-button'} click={()=>handlePageSelect('payment')}/>;
+
     let textContainer = 
       <div className="text-container">
         <div className="text-section">
-          <h3>Items: </h3>
-          <h4>{items}</h4>
+          <h3>
+            Items: 
+          </h3>
+          <h4>
+            {items}
+          </h4>
         </div>
         <div className="text-section">
-          <h3>Total: </h3>
-          <h4>{total}</h4>
+          <h3>
+            Total: 
+          </h3>
+          <h4>
+            {total}
+          </h4>
         </div>     
       </div>;
 
-    let paymentButton = getButton('Continue To Payment','purchase-button',()=>handlePageSelect('payment'));
-    
     let componentContent = 
       <>
         {textContainer}

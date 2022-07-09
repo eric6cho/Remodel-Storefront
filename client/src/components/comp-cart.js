@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Collection from "./comp-collection";
 import CartSummary from "./comp-cart-summary";
 import './../styles/comp-cart.scss';
@@ -8,11 +8,6 @@ export default function Cart(props) {
   const [componentName] = useState('cart');
   const [componentClass] = useState('component '+componentName+' narrow');
     
-  useEffect(() => {
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const getComponent = () => {
     let data = props.data;
     let events = props.events;

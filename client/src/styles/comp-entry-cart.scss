@@ -47,8 +47,7 @@
       @include tags();
       @include button();
 
-      .image-container,
-      .image-overlay{
+      .image-container{
         @include transition();
         overflow: hidden;
         position: absolute;
@@ -68,11 +67,15 @@
         }
         
         @include image();
-      }
-
-      .image-overlay{
-        z-index: 2;
-        background: rgba(0,0,0,0.2);
+        
+        .image-overlay{
+          @include transition();
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          z-index: 2;
+          background: rgba(0,0,0,0.2);
+        }
       }
 
       .text-container{
@@ -277,8 +280,7 @@
   .component.entry-cart{
     .component-wrapper{
       .component-content{
-        .image-container,
-        .image-overlay{
+        .image-container{
           height: 130px;
           width: calc(100% - 20px);
           top: 10px;
@@ -308,8 +310,7 @@
     .component.entry-cart{   
       .component-wrapper{
         .component-content{
-          .image-container,
-          .image-overlay{
+          .image-container{
             border-radius: 6px;
           }
 
@@ -329,8 +330,7 @@
     .component.entry-cart{   
       .component-wrapper{
         .component-content{
-          .image-container,
-          .image-overlay{
+          .image-container{
             border-radius: 17px;
           }
 
@@ -371,20 +371,20 @@
               left:40%;
             }
           }
-        }
-        
-        .image-overlay{
-          height: 100%;
-          width: 100%;
-          top: 0;
-          left: 0;
-          background: rgb(200,200,200);
-          background: linear-gradient(180deg, rgba(200,200,200,0.05) 0%, rgba(100,100,100,0.1) 30%, rgba(50,50,50,1) 47%, rgba(50,50,50,1) 100%);
-
-          @include media-md{
+            
+          .image-overlay{
             height: 100%;
-            width: 480px;
-            background: linear-gradient(90deg, rgba(200,200,200,0.05) 0%, rgba(100,100,100,0.1) 30%, rgba(50,50,50,1) 47%, rgba(50,50,50,1) 100%);
+            width: 100%;
+            top: 100%;
+            left: 0;
+            background: rgb(200,200,200);
+            background: linear-gradient(180deg, rgba(200,200,200,0.05) 0%, rgba(100,100,100,0.1) 30%, rgba(50,50,50,1) 47%, rgba(50,50,50,1) 100%);
+
+            @include media-md{
+              width: 480px;
+              top:0;
+              background: linear-gradient(90deg, rgba(200,200,200,0.05) 0%, rgba(100,100,100,0.1) 30%, rgba(50,50,50,1) 47%, rgba(50,50,50,1) 100%);
+            }
           }
         }
 
