@@ -44,7 +44,7 @@ export default function Product(props) {
     let stars = 
       <>
         {[...Array(parseInt(data['rating']))].map((_, i) => <div key={i} className="star full"></div>)}
-        {(data['rating']%1 > 0.3? <div className="star full partial"></div>:null)}
+        {(rating%1>0.3 ? <div className="star full partial"></div> : null)}
       </>;
 
     let imageContainer = 

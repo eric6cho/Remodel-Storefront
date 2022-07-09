@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import BannerSlide from "./comp-entry-banner-slide";
+import Icon from "./comp-icon";
 import './../styles/comp-banner.scss';
 import * as u from '../scripts/utils'; 
 
@@ -32,9 +33,6 @@ export default function Banner(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getIcon = (title,cssClass='',click=(()=>{}),key) => 
-    <span key={key} className={"material-icons icon "+cssClass} onClick={click}>{title}</span>;
-
   const goToSlide = (i) => {
     let length = componentData['slides'].length;
     if(i<0) i=length-1;
@@ -48,43 +46,41 @@ export default function Banner(props) {
     if(!u.isRequiredDataValid(requiredData)) return null;
 
     let slides = componentData['slides'];
+    let title = componentData['title'];
 
     let sliderStyles = {
       'width': width===0?'100'+slides.length+'vx':width*slides.length+'px',
       'marginLeft': 'calc('+ (0-activeSlide*width)+'px - 0px)',
     };
+    
+    let bannerSlides = slides.map((slide,i)=>
+      <BannerSlide key={i} image={slide['image']} title={slide['title']} description={slide['description']} width={width}/>);
+
+    let slideIcons = 
+      <>
+        {<Icon title={'chevron_left'} click={()=>goToSlide(activeSlide-1)}/>}
+        {slides.map((_,i)=><Icon key={i} cssClass={"dot "+(activeSlide===i?'active':'')} click={()=>goToSlide(i)}/>)}
+        {<Icon title={'chevron_right'} click={()=>goToSlide(activeSlide+1)}/>}
+      </>;
 
     let slider = 
       <div className="slider" style={sliderStyles}>
-        {slides.map((slide,i)=>
-          <BannerSlide 
-            key={i}
-            image={slide['image']}
-            title={slide['title']}
-            description={slide['description']}
-            width={width}
-            />
-        )}
+        {bannerSlides}
       </div>;
 
     let slideCounter = slides.length===1?null:
       <div className="slide-counter">
-        {getIcon('chevron_left','',()=>goToSlide(activeSlide-1))}
-        {slides.map((slide,i)=>
-          <div 
-            key={i} 
-            className={"dot "+(activeSlide===i?'active':'')} 
-            onClick={()=>goToSlide(i)}>
-          </div>
-        )}
-        {getIcon('chevron_right','',()=>goToSlide(activeSlide+1))}
+        {slideIcons}
       </div>;
 
-    let title = <h1 className="title">{componentData['title']}</h1>
+    let titleContainer = 
+      <h1 className="title">
+        {title}
+      </h1>;
 
     let componentContent = 
       <>
-        {title}
+        {titleContainer}
         {slideCounter}
         {slider}
       </>;
