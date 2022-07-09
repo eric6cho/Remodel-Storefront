@@ -3,8 +3,8 @@ import './../styles/comp-nav-theme.scss';
 import * as u from '../scripts/utils'; 
 
 export default function NavTheme(props) {
-  const [componentName] = useState('component nav-theme ');
-  const [componentClass] = useState(componentName);
+  const [componentName] = useState('nav-theme ');
+  const [componentClass] = useState('component '+componentName);
 
   useEffect(() => {
     return () => {};

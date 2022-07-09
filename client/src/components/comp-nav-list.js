@@ -5,8 +5,8 @@ import './../styles/comp-nav-list.scss';
 import * as u from '../scripts/utils'; 
 
 export default function NavList(props) {
-  const [componentName] = useState('component nav-list ');
-  const [componentClass] = useState(componentName);
+  const [componentName] = useState('nav-list ');
+  const [componentClass] = useState('component '+componentName);
 
   useEffect(() => {
     return () => {};

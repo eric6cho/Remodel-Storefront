@@ -126,29 +126,29 @@ export default function App() {
     let id = item['metadata']['id'];
     let savedContentCopy = u.shallowCopy(contentData['saved'][type]);
     let prevContentLength = Object.keys(savedContentCopy).length;
-
+    
     savedContentCopy[id] = {'id':id};
-
     let newContentLength = Object.keys(savedContentCopy).length;
 
     if(prevContentLength===newContentLength) delete savedContentCopy[id];
 
     let newContentData = u.shallowCopy(contentData);
-
     newContentData['saved'][type] = savedContentCopy;
 
     setContentData(newContentData);
   };
 
+  const closeContent = (handleContentSelect,e) => {
+    handleContentSelect(null);
+    e.stopPropagation(); // prevent any click events in the parent
+  };
+
   const handleStyleSelect = (styleName,styleType) => changeStyle(getStyleClasses(styleName,styleType));
-
   const handleThemeSelect = themeName => changeTheme(themeName);
-
   const handlePageSelect = title => setActivePage(pageData[title]);
-
   const handleCartChange = (item,count) => changeCart(item,count);
-
   const handleContentSave = item => saveContent(item);
+  const handleContentClose = (handleContentSelect,e) => closeContent(handleContentSelect,e)
 
   const getLoadingScreen = () => (
     <div className="App">
@@ -169,6 +169,7 @@ export default function App() {
       'handlePageSelect':handlePageSelect,
       'handleContentSave':handleContentSave,
       'handleCartChange':handleCartChange,
+      'handleContentClose':handleContentClose,
     };
 
     let data = {

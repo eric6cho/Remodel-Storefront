@@ -3,8 +3,8 @@ import './../styles/comp-nav-style-preview.scss';
 import * as u from '../scripts/utils'; 
 
 export default function NavStylePreview(props) {
-  const [componentName] = useState('component nav-style-preview ');
-  const [componentClass] = useState(componentName);
+  const [componentName] = useState('nav-style-preview ');
+  const [componentClass] = useState('component '+componentName);
 
   useEffect(() => {
     return () => {};
@@ -29,7 +29,7 @@ export default function NavStylePreview(props) {
     let iconTextList = data['iconTextList'];
    
     let buttonContainer = <div className="button-container">{getButton(buttonText)}</div>;
-    let iconContainer = <div className="icon-container">{iconTextList.map(title=>getIcon(title))}</div>;
+    let iconContainer = <div className="icon-container">{iconTextList.map((title,i)=>getIcon(title,'',()=>{},i))}</div>;
     let textContainer = 
       <div className="text-container">
         <div className="text-container-inner">
