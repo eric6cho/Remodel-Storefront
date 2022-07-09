@@ -93,8 +93,7 @@
       @include button();
       @include close-icon();
 
-      .image-container,
-      .image-overlay{
+      .image-container{
         @include transition();
         overflow: hidden;
         position: absolute;
@@ -107,11 +106,15 @@
         z-index: 1;
 
         @include image();
-      }
-
-      .image-overlay{
-        z-index: 2;
-        background: rgba(0,0,0,0.2);
+        
+        .image-overlay{
+          @include transition();
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          z-index: 2;
+          background: rgba(0,0,0,0.2);
+        }
       }
 
       .text-container{
@@ -202,24 +205,20 @@
         @include tags();
         @include button();
 
-        .image-container,
-        .image-overlay{
+        .image-container{
           height: 40%;
           width: 100%;
+          z-index: 1;
 
           @include media-md{
             height: 600px;
           }
-        }
-
-        .image-container{
-          z-index: 1;
-        }
-
-        .image-overlay{
-          z-index: 2;
-          background: var(--image-overlay-default);
-          background: var(--image-overlay-gradient);
+            
+          .image-overlay{
+            z-index: 2;
+            background: var(--image-overlay-default);
+            background: var(--image-overlay-gradient);
+          }
         }
 
         .text-container{
@@ -284,10 +283,10 @@
               height: 100%;
               width: 100%;
             }
-          }
 
-          .image-overlay{
-            background: none;
+            .image-overlay{
+              background: none;
+            }
           }
         }
       }
@@ -302,9 +301,7 @@
       .component.entry-article{   
         .component-wrapper{
           .component-content{
-
-            .image-container,
-            .image-overlay{
+            .image-container{
               top:0;
               right:0;
               left:0;
@@ -332,8 +329,7 @@
             }
 
             @include media-md{
-              .image-container,
-              .image-overlay{
+              .image-container{
                 top:0;
                 right:0;
                 left:50%;
@@ -418,8 +414,7 @@
     padding: 10px;
 
     .component-wrapper{
-      .image-container,
-      .image-overlay{  
+      .image-container{  
         height: 360px;
       }
 
@@ -459,9 +454,8 @@
   .component.entry-article{
     .component-wrapper{
       .component-content{
-        .image-container,
-        .image-overlay{
-          height: calc(350px);
+        .image-container{
+          height: 350px;
           width: calc(100% - 30px);
           top: 15px;
           left: 15px;
@@ -482,9 +476,8 @@
         .component-content{
           background: var(--base-2);
 
-          .image-container,
-          .image-overlay{
-            height: calc(500px);
+          .image-container{
+            height: 500px;
             width: calc(100% - 40px);
             top: 20px;
             left: 20px;
@@ -507,8 +500,7 @@
     .component.entry-article{   
       .component-wrapper{
         .component-content{
-          .image-container,
-          .image-overlay{
+          .image-container{
             border-radius: 6px;
           }
         }
@@ -520,8 +512,7 @@
     .component.entry-article{   
       .component-wrapper{
         .component-content{
-          .image-container,
-          .image-overlay{
+          .image-container{
             border-radius: 15px;
           }
         }
@@ -549,10 +540,9 @@
   .component.entry-article{
     .component-wrapper{
       .component-content{
-        .image-container,
-        .image-overlay{
-          height: calc(100%);
-          width: calc(100%);
+        .image-container{
+          height: 100%;
+          width: 100%;
           top: 0;
           left: 0;
         }
@@ -587,10 +577,9 @@
       .component-wrapper{
         &:hover{
           .component-content{
-            .image-container,
-            .image-overlay{
-              height: calc(100%);
-              width: calc(100%);
+            .image-container{
+              height: 100%;
+              width: 100%;
               top: 0;
               left: 0;
 

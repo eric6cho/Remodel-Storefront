@@ -14,15 +14,15 @@ export default function Product(props) {
     let requiredData = [componentData];
     if(!u.isRequiredDataValid(requiredData)) return null;
 
-    let data = componentData['data'];
-    let metadata = componentData['metadata'];
-    let isSaved = props.data['isSaved'];
-    
     let handleContentSelect = events['handleContentSelect'];
     let handleContentSave = events['handleContentSave'];
     let handleCartChange = events['handleCartChange'];
     let handleContentClose = events['handleContentClose'];
 
+    let data = componentData['data'];
+    let metadata = componentData['metadata'];
+    let isSaved = props.data['isSaved'];
+    
     let title = data['name'];
     let category = data['category'];
     let description = data['description'];

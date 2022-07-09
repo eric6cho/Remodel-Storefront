@@ -97,8 +97,7 @@
       box-shadow: none;
       background: var(--accent-1);
 
-      .image-container,
-      .image-overlay{
+      .image-container{
         @include transition();
         overflow: hidden;
         position: absolute;
@@ -111,11 +110,15 @@
         z-index: 1;
         
         @include image();
-      }
 
-      .image-overlay{
-        z-index: 2;
-        background: rgba(0,0,0,0.2);
+        .image-overlay{
+          @include transition();
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          z-index: 2;
+          background: rgba(0,0,0,0.2);
+        }
       }
 
       .text-container{
@@ -178,10 +181,10 @@
               width: 100%;
               top: 40%;
             }
-          }
 
-          .image-overlay{
-            background: rgba(0,0,0,0);
+            .image-overlay{
+              background: rgba(0,0,0,0);
+            }
           }
 
           .text-container{
@@ -274,8 +277,7 @@
   .component.entry-user{
     .component-wrapper{
       .component-content{
-        .image-container,
-        .image-overlay{
+        .image-container{
           height: calc(100% - 115px);
           width: calc(100% - 30px);
           top: 15px;
@@ -288,10 +290,9 @@
       .component-wrapper{
         &:hover{
           .component-content{
-            .image-container,
-            .image-overlay{
+            .image-container{
               height: calc(100% - 200px);
-              width: calc(100%);
+              width: 100%;
               top: 0;
               left: 0;
             }
@@ -305,8 +306,7 @@
     .component.entry-user{   
       .component-wrapper{
         .component-content{
-          .image-container,
-          .image-overlay{
+          .image-container{
             border-radius: 6px;
           }
         }
@@ -318,8 +318,7 @@
     .component.entry-user{   
       .component-wrapper{
         .component-content{
-          .image-container,
-          .image-overlay{
+          .image-container{
             border-radius: 15px;
           }
         }
@@ -332,16 +331,15 @@
   .component.entry-user{
     .component-wrapper{
       .component-content{
-        .image-container,
-        .image-overlay{
-          height: calc(100%);
-          width: calc(100%);
+        .image-container{
+          height: 100%;
+          width: 100%;
           top: 0;
           left: 0;
-        }
-
-        .image-overlay{
-          background: rgba(0,0,0,0);
+          
+          .image-overlay{
+            background: rgba(0,0,0,0);
+          } 
         }
 
         .text-container{

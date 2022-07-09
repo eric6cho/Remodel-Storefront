@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import './../styles/comp-entry-user.scss';
 import * as u from '../scripts/utils'; 
 
 export default function User(props) {
   const [componentName] = useState('entry-user');
-  const [componentClass,setComponentClass] = useState('component '+componentName);
-
-  useEffect(() => {
-    setComponentClass('component '+componentName+' '+(props.data['isFocus']?u.ACTIVECLASS:''))
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.data]);
+  const [componentClass] = useState('component '+componentName);
   
   const getComponent = () => {
     let componentData = props.data['componentData'];
@@ -19,37 +13,37 @@ export default function User(props) {
 
     let data = componentData['data'];
 
+    let title = data['name'];
+    let category = data['title'];
+    let description = data['description'];
+    let image = data['image'];
+
     let imageContainer = 
       <div className="image-container"> 
-        <img src={data['image']} alt='product'/>
-      </div>;
-
-    let imageOverlay = <div className="image-overlay"></div>;
-      
-    let title = <h3 className="name">{data['name']}</h3>;
-
-    let category = <p className="title secondary">{data['title']}</p>;
-    
-    let description = <p className="description">{data['description']}</p>;
-
-    let titleContainer = 
-      <div className="title-container">
-        {title}
-        {category}
+        <img src={image} alt='product'/>
+        <div className="image-overlay"></div>
       </div>;
 
     let textContainer = 
       <div className="text-container">
         <div className="text-container-inner">
-          {titleContainer}
-          {description}
+          <div className="title-container">
+            <h3 className="name">
+              {title}
+            </h3>
+            <p className="title secondary">
+              {category}
+            </p>
+          </div>
+          <p className="description">
+            {description}
+          </p>
         </div>
       </div>;
 
     let componentContent = 
       <>
         {imageContainer}
-        {imageOverlay}
         {textContainer}
       </>;
 
