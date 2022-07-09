@@ -1,21 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import Button from "./comp-button";
+import Icon from "./comp-icon";
 import './../styles/comp-nav-style-preview.scss';
 import * as u from '../scripts/utils'; 
 
 export default function NavStylePreview(props) {
   const [componentName] = useState('nav-style-preview ');
   const [componentClass] = useState('component '+componentName);
-
-  useEffect(() => {
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[]);
-  
-  const getButton = (title,cssClass='',click=(()=>{}),key) =>
-    <div key={key} className={"button "+cssClass} onClick={click}><h4>{title}</h4></div>;
-
-  const getIcon = (title,cssClass='',click=(()=>{}),key) => 
-    <span key={key} className={"material-icons icon "+cssClass} onClick={click}>{title}</span>;
 
   const getComponent = () => {
     let data = props.data;
@@ -28,16 +19,25 @@ export default function NavStylePreview(props) {
     let buttonText = data['buttonText'];
     let iconTextList = data['iconTextList'];
    
-    let buttonContainer = <div className="button-container">{getButton(buttonText)}</div>;
-    let iconContainer = <div className="icon-container">{iconTextList.map((title,i)=>getIcon(title,'',()=>{},i))}</div>;
+    let icons = iconTextList.map((title,i)=><span key={i}><Icon title={title}/></span>);
+    let button = <Button title={buttonText}/>;
+    
     let textContainer = 
       <div className="text-container">
         <div className="text-container-inner">
-          <h3>{title}</h3>
-          <p>{description}</p>
+          <h3>
+            {title}
+          </h3>
+          <p>
+            {description}
+          </p>
         </div>
-        {iconContainer}
-        {buttonContainer}
+        <div className="icon-container">
+          {icons}
+        </div>
+        <div className="button-container">
+          {button}
+        </div>
       </div>;
 
     let imageContainer = 

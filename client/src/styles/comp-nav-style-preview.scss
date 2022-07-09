@@ -71,9 +71,12 @@
           width:100%;
           display: flex;
           margin-top:auto;
+          
+          span{
+            margin:auto;
+          }
 
           .icon{
-            margin:auto;
             width:35px;
             height:35px;
             font-size: 22px;
@@ -150,7 +153,6 @@
     }
   }
 }
-
 
 .text-wrapper{
   .component.nav-style-preview{   

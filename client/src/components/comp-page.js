@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ProductPage from "./pages/page-product";
 import HomePage from "./pages/page-home";
 import ArticlePage from "./pages/page-article";
@@ -10,11 +10,6 @@ import * as u from '../scripts/utils';
 export default function Page(props) {
   const [componentName] = useState('page ');
   const [componentClass] = useState('component '+componentName);
-
-  useEffect(() => {
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const getActivePage = (id,data,events) => {
     if(id==='products') return <ProductPage data={data} events={events}/>;

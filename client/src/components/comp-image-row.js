@@ -1,5 +1,5 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import Button from "./comp-button";
 import './../styles/comp-image-row.scss';
 import * as u from '../scripts/utils'; 
 
@@ -7,14 +7,6 @@ export default function ImageRow(props) {
   const [componentName] = useState('image-row');
   const [componentClass] = useState('component '+componentName);
   
-  useEffect(() => {
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const getButton = (title,cssClass='',click=(()=>{}),key) =>
-    <div key={key} className={"button "+cssClass} onClick={click}><h4>{title}</h4></div>;
-
   const getFocusImage = (src,alt) => 
     <div className="focus-image-wrapper">
       <div className="focus-image-container">
@@ -28,31 +20,37 @@ export default function ImageRow(props) {
     let requiredData = [componentData];
     if(!u.isRequiredDataValid(requiredData)) return null;
 
+    let handlePageSelect = events['handlePageSelect'];
     let title = componentData['title'];
     let description = componentData['description'];
     let backgroundImage = componentData['backgroundImage'];
     let focusImage1 = componentData['focusImage1'];
     let focusImage2 = componentData['focusImage2'];
     let focusImage3 = componentData['focusImage3'];
-    let handlePageSelect = events['handlePageSelect'];
     
-    let productLink = getButton('View Our Products','products-link-button',()=>handlePageSelect('products'));
+    let productLink = <Button title={'View Our Products'} cssClass={'products-link-button'} click={()=>handlePageSelect('products')}/>;
     
     let focusImages = 
-        <div className="focus-image-list">
-          {getFocusImage(focusImage1,'focus image 1')}
-          {getFocusImage(focusImage2,'focus image 2')}
-          {getFocusImage(focusImage3,'focus image 3')}
-        </div>;
+      <>
+        {getFocusImage(focusImage1,'focus image 1')}
+        {getFocusImage(focusImage2,'focus image 2')}
+        {getFocusImage(focusImage3,'focus image 3')}
+      </>;
 
     let textContainer = 
       <div className="text-container-background">
         <div className="text-container-wrapper">
           <div className="text-container">
             <div className="text-container-inner">
-              <h2 className="title">{title}</h2>
-              <p className="description">{description}</p>      
-              {focusImages}
+              <h2 className="title">
+                {title}
+              </h2>
+              <p className="description">
+                {description}
+              </p>   
+              <div className="focus-image-list">
+                {focusImages}
+              </div>   
             </div> 
           </div>
         </div>

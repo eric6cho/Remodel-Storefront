@@ -142,16 +142,16 @@ export default function Collection(props) {
     let textContainer = 
       <div className="text-container">
         <div className="text-container-inner">
-          <h2 className="title">{title}</h2>
-          <h3 className="subtitle">{subtitle}</h3>
-          <p className="description">{description}</p>
+          <h2 className="title">
+            {title}
+          </h2>
+          <h3 className="subtitle">
+            {subtitle}
+          </h3>
+          <p className="description">
+            {description}
+          </p>
         </div>
-      </div>;
-
-    let arrowControls = 
-      <div className="arrow-controls">
-        <div className="arrow-left" onClick={()=>goToSlide(activeSlide-1,rowLength,contentLength)}></div>
-        <div className="arrow-right" onClick={()=>goToSlide(activeSlide+1,rowLength,contentLength)}></div>
       </div>;
 
     let listContent = 
@@ -162,7 +162,10 @@ export default function Collection(props) {
               {entries}
             </div>
           </div>
-          {arrowControls}
+          <div className="arrow-controls">
+            <div className="arrow-left" onClick={()=>goToSlide(activeSlide-1,rowLength,contentLength)}></div>
+            <div className="arrow-right" onClick={()=>goToSlide(activeSlide+1,rowLength,contentLength)}></div>
+          </div>
         </div>
         <div className="active-entry">{activeEntry}</div>
       </div>;                

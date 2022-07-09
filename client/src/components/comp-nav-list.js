@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import NavTheme from "./comp-nav-theme";
 import NavStyle from "./comp-nav-style";
 import './../styles/comp-nav-list.scss';
@@ -8,11 +8,6 @@ export default function NavList(props) {
   const [componentName] = useState('nav-list ');
   const [componentClass] = useState('component '+componentName);
 
-  useEffect(() => {
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[]);
-  
   const getComponent = () => {
     let data = props.data;
     let events = props.events;

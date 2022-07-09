@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import './../styles/comp-footer.scss';
 import * as u from './../scripts/utils'; 
 
@@ -6,11 +6,6 @@ export default function Footer(props) {
   const [componentName] = useState('footer');
   const [componentClass] = useState('component '+componentName);
     
-  useEffect(() => {
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const getComponent = () => {
     let data = props.data;
     let requiredData = [data];

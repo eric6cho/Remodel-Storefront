@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NavList from "./comp-nav-list";
 import NavStylePreview from "./comp-nav-style-preview";
+import Icon from "./comp-icon";
 import './../styles/comp-nav-bar.scss';
 import * as u from '../scripts/utils'; 
 
@@ -18,15 +19,12 @@ export default function NavBar(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
   
-  const getIcon = (title,cssClass='',click=(()=>{}),key) => 
-    <span className={"material-icons icon "+cssClass} onClick={click} key={key}>{title}</span>;
-
   const getNavIcon = (pageData,page,activePage,handlePageSelect,key) => {
     let isNav = pageData[page]['isNav'];
     let iconTitle = pageData[page]['icon'];
     let iconClass = activePage['title']===pageData[page]['title']?'active':'';
     let iconClickEvent = ()=>handlePageSelect(page);
-    return isNav ? getIcon(iconTitle,iconClass,iconClickEvent,key) : null;
+    return isNav ? <span key={key}><Icon title={iconTitle} cssClass={iconClass} click={iconClickEvent}/></span> : null;
   };
 
   const handleClickOutside = e => {
@@ -72,26 +70,30 @@ export default function NavBar(props) {
       'active':activeStyles,
     }
 
+    let settingsIcon = <Icon title={'settings'} click={()=>toggleExpand(true)}/>;
     let navIcons = Object.keys(pageData).map((page,i) => getNavIcon(pageData,page,activePage,handlePageSelect,i));
-    
-    let settingsIcon = getIcon('settings','',() => toggleExpand(true));
+    let themeMenu = <NavList events={events} data={themesData}/>;
+    let styleMenu = <NavList events={events} data={stylesData}/>;
+    let stylePreview = <NavStylePreview  events={events} data={stylePreviewData}/>;
 
     let bodySection = 
       <div className="nav-body-section" id={componentBodyId}>
         <div className="nav-body-subsection">
-          <NavList events={events} data={themesData} />
+          {themeMenu}
         </div>
         <div className="nav-body-subsection large">
-          <NavList events={events} data={stylesData} />
+          {styleMenu}
         </div>
         <div className="nav-body-subsection">
-          <NavStylePreview  events={events} data={stylePreviewData}/>
+          {stylePreview}
         </div>
       </div>;
 
     let headerSection = 
       <div className="nav-header-section">
-        <h1>{title}</h1> 
+        <h1>
+          {title}
+        </h1> 
         {navIcons}
         {settingsIcon}
       </div>;

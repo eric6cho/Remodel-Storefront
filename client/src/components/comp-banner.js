@@ -59,7 +59,7 @@ export default function Banner(props) {
     let slideIcons = 
       <>
         {<Icon title={'chevron_left'} click={()=>goToSlide(activeSlide-1)}/>}
-        {slides.map((_,i)=><Icon key={i} cssClass={"dot "+(activeSlide===i?'active':'')} click={()=>goToSlide(i)}/>)}
+        {slides.map((_,i)=><span key={i}><Icon cssClass={"dot "+(activeSlide===i?'active':'')} click={()=>goToSlide(i)}/></span>)}
         {<Icon title={'chevron_right'} click={()=>goToSlide(activeSlide+1)}/>}
       </>;
 

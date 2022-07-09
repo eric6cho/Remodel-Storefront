@@ -1,15 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import './../styles/comp-nav-style.scss';
 import * as u from '../scripts/utils'; 
 
 export default function NavStyle(props) {
   const [componentName] = useState('nav-style ');
   const [componentClass] = useState('component '+componentName);
-
-  useEffect(() => {
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[]);
 
   const getStyleButton = (title,isActive,click=(()=>{}),key) => 
     <div key={key} className={"style-wrapper "+(isActive?'active':'')} onClick={click}>
