@@ -5,9 +5,9 @@ import Footer from "./components/comp-footer";
 import * as u from './scripts/utils'; 
 
 export default function App() {
-  const appTitle = 'Re-Model';
   const [pageData, setPageData] = useState({});
   const [contentData, setContentData] = useState({});
+  const [navData, setNavData] = useState({});
   const [styleData, setStyleData] = useState(null);
   const [activePage, setActivePage] = useState(null);
   const [activeStyles, setActiveStyles] = useState(null);
@@ -41,16 +41,17 @@ export default function App() {
       addContent(data['saved'],'saved');
       addContent(data['cart'],'cart');
     });
+        
+    fetchGet('/api/data/nav').then(data => {
+      data = data['message'];
+      setNavData(data);
+    });
 
     fetchGet('/api/data/styles').then(data => {
       data = data['message'];
-      let styles = data['styles'];
-      let themes = data['themes'];
-      let themeName = Object.keys(themes)[0];
-      let styleClasses = Object.keys(styles).map(style=> styles[style][Object.keys(styles[style])[0]]).join(' ');
-      changeTheme(themeName,data);
-      changeStyle(styleClasses);
-      setStyleData(data);
+      changeTheme(data['activeTheme'],data['styleData']);
+      changeStyle(data['activeStyles']);
+      setStyleData(data['styleData']);
     });
 
     return () => {};
@@ -75,11 +76,17 @@ export default function App() {
     setContentData(newData);
   };
 
+  const handleStyleSelect = (styleName,styleType) => changeStyle(getStyleClasses(styleName,styleType));
+  const handleThemeSelect = themeName => changeTheme(themeName);
+  const handlePageSelect = title => setActivePage(pageData[title]);
+  const handleCartChange = (item,count) => changeCart(item,count);
+  const handleContentSave = item => saveContent(item);
+  const handleContentClose = (handleContentSelect,e) => closeContent(handleContentSelect,e)
+
   const getStyleClasses = (styleName,styleType) => {
     let stylesList = styleData['styles'][styleType];
     let activeStylesList = activeStyles.split(' ');
     let newActiveStyles = activeStylesList.filter(style=>!stylesList.includes(style)); 
-
     newActiveStyles.push(styleName);
 
     return newActiveStyles.join(' ');
@@ -143,13 +150,6 @@ export default function App() {
     e.stopPropagation(); // prevent any click events in the parent
   };
 
-  const handleStyleSelect = (styleName,styleType) => changeStyle(getStyleClasses(styleName,styleType));
-  const handleThemeSelect = themeName => changeTheme(themeName);
-  const handlePageSelect = title => setActivePage(pageData[title]);
-  const handleCartChange = (item,count) => changeCart(item,count);
-  const handleContentSave = item => saveContent(item);
-  const handleContentClose = (handleContentSelect,e) => closeContent(handleContentSelect,e)
-
   const getLoadingScreen = () => (
     <div className="App">
       <div className="loading-screen">
@@ -157,50 +157,46 @@ export default function App() {
       </div>
     </div>
   );
-  
-  const getComponent = () => {
-    let siteData = contentData['site'];
-    let requiredData = [pageData,contentData,siteData,styleData];
-    if(!u.isRequiredDataValid(requiredData)) return getLoadingScreen();
 
-    let events = {
+  const getUpdatedEvents = () => ({
       'handleThemeSelect':handleThemeSelect,
       'handleStyleSelect':handleStyleSelect,
       'handlePageSelect':handlePageSelect,
       'handleContentSave':handleContentSave,
       'handleCartChange':handleCartChange,
       'handleContentClose':handleContentClose,
-    };
+    });
 
+  const getUpdatedData = () => {
     let data = {
       'pageData':pageData,
       'contentData':contentData,
-      'navData':{
-        'title':appTitle,
-        'styleData':styleData,
-        'activeTheme':activeTheme,
-        'activeStyles':activeStyles,
-        'activePage':activePage,
-        'stylePreviewData':{
-          'title':'Sample Card Title',
-          'description':'This is a description for this card. Below is a set of sample icons and a sample button. Any text overflow of this text will allow for scrolling.',
-          'image':'./images/shop/1.jpg',
-          'buttonText':'Sample Button',
-          'iconTextList':['home','search','person','navigation'],
-        }
-      }, 
+      'navData':navData, 
     };
-      
+    
+    data['navData']['styleData'] = styleData;
+    data['navData']['activeTheme'] = activeTheme;
+    data['navData']['activeStyles'] = activeStyles;
+    data['navData']['activePage'] = activePage;
+
+    return data;
+  };
+  
+  const getComponent = () => {
+    let siteData = contentData['site'];
+    let requiredData = [pageData,contentData,siteData,styleData];
+    if(!u.isRequiredDataValid(requiredData)) return getLoadingScreen();
+
+    let events = getUpdatedEvents();
+    let data = getUpdatedData();
     let navigation = <NavBar data={data} events={events}/>;
-
-    let mainContent = <Page data={data} events={events}/>;
-
+    let content = <Page data={data} events={events}/>;
     let footer = <Footer data={data} events={events}/>;
 
     let component = 
       <div className="App">
         {navigation}
-        {mainContent}
+        {content}
         {footer}
       </div>;
 

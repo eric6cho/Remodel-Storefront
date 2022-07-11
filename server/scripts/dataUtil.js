@@ -531,12 +531,39 @@ const getStyles = () => {
 };
 
 const createStyleData = () => {
-    let data = {
-        'styles': getStyles(),
-        'themes': getThemes(),
-    };
+  
+  let themes = getThemes();
+  let styles = getStyles();
 
-    return data;
+  let defaultTheme = Object.keys(themes)[0];
+  let defaultStyles = Object.keys(styles).map(style=> styles[style][Object.keys(styles[style])[0]]).join(' ');
+  
+  let data = {
+    'styleData':{
+      'styles': styles,
+      'themes': themes,   
+    },
+    'activeTheme':defaultTheme,
+    'activeStyles':defaultStyles,
+  };
+
+  return data;
+};
+
+const createNavData = () => {
+
+  let data = {
+    'title': 'Re-Model',
+    'stylePreviewData':{
+      'title':'Sample Card Title',
+      'description':'This is a description for this card. Below is a set of sample icons and a sample button. Any text overflow of this text will allow for scrolling.',
+      'image':'./images/shop/1.jpg',
+      'buttonText':'Sample Button',
+      'iconTextList':['home','search','person','navigation'],
+    }
+  };
+
+  return data;
 };
 
 // start dataUtil class definition
@@ -548,6 +575,7 @@ let dataUtil = class {
     generateArticleData = () => createArticleData();
     generateUserData = () => createUserData();
     generateSavedData = () => createSavedData();
+    generateNavData = () => createNavData();
 }
 
 module.exports = new dataUtil();

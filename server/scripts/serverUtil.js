@@ -7,6 +7,7 @@ const STYLES = 'styles';
 const USERS = 'users';
 const PAGES = 'pages';
 const SAVED = 'saved';
+const NAV = 'nav';
 
 const checkIfFileExists = async file => new Promise(resolve => fs.stat(file, (err, stat) => resolve(!err)));
 
@@ -39,6 +40,7 @@ const generateData = type => {
   if(type===SAVED) return d.generateSavedData(); 
   if(type===USERS) return d.generateUserData();
   if(type===PAGES) return d.generatePageData(); 
+  if(type===NAV) return d.generateNavData(); 
   return null;
 };
 
@@ -64,6 +66,7 @@ let serverUtil = class {
   sendSavedData = res => getData(SAVED).then(data => sendData(res,data));
   sendPageData = res => getData(PAGES).then(data => sendData(res,data));
   sendUserData = res => getData(USERS).then(data => sendData(res,data));
+  sendNavData = res => getData(NAV).then(data => sendData(res,data));
 }
 
 module.exports = new serverUtil();

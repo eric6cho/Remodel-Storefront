@@ -15,6 +15,7 @@ app.get('/api/data/articles', (req, res) => server.sendArticleData(res));
 app.get('/api/data/users', (req, res) => server.sendUserData(res));
 app.get('/api/data/styles', (req, res) => server.sendStyleData(res));
 app.get('/api/data/saved', (req, res) => server.sendSavedData(res));
+app.get('/api/data/nav', (req, res) => server.sendNavData(res));
 app.get('/api', (req, res) => res.json({ message: 'Hello from server!' })); 
 app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../client/public', 'index.html'))); 
 
