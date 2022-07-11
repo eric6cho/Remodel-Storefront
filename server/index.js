@@ -1,6 +1,7 @@
 require('dotenv').config();
 
-const server = require('./scripts/serverUtil.js');
+const s = require('./scripts/serverUtil.js');
+const c = require('./scripts/constants.js');
 const path = require('path');
 const express = require("express");
 const app = express();
@@ -9,13 +10,13 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, '../client/build'))); 
 
-app.get('/api/data/pages', (req, res) => server.sendPageData(res));
-app.get('/api/data/products', (req, res) => server.sendProductData(res));
-app.get('/api/data/articles', (req, res) => server.sendArticleData(res));
-app.get('/api/data/users', (req, res) => server.sendUserData(res));
-app.get('/api/data/styles', (req, res) => server.sendStyleData(res));
-app.get('/api/data/saved', (req, res) => server.sendSavedData(res));
-app.get('/api/data/nav', (req, res) => server.sendNavData(res));
+app.get('/api/data/pages', (req, res) => s.sendData(res,c.PAGES));
+app.get('/api/data/products', (req, res) => s.sendData(res,c.PRODUCTS));
+app.get('/api/data/articles', (req, res) => s.sendData(res,c.ARTICLES));
+app.get('/api/data/users', (req, res) => s.sendData(res,c.USERS));
+app.get('/api/data/styles', (req, res) => s.sendData(res,c.STYLES));
+app.get('/api/data/saved', (req, res) => s.sendData(res,c.SAVED));
+app.get('/api/data/nav', (req, res) => s.sendData(res,c.NAV));
 app.get('/api', (req, res) => res.json({ message: 'Hello from server!' })); 
 app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../client/public', 'index.html'))); 
 

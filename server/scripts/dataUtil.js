@@ -1,5 +1,6 @@
 const _ = require('lodash');
 const moment= require('moment');
+const c = require('./constants.js');
 
 const shallowCopy = obj => Object.assign({}, obj);
 
@@ -566,16 +567,21 @@ const createNavData = () => {
   return data;
 };
 
+const createData = type => {
+  if(type===c.PRODUCTS) return createProductData();
+  if(type===c.ARTICLES) return createArticleData();
+  if(type===c.STYLES) return createStyleData();
+  if(type===c.SAVED) return createSavedData(); 
+  if(type===c.USERS) return createUserData();
+  if(type===c.PAGES) return createPageData(); 
+  if(type===c.NAV) return createNavData();
+  return null; 
+};
+
 // start dataUtil class definition
 
 let dataUtil = class {
-    generatePageData = () => createPageData();
-    generateStyleData = () => createStyleData();
-    generateProductData = () => createProductData();
-    generateArticleData = () => createArticleData();
-    generateUserData = () => createUserData();
-    generateSavedData = () => createSavedData();
-    generateNavData = () => createNavData();
+  generateData = type => createData(type);
 }
 
 module.exports = new dataUtil();
