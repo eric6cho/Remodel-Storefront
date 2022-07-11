@@ -81,10 +81,10 @@ export default function NavBar(props) {
         <div className="nav-body-subsection">
           {themeMenu}
         </div>
-        <div className="nav-body-subsection large">
+        <div className="nav-body-subsection">
           {styleMenu}
         </div>
-        <div className="nav-body-subsection">
+        <div className="nav-body-subsection large">
           {stylePreview}
         </div>
       </div>;

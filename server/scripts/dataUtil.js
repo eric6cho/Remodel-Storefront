@@ -560,7 +560,7 @@ const createNavData = () => {
       'description':'This is a description for this card. Below is a set of sample icons and a sample button. Any text overflow of this text will allow for scrolling.',
       'image':'./images/shop/1.jpg',
       'buttonText':'Sample Button',
-      'iconTextList':['home','search','person','navigation'],
+      'iconTextList':['search','person','navigation'],
     }
   };
 

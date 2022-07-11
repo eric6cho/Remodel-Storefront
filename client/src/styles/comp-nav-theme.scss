@@ -4,9 +4,13 @@
 .component.nav-theme{
   @include transition(); 
   height: 60px;
+  padding:0;
   margin: 0;
-  padding: 5px 10px;
   overflow: hidden;
+
+  @include media-md{
+    padding: 5px 10px;
+  }
 
   .component-wrapper{
     @include transition(); 

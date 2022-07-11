@@ -4,8 +4,12 @@
 .component.nav-style{
   @include transition(); 
   margin: 0;
-  padding: 10px 20px 10px;
+  padding: 0;
   overflow: hidden;
+
+  @include media-lg{
+    padding: 10px 20px 10px;
+  }
 
   .component-wrapper{
     @include transition(); 
@@ -42,14 +46,19 @@
       
         .style-list{
           display: flex;
+          flex-direction: column;
 
           .style-wrapper{
             @include transition();
             padding:3px;
-            margin-right: 20px;
+            margin:5px 0;
             cursor: pointer;
             height: 50px;
             background: rgba(255,255,255,0.2);
+
+            @include media-lg{ 
+              margin: 5px;
+            }
 
             &.active{
               background: white;
@@ -122,6 +131,11 @@
           .style-list{
             .style-wrapper{
               background: rgba(0,0,0,0);
+              margin:10px 0;
+
+              @include media-md{
+                margin: 10px
+              }
               
               &:hover{
                 background: white;
