@@ -416,21 +416,7 @@ const createPageData = () => {
 };
 
 const getThemes = () => {
-    let darkThemeDefaultColors = {
-        '--base-1': 'rgba(35,35,40,1)', // darker grey   
-        '--base-2': 'rgba(55,55,60,1)', // grey
-        '--base-3': 'rgba(55,55,60,1)', // dark grey
-        '--accent-1': 'rgba(55,55,60,1)', // grey
-        '--text-1': 'rgba(255,255,255,1)', // white
-        '--text-2': 'rgba(255,255,255,1)', // white
-        '--text-3': 'rgba(0,0,0,1)', // black
-        '--light-1': 'rgba(255,255,255,0.2)', // white transparent
-        '--glass-1': 'rgba(30,30,30,0.8)',
-        '--border-1': '2px solid rgba(90,90,100,0.5)', // grey transparent
-        '--shadow-raised': ' 3px 3px 6px #88888888, -3px -3px 6px #fafafa88', // raised shadow
-        '--shadow-float': '1px 3px 6px 2px #00000022', // floating shadow
-    };
-
+  
     let lightThemeDefaultColors = {
         '--base-1': 'rgba(215,210,205,1)', // light beige 
         '--base-2': 'rgba(245,245,245,1)', // white
@@ -452,9 +438,6 @@ const getThemes = () => {
         'light-lavender': shallowCopy(lightThemeDefaultColors),
         'light-horizon': shallowCopy(lightThemeDefaultColors),
         'light-tangerine': shallowCopy(lightThemeDefaultColors),
-        'dark-botanical': shallowCopy(darkThemeDefaultColors),
-        'dark-cerulean': shallowCopy(darkThemeDefaultColors),
-        'dark-lavender': shallowCopy(darkThemeDefaultColors),
     };
 
     themes['light-frost']['--accent-1'] = 'rgba(180,190,200,1)';
@@ -498,24 +481,6 @@ const getThemes = () => {
     themes['light-horizon']['--accent-4'] = 'rgba(240,120,100,1)';
     themes['light-horizon']['--accent-5'] = 'rgba(75,70,80,1)';
     themes['light-horizon']['--accent-6'] = 'rgba(100,100,100,1)';
-
-    themes['dark-botanical']['--accent-2'] = 'rgba(75,115,110,1)';
-    themes['dark-botanical']['--accent-3'] = 'rgba(180,230,215,1)';
-    themes['dark-botanical']['--accent-4'] = 'rgba(95,165,145,1)';
-    themes['dark-botanical']['--accent-5'] = 'rgba(40,70,60,1)';
-    themes['dark-botanical']['--accent-6'] = 'rgba(100,100,100,1)';
-    
-    themes['dark-cerulean']['--accent-2'] = 'rgba(105,135,170,1)';
-    themes['dark-cerulean']['--accent-3'] = 'rgba(190,225,255,1)';
-    themes['dark-cerulean']['--accent-4'] = 'rgba(55,70,115,1)';
-    themes['dark-cerulean']['--accent-5'] = 'rgba(40,45,65,1)';
-    themes['dark-cerulean']['--accent-6'] = 'rgba(100,100,100,1)';
-
-    themes['dark-lavender']['--accent-2'] = 'rgba(125,100,150,1)';
-    themes['dark-lavender']['--accent-3'] = 'rgba(245,210,180,1)';
-    themes['dark-lavender']['--accent-4'] = 'rgba(215,185,195,1)';
-    themes['dark-lavender']['--accent-5'] = 'rgba(90,70,80,1)';
-    themes['dark-lavender']['--accent-6'] = 'rgba(100,100,100,1)';
 
     return themes;
 };
