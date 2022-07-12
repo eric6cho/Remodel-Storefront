@@ -22,7 +22,7 @@ export default function NavBar(props) {
   const getNavIcon = (pageData,page,activePage,handlePageSelect,key) => {
     let isNav = pageData[page]['isNav'];
     let iconTitle = pageData[page]['icon'];
-    let iconClass = activePage['title']===pageData[page]['title']?'active':'';
+    let iconClass = (activePage['title']===pageData[page]['title']?'active':'')+' desktop-icon';
     let iconClickEvent = ()=>handlePageSelect(page);
     return isNav ? <span key={key}><Icon title={iconTitle} cssClass={iconClass} click={iconClickEvent}/></span> : null;
   };
@@ -70,7 +70,8 @@ export default function NavBar(props) {
       'active':activeStyles,
     }
 
-    let settingsIcon = <Icon title={'settings'} click={()=>toggleExpand(true)}/>;
+    let settingsIcon = <Icon title={'settings'} cssClass={'settings-icon'} click={()=>toggleExpand()}/>;
+    let menuIcon = <Icon title={'menu'} cssClass={'mobile-icon'} click={()=>toggleExpand()}/>;
     let navIcons = Object.keys(pageData).map((page,i) => getNavIcon(pageData,page,activePage,handlePageSelect,i));
     let themeMenu = <NavList events={events} data={themesData}/>;
     let styleMenu = <NavList events={events} data={stylesData}/>;
@@ -78,6 +79,10 @@ export default function NavBar(props) {
 
     let bodySection = 
       <div className="nav-body-section" id={componentBodyId}>
+        <div className="menu-section">
+
+          {navIcons}
+        </div>
         <div className="nav-body-subsection">
           {themeMenu}
         </div>
@@ -91,11 +96,18 @@ export default function NavBar(props) {
 
     let headerSection = 
       <div className="nav-header-section">
-        <h1>
-          {title}
-        </h1> 
-        {navIcons}
-        {settingsIcon}
+        <div className="title-section">
+          <h1>
+            {title}
+          </h1>
+          {menuIcon}
+        </div>
+        
+        <div className="menu-section">
+
+          {navIcons}
+          {settingsIcon}
+        </div>
       </div>;
 
     let componentContent = 
