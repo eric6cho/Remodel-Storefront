@@ -1,7 +1,7 @@
-# Re-Model Storefront
+# Remodel Storefront
   
 Deployed project:   
-https://re-model-storefront.herokuapp.com/
+https://remodel-storefront.herokuapp.com/
   
 Project Description:  
 A project using React and Node.js that aims to create a storefront template with many 
