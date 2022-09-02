@@ -1,7 +1,7 @@
-# Re-Model Storefront
+# Remodel Storefront
   
 Deployed project:   
-https://re-model-storefront.herokuapp.com/
+https://remodel-storefront.herokuapp.com/
   
 Project Description:  
 A project using React and Node.js that aims to create a storefront template with many 
@@ -18,8 +18,4 @@ To start the node.js server on port 3001:
 To start the react development server on port 3000:  
 - cd client
 - npm start
-  
-Upcoming features:  
-- Add complete style variations for edges, elevation, accents, wrappers, and focus-sizes.
-- Add response mobile design for the navigation bar.
-- Add more dark themes.
+ 
