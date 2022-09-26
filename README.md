@@ -9,8 +9,8 @@ This project features:
 
 ## Deployed Application
 
-This application is deployed and hosted on Heroku and can be viewed at 
-[remodel-storefront.herokuapp.com](https://remodel-storefront.herokuapp.com/).
+This application is deployed and hosted on Heroku and can be viewed 
+[here](https://remodel-storefront.herokuapp.com/).
 
 ## Available Scripts
 
@@ -28,7 +28,7 @@ This will start the Node.js server on port 3001.
 
 `npm start`
 
-This will start the React client app on port 3000 on [localhost:3000](http://localhost:3000).
+This will start the React client app on port 3000.
 
 ## Deploying The Project
 
