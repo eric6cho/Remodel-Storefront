@@ -25,6 +25,7 @@ This will start the Node.js server on port 3001.
 ### Run the React client app
 
 `cd client`
+
 `npm start`
 
 This will start the React client app on port 3000 on [localhost:3000](http://localhost:3000).
