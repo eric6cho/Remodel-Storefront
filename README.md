@@ -9,7 +9,7 @@ This project features:
 
 ## Deployed Application
 
-This application is deployed and hosted on Heroku, and can be viewed at 
+This application is deployed and hosted on Heroku and can be viewed at 
 [remodel-storefront.herokuapp.com](https://remodel-storefront.herokuapp.com/).
 
 ## Available Scripts
