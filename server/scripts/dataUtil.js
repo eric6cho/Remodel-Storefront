@@ -135,7 +135,7 @@ const createSavedData = () => {
 const getBannerData = (title='Title',num=3) => {
   let slides = [...Array(num).keys()].map(i => ({
     'title':'Slide '+(i+1),
-    'description':getText(250),
+    'description':getText(350),
     'image':'./images/home/'+i+'.jpg',
   }));
   
@@ -150,8 +150,8 @@ const getBannerData = (title='Title',num=3) => {
 const getProductPageData = (num=24) => {
   let productGrid = {
     'title':'Products',
-    'subtitle':'subtitle',
-    'description':'List of products',
+    'subtitle':'',
+    'description':'List of our products',
     'content':[...Array(num).keys()].map(i => 'productId_'+i),
     'contentType':'product',
     'listType':'content-grid',
@@ -161,7 +161,7 @@ const getProductPageData = (num=24) => {
     'isNarrow':true,
   };
 
-  let banner = getBannerData('Products Page Title',1);
+  let banner = getBannerData('Remodel Products',1);
 
   let data = {
     'banner': banner,
@@ -173,9 +173,9 @@ const getProductPageData = (num=24) => {
 
 const getArticlePageData = (num=12) => {
   let articleGrid = {
-    'title':'Article',
-    'subtitle':'subtitle',
-    'description':'List of articles',
+    'title':'Articles',
+    'subtitle':'',
+    'description':'Read some of our articles that are definitely written in real english words',
     'content':[...Array(num).keys()].map(i => 'articleId_'+i),
     'contentType':'article',
     'listType':'content-grid',
@@ -185,7 +185,7 @@ const getArticlePageData = (num=12) => {
     'isNarrow':true,
   };
 
-  let banner = getBannerData('Article Page Title',1);
+  let banner = getBannerData('Remodel Articles',1);
 
   let data = {
     'banner': banner,
@@ -197,8 +197,8 @@ const getArticlePageData = (num=12) => {
 
 const getHomePageData = () => {
   let articleCollection = {
-    'title':'Featured Articles',
-    'subtitle':'subtitle',
+    'title':'Articles Section',
+    'subtitle':'Our featured articles',
     'description':'This is a description under the featured articles section.',
     'content':[...Array(5).keys()].map(i => 'articleId_'+i),
     'contentType':'article',
@@ -210,8 +210,8 @@ const getHomePageData = () => {
   };
 
   let productCollection = {
-    'title':'Featured Products',
-    'subtitle':'subtitle',
+    'title':'Products',
+    'subtitle':'Our featured products',
     'description':'This is a description under the featured products section.',
     'content':[...Array(5).keys()].map(i => 'productId_'+i),
     'contentType':'product',
@@ -235,7 +235,7 @@ const getHomePageData = () => {
     'isNarrow':true,
   };
 
-  let banner = getBannerData('Home Page Title',3);
+  let banner = getBannerData('Remodel Storefront',3);
 
   let imageRow = {
     'title': 'Check Out Our Stuff',
@@ -262,7 +262,7 @@ const getHomePageData = () => {
 const getSavedContentPageData = () => {
   let productCollection = {
     'title':'Saved Products',
-    'subtitle':'subtitle',
+    'subtitle':'',
     'description':'This is a description under the saved products section.',
     'content':[],
     'contentType':'product',
@@ -275,7 +275,7 @@ const getSavedContentPageData = () => {
 
   let articleCollection = {
     'title':'Saved Articles',
-    'subtitle':'subtitle',
+    'subtitle':'',
     'description':'This is a description under the saved articles section.',
     'content':[],
     'contentType':'article',
@@ -300,8 +300,8 @@ const getSavedContentPageData = () => {
 const getCartPageData = () => {
   let cartCollection = {
     'title':'Items Ready To Be Purchased',
-    'subtitle':'subtitle',
-    'description':'This is a description under the cart section.',
+    'subtitle':'',
+    'description':'Your cart items are listed below',
     'content':[],
     'contentType':'product',
     'listType':'content-column',
